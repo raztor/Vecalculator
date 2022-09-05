@@ -16,5 +16,5 @@ jobs:
         GITLAB_HOSTNAME: "gitlab.com"
         GITLAB_USERNAME: "raztor"
         GITLAB_PASSWORD: ${{ secrets.GITLAB_PASSWORD }}
-        GITLAB_PROJECT_ID: "39148631" // https://gitlab.com/<namespace>/<repository>/edit
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} // https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+        GITLAB_PROJECT_ID: "39148631"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
