@@ -3,13 +3,9 @@
 // a calculator for vectors in c++
 
 #include <iostream>
-#include <cstdio>
-#include <cstdlib>
 #include <cstring>
-#include <vector>
 #include <algorithm>
 #include <cmath>
-#include <bits/stdc++.h>
 
 using namespace std;
 
