@@ -1,2 +1,2 @@
 # proyecto-tel102
-Pr
+Proyecto para seminario de programación
