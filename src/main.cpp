@@ -29,7 +29,8 @@ float cross();
 float angle();
 float unit();*/
 double exit();
-double norm(vector x); //andrea
+double norm(); //andrea
+//Prueba de commit
 
 
 int main(){
