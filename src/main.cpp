@@ -30,7 +30,7 @@ float angle();
 float unit();*/
 double exit();
 double norm(); //andrea
-//Prueba de commit
+
 
 
 int main(){
