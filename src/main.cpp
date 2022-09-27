@@ -153,11 +153,9 @@ int main(){
             cout << "Resta" << endl;
             vector_result = rest(vector1, vector2);
             if (dimension == 1){
-                //cout << "El resultado es: " << vector_result.eje_x << "i " << vector_result.eje_y << "j" << endl;
                 cout << "El resultado es:" << "("<< vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
             }
             else if (dimension == 2){
-                //cout << "El resultado es: " << vector_result.eje_x << "i " << vector_result.eje_y << "j " << vector_result.eje_z << "k" << endl;
                 cout << "El resultado es:" << "("<< vector_result.eje_x << "," << vector_result.eje_y << "," << vector_result.eje_z << ")" << endl;
             }
             break;
