@@ -9,6 +9,8 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 /// SE DEBE CAMBIAR EL TIPO DE DATO DE RETORNO //////
@@ -43,18 +45,19 @@ angle();
 float unit();*/
 double exit();
 double norm(vec a){
-    double mag_a2, mag_a3;
-    mag_2d = sqrt(pow(eje_x.a, 2), pow(eje_y.a, 2));
+    double mag_2d, mag_3d;
 
-    mag_3d = sqrt(pow(eje_x.a, 2), pow(eje_y.a, 2), pow(eje_z.a,2));
+    mag_2d = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2)));
+    mag_3d = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2) + pow(a.eje_z,2)));
 
     return mag_2d, mag_3d;
 }
 
 
-int main(){
+int main() {
     int operacion, dimension;
     vec vector1, vector2, vector_result;
+    double result_norm;
     /// (verbose significa en palabras) ////
     char op_verbose[10], dim_verbose[5];
 
@@ -65,13 +68,11 @@ int main(){
     cout << "1. 2D" << endl;
     cout << "2. 3D" << endl;
     cin >> dimension;
-    if (dimension == 1){
+    if (dimension == 1) {
         strcpy(dim_verbose, "2D");
-    }
-    else if (dimension == 2){
+    } else if (dimension == 2) {
         strcpy(dim_verbose, "3D");
-    }
-    else{
+    } else {
         cout << "Dimension invalida" << endl;
         return 0;
     }
@@ -90,64 +91,55 @@ int main(){
     cout << "8. Angulo" << endl;
     cout << "9. Salir" << endl;
     cin >> operacion;
-    if (operacion == 1){
+    if (operacion == 1) {
         strcpy(op_verbose, "Suma");
-    }
-    else if (operacion == 2){
+    } else if (operacion == 2) {
         strcpy(op_verbose, "Resta");
-    }
-    else if (operacion == 3){
+    } else if (operacion == 3) {
         strcpy(op_verbose, "Multiplicacion");
-    }
-    else if (operacion == 4){
+    } else if (operacion == 4) {
         strcpy(op_verbose, "Division");
-    }
-    else if (operacion == 5){
+    } else if (operacion == 5) {
         strcpy(op_verbose, "Producto punto");
-    }
-    else if (operacion == 6){
+    } else if (operacion == 6) {
         strcpy(op_verbose, "Producto cruz");
-    }
-    else if (operacion == 7){
+    } else if (operacion == 7) {
         strcpy(op_verbose, "Modulo");
-    }
-    else if (operacion == 8){
+    } else if (operacion == 8) {
         strcpy(op_verbose, "Angulo");
-    }
-    else if (operacion == 9){
+    } else if (operacion == 9) {
         cout << "Saliendo..." << endl;
         return 0;
-    }
-    else{
+    } else {
         cout << "Operacion invalida" << endl;
         return 0;
     }
-    if(operacion != 7){
+    if (operacion != 7) {
         cout << "Operacion seleccionada: " << op_verbose << endl;
-        if(dimension == 1) {
+        if (dimension == 1) {
             cout << "Ingrese el vector 1 en formato x y" << endl;
             cin >> vector1.eje_x >> vector1.eje_y;
             vector1.eje_z = NULL;
-        }else if(dimension == 2){
+        } else if (dimension == 2) {
             cout << "Ingrese el vector 1 en formato x y z" << endl;
             cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
         }
 
-        if(dimension == 1) {
+        if (dimension == 1) {
             cout << "Ingrese el vector 2 en formato x y" << endl;
             cin >> vector2.eje_x >> vector2.eje_y;
             vector2.eje_z = NULL;
-        }else if(dimension == 2){
+        } else if (dimension == 2) {
             cout << "Ingrese el vector 2 en formato x y z" << endl;
             cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
         }
-    }else if (operacion == 7){
+    } else if (operacion == 7) {
         cout << "Operacion seleccionada: " << op_verbose << endl;
-        if(dimension == 1) {
+        if (dimension == 1) {
             cout << "Ingrese el vector en formato x y" << endl;
             cin >> vector1.eje_x >> vector1.eje_y;
             vector1.eje_z = NULL;
-        }else if(dimension == 2){
+        } else if (dimension == 2) {
             cout << "Ingrese el vector en formato x y z" << endl;
             cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
         }
@@ -163,11 +155,11 @@ int main(){
         case 2:
             cout << "Resta" << endl;
             vector_result = rest(vector1, vector2);
-            if (dimension == 1){
-                cout << "El resultado es:" << "("<< vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
-            }
-            else if (dimension == 2){
-                cout << "El resultado es:" << "("<< vector_result.eje_x << "," << vector_result.eje_y << "," << vector_result.eje_z << ")" << endl;
+            if (dimension == 1) {
+                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
+            } else if (dimension == 2) {
+                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ","
+                     << vector_result.eje_z << ")" << endl;
             }
             break;
         case 3:
@@ -183,26 +175,25 @@ int main(){
             cout << "Producto cruz" << endl;
             break;
         case 7:
-            cout << "Norma" << endl;
-            vector_result = norm(vector1);
-            if (dimension == 1){
-                cout << "El resultado es:" << vector_result << endl;
+            cout << "Modulo" << endl;
+            result_norm = norm(vector1);
+            if (dimension == 1) {
+                cout << "El resultado es:" << result_norm << endl;
+            } else if (dimension == 2) {
+                cout << "El resultado es:" << result_norm << endl;
+                break;
+                case 8:
+                    cout << "Angulo" << endl;
+                break;
+                case 9:
+                    cout << "Salir" << endl;
+                break;
+                default:
+                    cout << "Operacion no valida" << endl;
+                break;
             }
-            else if (dimension == 2){
-                cout << "El resultado es:" << vector_result << endl;
-            break;
-        case 8:
-            cout << "Angulo" << endl;
-            break;
-        case 9:
-            cout << "Salir" << endl;
-            break;
-        default:
-            cout << "Operacion no valida" << endl;
-            break;
+
+
+            return 0;
     }
-
-
-    return 0;
 }
-
