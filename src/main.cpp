@@ -23,20 +23,20 @@ float cross();
 float norm();
 float angle();
 float unit();
-float help();
 float exit();
 
 
 int main(){
     int operacion, dimension;
+    float vec_1[3], vec_2[3], temp_vec_1, temp_vec_2;
     /// (verbose significa en palabras) ////
     char op_verbose[10], dim_verbose[5];
 
     ///////////////////////// Seleccion de dimension /////////////////////////
-    std::cout << "El vector es 2D o 3D?" << std::endl;
-    std::cout << "1. 2D" << std::endl;
-    std::cout << "2. 3D" << std::endl;
-    std::cin >> dimension;
+    cout << "El vector es 2D o 3D?" << endl;
+    cout << "1. 2D" << endl;
+    cout << "2. 3D" << endl;
+    cin >> dimension;
     if (dimension == 1){
         strcpy(dim_verbose, "2D");
     }
@@ -44,24 +44,24 @@ int main(){
         strcpy(dim_verbose, "3D");
     }
     else{
-        std::cout << "Dimension invalida" << std::endl;
+        cout << "Dimension invalida" << endl;
         return 0;
     }
-    std::cout << "Dimension seleccionada: " << dim_verbose << std::endl;
+    cout << "Dimension seleccionada: " << dim_verbose << endl;
 
 /////////////////////////////// Seleccion de operacion ///////////////////////////////
 
-    std::cout << "Que operacion desea realizar?" << std::endl;
-    std::cout << "1. Suma" << std::endl;
-    std::cout << "2. Resta" << std::endl;
-    std::cout << "3. Multiplicacion" << std::endl;
-    std::cout << "4. Division" << std::endl;
-    std::cout << "5. Producto punto" << std::endl;
-    std::cout << "6. Producto cruz" << std::endl;
-    std::cout << "7. Norma" << std::endl;
-    std::cout << "8. Angulo" << std::endl;
-    std::cout << "9. Salir" << std::endl;
-    std::cin >> operacion;
+    cout << "Que operacion desea realizar?" << endl;
+    cout << "1. Suma" << endl;
+    cout << "2. Resta" << endl;
+    cout << "3. Multiplicacion" << endl;
+    cout << "4. Division" << endl;
+    cout << "5. Producto punto" << endl;
+    cout << "6. Producto cruz" << endl;
+    cout << "7. Norma" << endl;
+    cout << "8. Angulo" << endl;
+    cout << "9. Salir" << endl;
+    cin >> operacion;
     if (operacion == 1){
         strcpy(op_verbose, "Suma");
     }
@@ -87,48 +87,54 @@ int main(){
         strcpy(op_verbose, "Angulo");
     }
     else if (operacion == 9){
-        std::cout << "Saliendo..." << std::endl;
+        cout << "Saliendo..." << endl;
         return 0;
     }
     else{
-        std::cout << "Operacion invalida" << std::endl;
+        cout << "Operacion invalida" << endl;
         return 0;
     }
 
-    std::cout << "Operacion seleccionada: " << op_verbose << std::endl;
+    cout << "Operacion seleccionada: " << op_verbose << endl;
+    if(dimension == 1) {
+        cout << "Ingrese el vector 1 en formato x, y" << endl;
+        cin >> temp_vec_1;
+    }else if(dimension == 2){
+        cout << "Ingrese el vector 1 en formato x, y, z" << endl;
+    }
 
     //////////////////////////// Iniciador de funciones ///////////////////////////////
 
     switch (operacion) {
         case 1:
-            std::cout << "Suma" << std::endl;
+            cout << "Suma" << endl;
             break;
         case 2:
-            std::cout << "Resta" << std::endl;
+            cout << "Resta" << endl;
             break;
         case 3:
-            std::cout << "Multiplicacion" << std::endl;
+            cout << "Multiplicacion" << endl;
             break;
         case 4:
-            std::cout << "Division" << std::endl;
+            cout << "Division" << endl;
             break;
         case 5:
-            std::cout << "Producto punto" << std::endl;
+            cout << "Producto punto" << endl;
             break;
         case 6:
-            std::cout << "Producto cruz" << std::endl;
+            cout << "Producto cruz" << endl;
             break;
         case 7:
-            std::cout << "Norma" << std::endl;
+            cout << "Norma" << endl;
             break;
         case 8:
-            std::cout << "Angulo" << std::endl;
+            cout << "Angulo" << endl;
             break;
         case 9:
-            std::cout << "Salir" << std::endl;
+            cout << "Salir" << endl;
             break;
         default:
-            std::cout << "Operacion no valida" << std::endl;
+            cout << "Operacion no valida" << endl;
             break;
     }
 
