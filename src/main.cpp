@@ -20,7 +20,7 @@ struct vector{
     double eje_z;
 };
 
-double sum(); //joaco
+double sum(vector x); //joaco
 double rest(); //benja
 /*float mult();
 float div();
