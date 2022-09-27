@@ -86,7 +86,7 @@ int main(){
     cout << "4. Division" << endl;
     cout << "5. Producto punto" << endl;
     cout << "6. Producto cruz" << endl;
-    cout << "7. Norma" << endl;
+    cout << "7. Modulo" << endl;
     cout << "8. Angulo" << endl;
     cout << "9. Salir" << endl;
     cin >> operacion;
@@ -109,7 +109,7 @@ int main(){
         strcpy(op_verbose, "Producto cruz");
     }
     else if (operacion == 7){
-        strcpy(op_verbose, "Norma");
+        strcpy(op_verbose, "Modulo");
     }
     else if (operacion == 8){
         strcpy(op_verbose, "Angulo");
@@ -122,24 +122,35 @@ int main(){
         cout << "Operacion invalida" << endl;
         return 0;
     }
+    if(operacion != 7){
+        cout << "Operacion seleccionada: " << op_verbose << endl;
+        if(dimension == 1) {
+            cout << "Ingrese el vector 1 en formato x y" << endl;
+            cin >> vector1.eje_x >> vector1.eje_y;
+            vector1.eje_z = NULL;
+        }else if(dimension == 2){
+            cout << "Ingrese el vector 1 en formato x y z" << endl;
+            cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
+        }
 
-    cout << "Operacion seleccionada: " << op_verbose << endl;
-    if(dimension == 1) {
-        cout << "Ingrese el vector 1 en formato x y" << endl;
-        cin >> vector1.eje_x >> vector1.eje_y;
-        vector1.eje_z = NULL;
-    }else if(dimension == 2){
-        cout << "Ingrese el vector 1 en formato x y z" << endl;
-        cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
-    }
-
-    if(dimension == 1) {
-        cout << "Ingrese el vector 2 en formato x y" << endl;
-        cin >> vector2.eje_x >> vector2.eje_y;
-        vector2.eje_z = NULL;
-    }else if(dimension == 2){
-        cout << "Ingrese el vector 2 en formato x y z" << endl;
-        cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
+        if(dimension == 1) {
+            cout << "Ingrese el vector 2 en formato x y" << endl;
+            cin >> vector2.eje_x >> vector2.eje_y;
+            vector2.eje_z = NULL;
+        }else if(dimension == 2){
+            cout << "Ingrese el vector 2 en formato x y z" << endl;
+            cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
+        }
+    }else if (operacion == 7){
+        cout << "Operacion seleccionada: " << op_verbose << endl;
+        if(dimension == 1) {
+            cout << "Ingrese el vector en formato x y" << endl;
+            cin >> vector1.eje_x >> vector1.eje_y;
+            vector1.eje_z = NULL;
+        }else if(dimension == 2){
+            cout << "Ingrese el vector en formato x y z" << endl;
+            cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
+        }
     }
 
     //////////////////////////// Iniciador de funciones ///////////////////////////////
