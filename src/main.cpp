@@ -9,6 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+using namespace std;
 
 /// SE DEBE CAMBIAR EL TIPO DE DATO DE RETORNO //////
 /// FALTA CREAR LAS FUNCIONES ///////////////////////
