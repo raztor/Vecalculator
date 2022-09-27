@@ -32,18 +32,15 @@ vec rest(vec a,vec b){
     return c;
 }
 
-
+vec norm(vec a, vec b){
+    //acá va el codigo de la Andrea
+}
 /*float mult();
 float div();
 float dot();
 float cross();
-float angle();
+angle();
 float unit();*/
-double exit();
-double norm(){
-    
-}
-
 
 int main(){
     int operacion, dimension;
