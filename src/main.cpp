@@ -29,17 +29,29 @@ vec rest(vec a,vec b){
     c.eje_z=a.eje_z-b.eje_z;
     return c;
 }
-
-vec norm(vec a, vec b){
-    //acá va el codigo de la Andrea
+//////////// Revisar el codigo de la multiplicacion y division /////////////////////
+vec mult(vec a, vec b){
+    vec c;
+    c.eje_x=a.eje_x*b.eje_x;
+    c.eje_y=a.eje_y*b.eje_y;
+    c.eje_z=a.eje_z*b.eje_z;
+    return c;
 }
-/*float mult();
-float div();
-float dot();
-float cross();
-angle();
-float unit();*/
-double exit();
+vec div(vec a, vec b){
+    vec c;
+    c.eje_x=a.eje_x/b.eje_x;
+    c.eje_y=a.eje_y/b.eje_y;
+    c.eje_z=a.eje_z/b.eje_z;
+    return c;
+}
+
+///////////////////////////////////////////
+
+//float dot();
+//float cross();
+//angle();
+//float unit();
+
 double norm(vec a){
     double mag_2d, mag_3d;
 
