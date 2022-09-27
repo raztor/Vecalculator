@@ -41,6 +41,16 @@ float dot();
 float cross();
 angle();
 float unit();*/
+double exit();
+double norm(vec a){
+    vec mag_2d, mag_3d;
+    mag_2d = sqrt(pow(eje_x.a, 2), pow(eje_y.a, 2));
+
+    mag_3d = sqrt(pow(eje_x.a, 2), pow(eje_y.a, 2), pow(eje_z.a,2));
+
+    return mag_2d, mag_3d;
+}
+
 
 int main(){
     int operacion, dimension;
@@ -165,6 +175,13 @@ int main(){
             break;
         case 7:
             cout << "Norma" << endl;
+             vector_result = norm(vector1);
+            if (dimension == 1){
+                //cout << "El resultado es: " << vector_result.eje_x << "i " << vector_result.eje_y << "j" << endl;
+                cout << "El resultado es:" << "("<< vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
+            }
+            else if (dimension == 2){
+                cout << "El resultado es:" << "("<< vector_result.eje_x << "," << vector_result.eje_y << "," << vector_result.eje_z << ")" << endl;
             break;
         case 8:
             cout << "Angulo" << endl;
