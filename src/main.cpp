@@ -32,6 +32,8 @@ int main(){
     /// (verbose significa en palabras) ////
     char op_verbose[10], dim_verbose[5];
 
+    //hola
+
     ///////////////////////// Seleccion de dimension /////////////////////////
     cout << "El vector es 2D o 3D?" << endl;
     cout << "1. 2D" << endl;
