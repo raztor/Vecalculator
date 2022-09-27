@@ -14,14 +14,25 @@ using namespace std;
 /// SE DEBE CAMBIAR EL TIPO DE DATO DE RETORNO //////
 /// FALTA CREAR LAS FUNCIONES ///////////////////////
 
-struct vector{
+typedef struct vec{
     double eje_x;
     double eje_y;
     double eje_z;
 };
 
-double sum(vector x); //joaco
-double rest(); //benja
+vec suma(vec a, vec b){
+    //acá va el codigo del joaco
+}
+
+vec rest(vec a,vec b){
+    vec c;
+    c.eje_x=a.eje_x-b.eje_x;
+    c.eje_y=a.eje_y-b.eje_y;
+    c.eje_z=a.eje_z-b.eje_z;
+    return c;
+}
+
+
 /*float mult();
 float div();
 float dot();
@@ -29,15 +40,14 @@ float cross();
 float angle();
 float unit();*/
 double exit();
-double norm(vector x, vector y){
+double norm(){
     
-}; //andrea
-//Prueba de commit
+}
 
 
 int main(){
     int operacion, dimension;
-    float vec_1[3], vec_2[3], temp_vec_1, temp_vec_2;
+    vec vector1, vector2, vector_result;
     /// (verbose significa en palabras) ////
     char op_verbose[10], dim_verbose[5];
 
@@ -108,10 +118,21 @@ int main(){
 
     cout << "Operacion seleccionada: " << op_verbose << endl;
     if(dimension == 1) {
-        cout << "Ingrese el vector 1 en formato x, y" << endl;
-        cin >> temp_vec_1;
+        cout << "Ingrese el vector 1 en formato x y" << endl;
+        cin >> vector1.eje_x >> vector1.eje_y;
+        vector1.eje_z = NULL;
     }else if(dimension == 2){
-        cout << "Ingrese el vector 1 en formato x, y, z" << endl;
+        cout << "Ingrese el vector 1 en formato x y z" << endl;
+        cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
+    }
+
+    if(dimension == 1) {
+        cout << "Ingrese el vector 2 en formato x y" << endl;
+        cin >> vector2.eje_x >> vector2.eje_y;
+        vector2.eje_z = NULL;
+    }else if(dimension == 2){
+        cout << "Ingrese el vector 2 en formato x y z" << endl;
+        cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
     }
 
     //////////////////////////// Iniciador de funciones ///////////////////////////////
@@ -119,9 +140,19 @@ int main(){
     switch (operacion) {
         case 1:
             cout << "Suma" << endl;
+
             break;
         case 2:
             cout << "Resta" << endl;
+            vector_result = rest(vector1, vector2);
+            if (dimension == 1){
+                //cout << "El resultado es: " << vector_result.eje_x << "i " << vector_result.eje_y << "j" << endl;
+                cout << "El resultado es:" << "("<< vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
+            }
+            else if (dimension == 2){
+                //cout << "El resultado es: " << vector_result.eje_x << "i " << vector_result.eje_y << "j " << vector_result.eje_z << "k" << endl;
+                cout << "El resultado es:" << "("<< vector_result.eje_x << "," << vector_result.eje_y << "," << vector_result.eje_z << ")" << endl;
+            }
             break;
         case 3:
             cout << "Multiplicacion" << endl;
@@ -148,7 +179,6 @@ int main(){
             cout << "Operacion no valida" << endl;
             break;
     }
-
 
 
     return 0;
