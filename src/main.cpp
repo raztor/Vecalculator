@@ -14,16 +14,22 @@ using namespace std;
 /// SE DEBE CAMBIAR EL TIPO DE DATO DE RETORNO //////
 /// FALTA CREAR LAS FUNCIONES ///////////////////////
 
-float sum();
-float rest();
-float mult();
+struct vector{
+    double eje_x;
+    double eje_y;
+    double eje_z;
+};
+
+double sum(); //joaco
+double rest(); //benja
+/*float mult();
 float div();
 float dot();
 float cross();
-float norm();
 float angle();
-float unit();
-float exit();
+float unit();*/
+double exit();
+double norm(); //andrea
 
 
 int main(){
