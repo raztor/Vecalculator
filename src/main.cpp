@@ -29,29 +29,22 @@ vec rest(vec a,vec b){
     c.eje_z=a.eje_z-b.eje_z;
     return c;
 }
-//////////// Revisar el codigo de la multiplicacion y division /////////////////////
 
-vec mult(vec a, vec b){
+vec p_punto(vec a, vec b){
     vec c;
     c.eje_x=a.eje_x*b.eje_x;
     c.eje_y=a.eje_y*b.eje_y;
     c.eje_z=a.eje_z*b.eje_z;
     return c;
 }
-vec div(vec a, vec b){
+
+vec p_escalar(vec a, double b){
     vec c;
-    c.eje_x=a.eje_x/b.eje_x;
-    c.eje_y=a.eje_y/b.eje_y;
-    c.eje_z=a.eje_z/b.eje_z;
+    c.eje_x=a.eje_x*b;
+    c.eje_y=a.eje_y*b;
+    c.eje_z=a.eje_z*b;
     return c;
 }
-
-///////////////////////////////////////////
-
-//float dot();
-//float cross();
-float angle(); //tangente-1 (Cateto op/cateto ad)
-//float unit();
 
 double norm(vec a, int dim=1){
     double mag=0;
@@ -63,9 +56,6 @@ double norm(vec a, int dim=1){
     }
     return mag;
 }
-
-
-
 
 vec catetos(vec a, int dim=1){
     //solo 2 dimensiones por ahora
@@ -81,14 +71,14 @@ vec catetos(vec a, int dim=1){
     return a;
 }
 
-/////////////Revisar correccion de angulo////////////////////
-
 float angle(vec a){
     vec result_cateto = catetos(a, 1);
     float angulo = atan(result_cateto.eje_y/result_cateto.eje_x);
     return angulo;
     
 }; //tangente-1 (Cateto op/cateto ad)
+
+
 
 
 int main() {
@@ -120,22 +110,21 @@ int main() {
     cout << "Que operacion desea realizar?" << endl;
     cout << "1. Suma" << endl;
     cout << "2. Resta" << endl;
-    cout << "3. Multiplicacion" << endl;
-    cout << "4. Division" << endl;
+    cout << "3. Vector Unitario" << endl;
+    cout << "4. Angulo" << endl;
     cout << "5. Producto punto" << endl;
     cout << "6. Producto cruz" << endl;
     cout << "7. Modulo" << endl;
-    cout << "8. Angulo" << endl;
-    cout << "9. Salir" << endl;
+    cout << "8. Salir" << endl;
     cin >> operacion;
     if (operacion == 1) {
         strcpy(op_verbose, "Suma");
     } else if (operacion == 2) {
         strcpy(op_verbose, "Resta");
     } else if (operacion == 3) {
-        strcpy(op_verbose, "Multiplicacion");
+        strcpy(op_verbose, "Vector Unitario");
     } else if (operacion == 4) {
-        strcpy(op_verbose, "Division");
+        strcpy(op_verbose, "Angulo");
     } else if (operacion == 5) {
         strcpy(op_verbose, "Producto punto");
     } else if (operacion == 6) {
@@ -206,28 +195,23 @@ int main() {
             }
             break;
         case 3:
-            cout << "Multiplicacion" << endl;
-            vector_result = mult(vector1, vector2);
-            if (dimension == 1) {
-                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
-            } else if (dimension == 2) {
-                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ","
-                     << vector_result.eje_z << ")" << endl;
-            }
+            cout << "Vector Unitario" << endl;
+            ///
             break;
         case 4:
-            cout << "Division" << endl;
-            vector_result = div(vector1, vector2);
-            if (dimension == 1) {
-                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
-            } else if (dimension == 2) {
-                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ","
-                     << vector_result.eje_z << ")" << endl;
-            }
+            cout << "Angulo" << endl;
+            //////
+
             break;
         case 5:
             cout << "Producto punto" << endl;
-            ///////
+            vector_result=p_punto(vector1, vector2);
+            if(dimension == 1){
+                cout << "El resultado es: " << vector_result.eje_x << " " << vector_result.eje_y << endl;
+            } else if(dimension == 2){
+                cout << "El resultado es: " << vector_result.eje_x << " " << vector_result.eje_y << " "
+                     << vector_result.eje_z << endl;
+            }
             break;
         case 6:
             cout << "Producto cruz" << endl;
@@ -243,15 +227,11 @@ int main() {
             }
                 break;
         case 8:
-            cout << "Angulo" << endl;
-            break;
-        case 9:
             cout << "Salir" << endl;
             break;
         default:
             cout << "Operacion no valida" << endl;
             break;
-
     }
     return 0;
 }
