@@ -145,7 +145,7 @@ int main() {
         cout << "Operacion invalida" << endl;
         return 0;
     }
-    if (operacion != 7) {
+    if (operacion != 7 || operacion != 8) {
         cout << "Operacion seleccionada: " << op_verbose << endl;
         if (dimension == 1) {
             cout << "Ingrese el vector 1 en formato x y" << endl;
@@ -164,7 +164,7 @@ int main() {
             cout << "Ingrese el vector 2 en formato x y z" << endl;
             cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
         }
-    } else if (operacion == 7) {
+    } else if (operacion == 7 ||  operacion == 9) {
         cout << "Operacion seleccionada: " << op_verbose << endl;
         if (dimension == 1) {
             cout << "Ingrese el vector en formato x y" << endl;
