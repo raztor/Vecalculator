@@ -50,7 +50,7 @@ vec div(vec a, vec b){
 
 //float dot();
 //float cross();
-//angle();
+float angle(); //tangente-1 (Cateto op/cateto ad)
 //float unit();
 
 double norm(vec a, int dim){
@@ -63,6 +63,26 @@ double norm(vec a, int dim){
     }
     return mag;
 }
+
+double catetos(){
+
+}
+
+vec catetos(vec a, int dim){
+    //solo 2 dimensiones por ahora
+    eje_x.a = norm(a) * cos(a);
+    eje_y.a = norm(a) * sin(a);
+
+    return a; 
+}
+
+float angle(vec a){
+
+    float angulo = atan(catetos(eje_y.a)/catetos(eje_x.a));
+
+    return angulo;
+    
+}; //tangente-1 (Cateto op/cateto ad)
 
 
 int main() {
@@ -214,17 +234,17 @@ int main() {
                 cout << "El resultado es:" << result_norm << endl;
             } else if (dimension == 2) {
                 cout << "El resultado es:" << result_norm << endl;
-                break;
-                case 8:
-                    cout << "Angulo" << endl;
-                break;
-                case 9:
-                    cout << "Salir" << endl;
-                break;
-                default:
-                    cout << "Operacion no valida" << endl;
-                break;
             }
+                break;
+        case 8:
+            cout << "Angulo" << endl;
+            break;
+        case 9:
+            cout << "Salir" << endl;
+            break;
+        default:
+            cout << "Operacion no valida" << endl;
+            break;
             return 0;
     }
 }
