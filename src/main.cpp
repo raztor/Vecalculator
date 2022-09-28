@@ -6,11 +6,7 @@
 #include <cstring>
 #include <algorithm>
 #include <cmath>
-
 using namespace std;
-
-/// SE DEBE CAMBIAR EL TIPO DE DATO DE RETORNO //////
-/// FALTA CREAR LAS FUNCIONES ///////////////////////
 
 typedef struct vec{
     double eje_x;
@@ -19,7 +15,11 @@ typedef struct vec{
 };
 
 vec suma(vec a, vec b){
-    //acá va el codigo del joaco
+    vec c;
+    c.eje_x = a.eje_x + b.eje_x;
+    c.eje_y = a.eje_y + b.eje_y;
+    c.eje_z = a.eje_z + b.eje_z;
+    return c;
 }
 
 vec rest(vec a,vec b){
@@ -30,6 +30,7 @@ vec rest(vec a,vec b){
     return c;
 }
 //////////// Revisar el codigo de la multiplicacion y division /////////////////////
+
 vec mult(vec a, vec b){
     vec c;
     c.eje_x=a.eje_x*b.eje_x;
@@ -52,13 +53,15 @@ vec div(vec a, vec b){
 //angle();
 //float unit();
 
-double norm(vec a){
-    double mag_2d, mag_3d;
-
-    mag_2d = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2)));
-    mag_3d = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2) + pow(a.eje_z,2)));
-
-    return mag_2d, mag_3d;
+double norm(vec a, int dim){
+    double mag=0;
+    if (dim == 1){
+        mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2)));
+    }
+    else if (dim == 2){
+        mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2) + pow(a.eje_z,2)));
+    }
+    return mag;
 }
 
 
@@ -67,7 +70,7 @@ int main() {
     vec vector1, vector2, vector_result;
     double result_norm;
     /// (verbose significa en palabras) ////
-    char op_verbose[10], dim_verbose[5];
+    char op_verbose[15], dim_verbose[3];
 
     //hola
 
@@ -127,7 +130,7 @@ int main() {
         if (dimension == 1) {
             cout << "Ingrese el vector 1 en formato x y" << endl;
             cin >> vector1.eje_x >> vector1.eje_y;
-            vector1.eje_z = NULL;
+            vector1.eje_z = 0;
         } else if (dimension == 2) {
             cout << "Ingrese el vector 1 en formato x y z" << endl;
             cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
@@ -136,7 +139,7 @@ int main() {
         if (dimension == 1) {
             cout << "Ingrese el vector 2 en formato x y" << endl;
             cin >> vector2.eje_x >> vector2.eje_y;
-            vector2.eje_z = NULL;
+            vector2.eje_z = 0;
         } else if (dimension == 2) {
             cout << "Ingrese el vector 2 en formato x y z" << endl;
             cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
@@ -146,7 +149,7 @@ int main() {
         if (dimension == 1) {
             cout << "Ingrese el vector en formato x y" << endl;
             cin >> vector1.eje_x >> vector1.eje_y;
-            vector1.eje_z = NULL;
+            vector1.eje_z = 0;
         } else if (dimension == 2) {
             cout << "Ingrese el vector en formato x y z" << endl;
             cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
@@ -158,7 +161,13 @@ int main() {
     switch (operacion) {
         case 1:
             cout << "Suma" << endl;
-
+            vector_result = suma(vector1, vector2);
+            if(dimension == 1){
+                cout << "El resultado es: " << vector_result.eje_x << " " << vector_result.eje_y << endl;
+            } else if(dimension == 2){
+                cout << "El resultado es: " << vector_result.eje_x << " " << vector_result.eje_y << " "
+                << vector_result.eje_z << endl;
+            }
             break;
         case 2:
             cout << "Resta" << endl;
@@ -172,19 +181,35 @@ int main() {
             break;
         case 3:
             cout << "Multiplicacion" << endl;
+            vector_result = mult(vector1, vector2);
+            if (dimension == 1) {
+                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
+            } else if (dimension == 2) {
+                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ","
+                     << vector_result.eje_z << ")" << endl;
+            }
             break;
         case 4:
             cout << "Division" << endl;
+            vector_result = div(vector1, vector2);
+            if (dimension == 1) {
+                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
+            } else if (dimension == 2) {
+                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ","
+                     << vector_result.eje_z << ")" << endl;
+            }
             break;
         case 5:
             cout << "Producto punto" << endl;
+            ///////
             break;
         case 6:
             cout << "Producto cruz" << endl;
+            ///////
             break;
         case 7:
             cout << "Modulo" << endl;
-            result_norm = norm(vector1);
+            result_norm = norm(vector1, dimension);
             if (dimension == 1) {
                 cout << "El resultado es:" << result_norm << endl;
             } else if (dimension == 2) {
@@ -200,8 +225,6 @@ int main() {
                     cout << "Operacion no valida" << endl;
                 break;
             }
-
-
             return 0;
     }
 }
