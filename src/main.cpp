@@ -53,7 +53,7 @@ vec div(vec a, vec b){
 float angle(); //tangente-1 (Cateto op/cateto ad)
 //float unit();
 
-double norm(vec a, int dim){
+double norm(vec a, int dim=1){
     double mag=0;
     if (dim == 1){
         mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2)));
@@ -64,22 +64,28 @@ double norm(vec a, int dim){
     return mag;
 }
 
-double catetos(){
 
-}
 
-vec catetos(vec a, int dim){
+
+vec catetos(vec a, int dim=1){
     //solo 2 dimensiones por ahora
-    eje_x.a = norm(a) * cos(a);
-    eje_y.a = norm(a) * sin(a);
-
-    return a; 
+    if(dim==1) {
+        a.eje_x = norm(a, 1) * cos(a.eje_x);
+        a.eje_y = norm(a, 1) * sin(a.eje_y);
+        ////////// revisar else if de abajo //////////////
+    }else if (dim==2){
+        a.eje_x = norm(a, 2) * cos(a.eje_x) * cos(a.eje_y);
+        a.eje_y = norm(a, 2) * cos(a.eje_x) * sin(a.eje_y);
+        a.eje_z = norm(a, 2) * sin(a.eje_z);
+    }
+    return a;
 }
+
+/////////////Revisar correccion de angulo////////////////////
 
 float angle(vec a){
-
-    float angulo = atan(catetos(eje_y.a)/catetos(eje_x.a));
-
+    vec result_cateto = catetos(a, 1);
+    float angulo = atan(result_cateto.eje_y/result_cateto.eje_x);
     return angulo;
     
 }; //tangente-1 (Cateto op/cateto ad)
