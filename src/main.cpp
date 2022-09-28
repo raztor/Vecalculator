@@ -245,6 +245,7 @@ int main() {
         default:
             cout << "Operacion no valida" << endl;
             break;
-            return 0;
+
     }
+    return 0;
 }
