@@ -277,19 +277,25 @@ int main() {
                 default:
                     cout << "Operacion no valida" << endl;
                     break;
-            cout << "Desea realizar otra operacion? (1 = si, 2 = no)" << endl;
+            }
+            cout << "Desea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no, 3 = Cambiar dimension)" << endl;
             int temp_continue;
             cin >> temp_continue;
             if (temp_continue == 1) {
-                continue;
+                ciclo_menu = true;
+
             } else if (temp_continue == 2) {
+                cout << "Gracias por usar el programa" << endl;
+                return 0;
+            } else if(temp_continue == 3){
+                ciclo_menu = false;
+                ciclo_main = true;
                 break;
             } else {
                 cout << "Opcion no valida" << endl;
                 break;
             }
         }
-    }
     }
     return 0;
 }
