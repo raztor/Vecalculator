@@ -13,9 +13,10 @@ typedef struct vec{
     float eje_y;
     float eje_z;
 };
+vec NULL_VEC = {0,0,0};
 
 vec suma(vec a, vec b){
-    vec c;
+    vec c=NULL_VEC;
     c.eje_x = a.eje_x + b.eje_x;
     c.eje_y = a.eje_y + b.eje_y;
     c.eje_z = a.eje_z + b.eje_z;
@@ -23,7 +24,7 @@ vec suma(vec a, vec b){
 }
 
 vec rest(vec a,vec b){
-    vec c;
+    vec c=NULL_VEC;
     c.eje_x=a.eje_x-b.eje_x;
     c.eje_y=a.eje_y-b.eje_y;
     c.eje_z=a.eje_z-b.eje_z;
@@ -41,7 +42,7 @@ float p_punto(vec a, vec b, int dim){
 }
 
 vec p_escalar(vec a, float escalar){
-    vec c;
+    vec c=NULL_VEC;
     c.eje_x=a.eje_x*escalar;
     c.eje_y=a.eje_y*escalar;
     c.eje_z=a.eje_z*escalar;
@@ -81,14 +82,12 @@ float angle(vec a){
 } //tangente-1 (Cateto op/cateto ad)
 
 
-
-
 int main() {
     int operacion, dimension;
-    vec vector1, vector2, result_vec;
+    vec vector1=NULL_VEC, vector2=NULL_VEC, result_vec=NULL_VEC;
     float result_float, escalar=0;
     /// (verbose significa en palabras) ////
-    char op_verbose[15], dim_verbose[3];
+    char op_verbose[20], dim_verbose[3];
 
     ///////////////////////// Seleccion de dimension /////////////////////////
     cout << "El vector es 2D o 3D?" << endl;
@@ -115,7 +114,7 @@ int main() {
     cout << "5. Producto punto" << endl;
     cout << "6. Producto cruz" << endl;
     cout << "7. Modulo" << endl;
-    cout << "8. Angulo" << endl;
+    cout << "8. PLACEHOLDER" << endl;
     cout << "9. Producto escalar" << endl;
     cout << "10. Salir..." << endl;
     cin >> operacion;
@@ -134,7 +133,7 @@ int main() {
     } else if (operacion == 7) {
         strcpy(op_verbose, "Modulo");
     } else if (operacion == 8) {
-        strcpy(op_verbose, "Angulo");
+        strcpy(op_verbose, "PLACEHOLDER");
     } else if (operacion == 9) {
         strcpy(op_verbose, "Producto Escalar");
     } else if (operacion == 10) {
@@ -199,7 +198,7 @@ int main() {
                 cout << "El resultado es: " << result_vec.eje_x << " " << result_vec.eje_y << endl;
             } else if(dimension == 2){
                 cout << "El resultado es: " << result_vec.eje_x << " " << result_vec.eje_y << " "
-                     << result_vec.eje_z << endl;
+                << result_vec.eje_z << endl;
             }
             break;
         case 2:
@@ -209,7 +208,9 @@ int main() {
                 cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
             } else if (dimension == 2) {
                 cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ","
-                     << result_vec.eje_z << ")" << endl;
+                << result_vec.eje_z << ")" << endl;
+            }else {
+                cout << "Ha ocurrido un error con las dimensiones" << endl;
             }
             break;
         case 3:
@@ -228,6 +229,8 @@ int main() {
                 cout << "El resultado es: " << result_float << endl;
             } else if(dimension == 2){
                 cout << "El resultado es: " << result_float << endl;
+            }else{
+                cout << "Ha ocurrido un error con las dimensiones" << endl;
             }
             break;
         case 6:
@@ -241,28 +244,33 @@ int main() {
                 cout << "El resultado es:" << result_float << endl;
             } else if (dimension == 2) {
                 cout << "El resultado es:" << result_float << endl;
+            }else {
+                cout << "Ha ocurrido un error con las dimensiones" << endl;
             }
                 break;
         case 8:
-            cout << "Angulo" << endl;
+            cout << "PLACEHOLDER" << endl;
             //////
             break;
         case 9:
             cout << "Producto Escalar" << endl;
             result_vec = p_escalar(vector1, escalar);
-            if (dimension==1){
+            if (dimension == 1) {
                 cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
-            }else if (dimension==2){
+            } else if (dimension == 2) {
                 cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ","
-                     << result_vec.eje_z << ")" << endl;
+                << result_vec.eje_z << ")" << endl;
+            } else {
+                cout << "Ha ocurrido un error con las dimensiones" << endl;
+                break;
             }
-            break;
         case 10:
             cout << "Saliendo..." << endl;
             return 0;
         default:
             cout << "Operacion no valida" << endl;
             break;
-    }
+        }
+
     return 0;
 }
