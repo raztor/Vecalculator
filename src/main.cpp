@@ -287,7 +287,7 @@ int main() {
                 cout << "Gracias por usar el programa" << endl;
                 return 0;
             } else if(temp_continue == 3){
-                ciclo_menu = false;
+                ciclo_menu = true;
                 ciclo_main = true;
                 break;
             } else {
