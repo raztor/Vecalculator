@@ -9,9 +9,9 @@
 using namespace std;
 
 typedef struct vec{
-    double eje_x;
-    double eje_y;
-    double eje_z;
+    float eje_x;
+    float eje_y;
+    float eje_z;
 };
 
 vec suma(vec a, vec b){
@@ -31,7 +31,7 @@ vec rest(vec a,vec b){
 }
 
 float p_punto(vec a, vec b, int dim){
-    float c;
+    float c=0;
     if (dim==1){
         c = a.eje_x*b.eje_x + a.eje_y*b.eje_y;
     }else if (dim==2){
@@ -40,7 +40,7 @@ float p_punto(vec a, vec b, int dim){
     return c;
 }
 
-vec p_escalar(vec a, double escalar){
+vec p_escalar(vec a, float escalar){
     vec c;
     c.eje_x=a.eje_x*escalar;
     c.eje_y=a.eje_y*escalar;
@@ -48,8 +48,8 @@ vec p_escalar(vec a, double escalar){
     return c;
 }
 
-double norm(vec a, int dim=1){
-    double mag=0;
+float norm(vec a, int dim=1){
+    float mag=0;
     if (dim == 1){
         mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2)));
     }
@@ -78,7 +78,7 @@ float angle(vec a){
     float angulo = atan(result_cateto.eje_y/result_cateto.eje_x);
     return angulo;
     
-}; //tangente-1 (Cateto op/cateto ad)
+} //tangente-1 (Cateto op/cateto ad)
 
 
 
@@ -86,11 +86,9 @@ float angle(vec a){
 int main() {
     int operacion, dimension;
     vec vector1, vector2, result_vec;
-    float result_float=0, escalar=0;
+    float result_float, escalar=0;
     /// (verbose significa en palabras) ////
     char op_verbose[15], dim_verbose[3];
-
-    //hola
 
     ///////////////////////// Seleccion de dimension /////////////////////////
     cout << "El vector es 2D o 3D?" << endl;
