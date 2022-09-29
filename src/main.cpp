@@ -12,7 +12,7 @@ typedef struct vec{
     float eje_y;
     float eje_z;
 };
-vec NULL_VEC = {0,0,0};
+vec NULL_VEC = {0,0,0}; /// Vector "vacio" para inicializar las variables de tipo vec
 
 vec suma(vec a, vec b){
     vec c=NULL_VEC;
@@ -108,11 +108,11 @@ int main() {
             }
         while(ciclo_menu== true){
 
-            cout << "Dimension seleccionada: " << dim_verbose << endl;
+            cout << "Dimension seleccionada: " << dim_verbose << "\n\n" << endl;
 
     /////////////////////////////// Seleccion de operacion ///////////////////////////////
 
-            cout << "Que operacion desea realizar?" << endl;
+            cout << "Que operacion desea realizar?\n" << endl;
             cout << "1. Suma" << endl;
             cout << "2. Resta" << endl;
             cout << "3. Vector Unitario" << endl;
@@ -121,7 +121,7 @@ int main() {
             cout << "6. Producto cruz" << endl;
             cout << "7. Modulo" << endl;
             cout << "8. PLACEHOLDER" << endl;
-            cout << "9. Producto escalar" << endl;
+            cout << "9. Producto escalar\n" << endl;
             cout << "10. Volver a la seleccion de dimension" << endl;
             cin >> operacion;
             if (operacion == 1) {
@@ -143,13 +143,13 @@ int main() {
             } else if (operacion == 9) {
                 strcpy(op_verbose, "Producto Escalar");
             } else if (operacion == 10) {
-                cout << "Reiniciando..." << endl;
+                cout << "Reiniciando...\n" << endl;
                 break;
             } else {
                 cout << "Operacion invalida" << endl;
                 return 0;
             }
-            cout << "Operacion seleccionada: " << op_verbose << endl;
+            cout << "Operacion seleccionada: \n" << op_verbose << endl;
 
             /////////////////////////////// Ingreso de vectores ///////////////////////////////
             /////////////////////////////// Ingreso de vectores ///////////////////////////////
@@ -201,10 +201,10 @@ int main() {
                     cout << "Suma" << endl;
                     result_vec = suma(vector1, vector2);
                     if (dimension == 1) {
-                        cout << "El resultado es: " << result_vec.eje_x << " " << result_vec.eje_y << endl;
+                        cout << "El resultado es: " << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
                     } else if (dimension == 2) {
-                        cout << "El resultado es: " << result_vec.eje_x << " " << result_vec.eje_y << " "
-                             << result_vec.eje_z << endl;
+                        cout << "El resultado es: (" << result_vec.eje_x << "," << result_vec.eje_y << ","
+                             << result_vec.eje_z << ")" << endl;
                     }
                     break;
                 case 2:
@@ -277,7 +277,7 @@ int main() {
                     cout << "Operacion no valida" << endl;
                     break;
             }
-            cout << "Desea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no, 3 = Cambiar dimension)" << endl;
+            cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no, 3 = Cambiar dimension)" << endl;
             int temp_continue;
             cin >> temp_continue;
             if (temp_continue == 1) {
