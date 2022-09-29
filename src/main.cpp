@@ -259,6 +259,9 @@ int main() {
                      << result_vec.eje_z << ")" << endl;
             }
             break;
+        case 10:
+            cout << "Saliendo..." << endl;
+            return 0;
         default:
             cout << "Operacion no valida" << endl;
             break;
