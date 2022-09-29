@@ -30,19 +30,21 @@ vec rest(vec a,vec b){
     return c;
 }
 
-vec p_punto(vec a, vec b){
-    vec c;
-    c.eje_x=a.eje_x*b.eje_x;
-    c.eje_y=a.eje_y*b.eje_y;
-    c.eje_z=a.eje_z*b.eje_z;
+float p_punto(vec a, vec b, int dim){
+    float c;
+    if (dim==1){
+        c = a.eje_x*b.eje_x + a.eje_y*b.eje_y;
+    }else if (dim==2){
+        c = a.eje_x*b.eje_x + a.eje_y*b.eje_y + a.eje_z*b.eje_z;
+    }
     return c;
 }
 
-vec p_escalar(vec a, double b){
+vec p_escalar(vec a, double escalar){
     vec c;
-    c.eje_x=a.eje_x*b;
-    c.eje_y=a.eje_y*b;
-    c.eje_z=a.eje_z*b;
+    c.eje_x=a.eje_x*escalar;
+    c.eje_y=a.eje_y*escalar;
+    c.eje_z=a.eje_z*escalar;
     return c;
 }
 
@@ -83,8 +85,8 @@ float angle(vec a){
 
 int main() {
     int operacion, dimension;
-    vec vector1, vector2, vector_result;
-    double result_norm;
+    vec vector1, vector2, result_vec;
+    float result_float=0, escalar=0;
     /// (verbose significa en palabras) ////
     char op_verbose[15], dim_verbose[3];
 
@@ -115,7 +117,9 @@ int main() {
     cout << "5. Producto punto" << endl;
     cout << "6. Producto cruz" << endl;
     cout << "7. Modulo" << endl;
-    cout << "8. Salir" << endl;
+    cout << "8. Angulo" << endl;
+    cout << "9. Producto escalar" << endl;
+    cout << "10. Salir..." << endl;
     cin >> operacion;
     if (operacion == 1) {
         strcpy(op_verbose, "Suma");
@@ -134,33 +138,36 @@ int main() {
     } else if (operacion == 8) {
         strcpy(op_verbose, "Angulo");
     } else if (operacion == 9) {
+        strcpy(op_verbose, "Producto Escalar");
+    } else if (operacion == 10) {
         cout << "Saliendo..." << endl;
         return 0;
     } else {
         cout << "Operacion invalida" << endl;
         return 0;
     }
-    if (operacion != 7) {
-        cout << "Operacion seleccionada: " << op_verbose << endl;
+    cout << "Operacion seleccionada: " << op_verbose << endl;
+
+    /////////////////////////////// Ingreso de vectores ///////////////////////////////
+    /////////////////////////////// Ingreso de vectores ///////////////////////////////
+
+    if (operacion != 3 && operacion != 7 && operacion != 9) {
         if (dimension == 1) {
             cout << "Ingrese el vector 1 en formato x y" << endl;
             cin >> vector1.eje_x >> vector1.eje_y;
             vector1.eje_z = 0;
-        } else if (dimension == 2) {
-            cout << "Ingrese el vector 1 en formato x y z" << endl;
-            cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
-        }
-
-        if (dimension == 1) {
             cout << "Ingrese el vector 2 en formato x y" << endl;
             cin >> vector2.eje_x >> vector2.eje_y;
             vector2.eje_z = 0;
+
         } else if (dimension == 2) {
+            cout << "Ingrese el vector 1 en formato x y z" << endl;
+            cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
             cout << "Ingrese el vector 2 en formato x y z" << endl;
             cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
         }
-    } else if (operacion == 7) {
-        cout << "Operacion seleccionada: " << op_verbose << endl;
+
+    } else if (operacion == 3 || operacion == 7) {
         if (dimension == 1) {
             cout << "Ingrese el vector en formato x y" << endl;
             cin >> vector1.eje_x >> vector1.eje_y;
@@ -169,6 +176,19 @@ int main() {
             cout << "Ingrese el vector en formato x y z" << endl;
             cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
         }
+    } else if (operacion == 9) {
+        if (dimension == 1) {
+            cout << "Ingrese el vector en formato x y" << endl;
+            cin >> vector1.eje_x >> vector1.eje_y;
+            vector1.eje_z = 0;
+            cout << "Ingrese el escalar" << endl;
+            cin >> escalar;
+        } else if (dimension == 2) {
+            cout << "Ingrese el vector en formato x y z" << endl;
+            cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
+            cout << "Ingrese el escalar" << endl;
+            cin >> escalar;
+        }
     }
 
     //////////////////////////// Iniciador de funciones ///////////////////////////////
@@ -176,22 +196,22 @@ int main() {
     switch (operacion) {
         case 1:
             cout << "Suma" << endl;
-            vector_result = suma(vector1, vector2);
+            result_vec = suma(vector1, vector2);
             if(dimension == 1){
-                cout << "El resultado es: " << vector_result.eje_x << " " << vector_result.eje_y << endl;
+                cout << "El resultado es: " << result_vec.eje_x << " " << result_vec.eje_y << endl;
             } else if(dimension == 2){
-                cout << "El resultado es: " << vector_result.eje_x << " " << vector_result.eje_y << " "
-                << vector_result.eje_z << endl;
+                cout << "El resultado es: " << result_vec.eje_x << " " << result_vec.eje_y << " "
+                     << result_vec.eje_z << endl;
             }
             break;
         case 2:
             cout << "Resta" << endl;
-            vector_result = rest(vector1, vector2);
+            result_vec = rest(vector1, vector2);
             if (dimension == 1) {
-                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ")" << endl;
+                cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
             } else if (dimension == 2) {
-                cout << "El resultado es:" << "(" << vector_result.eje_x << "," << vector_result.eje_y << ","
-                     << vector_result.eje_z << ")" << endl;
+                cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ","
+                     << result_vec.eje_z << ")" << endl;
             }
             break;
         case 3:
@@ -205,12 +225,11 @@ int main() {
             break;
         case 5:
             cout << "Producto punto" << endl;
-            vector_result=p_punto(vector1, vector2);
+            result_float=p_punto(vector1, vector2, dimension);
             if(dimension == 1){
-                cout << "El resultado es: " << vector_result.eje_x << " " << vector_result.eje_y << endl;
+                cout << "El resultado es: " << result_float << endl;
             } else if(dimension == 2){
-                cout << "El resultado es: " << vector_result.eje_x << " " << vector_result.eje_y << " "
-                     << vector_result.eje_z << endl;
+                cout << "El resultado es: " << result_float << endl;
             }
             break;
         case 6:
@@ -219,15 +238,26 @@ int main() {
             break;
         case 7:
             cout << "Modulo" << endl;
-            result_norm = norm(vector1, dimension);
+            result_float = norm(vector1, dimension);
             if (dimension == 1) {
-                cout << "El resultado es:" << result_norm << endl;
+                cout << "El resultado es:" << result_float << endl;
             } else if (dimension == 2) {
-                cout << "El resultado es:" << result_norm << endl;
+                cout << "El resultado es:" << result_float << endl;
             }
                 break;
         case 8:
-            cout << "Salir" << endl;
+            cout << "Angulo" << endl;
+            //////
+            break;
+        case 9:
+            cout << "Producto Escalar" << endl;
+            result_vec = p_escalar(vector1, escalar);
+            if (dimension==1){
+                cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
+            }else if (dimension==2){
+                cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ","
+                     << result_vec.eje_z << ")" << endl;
+            }
             break;
         default:
             cout << "Operacion no valida" << endl;
