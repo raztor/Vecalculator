@@ -93,8 +93,7 @@ int main() {
             cout << "El vector es 2D o 3D?" << endl;
             cout << "1. 2D" << endl;
             cout << "2. 3D" << endl;
-            cout << "3. Para Salir" << endl;
-            cout << "\nTu dimension: ";
+            cout << "\n3. Para Salir" << endl;
             cin >> dimension;
             if (dimension == 1) {
                 strcpy(dim_verbose, "2D");
@@ -107,9 +106,9 @@ int main() {
                 cout << "Opcion no valida" << endl;
                 break;
             }
-        while(ciclo_menu== true){
+        while(ciclo_menu){
 
-            cout << "\nDimension seleccionada: " << dim_verbose << "\n\n" << endl;
+            cout << "Dimension seleccionada: " << dim_verbose << "\n\n" << endl;
 
     /////////////////////////////// Seleccion de operacion ///////////////////////////////
 
