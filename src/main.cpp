@@ -222,12 +222,12 @@ int main() {
                     ///
                     break;
                 case 4:
-                    result_angulo = angle(vector1);
+                    result_float = angle(vector1);
                     if(dimension == 1){
-                        cout<<"El resultado es: "<< result_angulo <<endl;
+                        cout<<"El resultado es: "<< result_float << "°" <<endl;
                     }
                     else if (dimension == 2){
-                        cout<<"Trabajando para ello... Por favor seleccione otra        opcion"<<endl;
+                        cout<<"Trabajando para ello... Por favor seleccione otra opcion"<<endl;
                     }
 
                     break;
