@@ -93,7 +93,8 @@ int main() {
             cout << "El vector es 2D o 3D?" << endl;
             cout << "1. 2D" << endl;
             cout << "2. 3D" << endl;
-            cout << "\n3. Para Salir" << endl;
+            cout << "3. Para Salir" << endl;
+            cout << "\nTu dimension: ";
             cin >> dimension;
             if (dimension == 1) {
                 strcpy(dim_verbose, "2D");
@@ -108,7 +109,7 @@ int main() {
             }
         while(ciclo_menu== true){
 
-            cout << "Dimension seleccionada: " << dim_verbose << "\n\n" << endl;
+            cout << "\nDimension seleccionada: " << dim_verbose << "\n\n" << endl;
 
     /////////////////////////////// Seleccion de operacion ///////////////////////////////
 
@@ -121,7 +122,7 @@ int main() {
             cout << "6. Producto cruz" << endl;
             cout << "7. Modulo" << endl;
             cout << "8. PLACEHOLDER" << endl;
-            cout << "9. Producto escalar\n" << endl;
+            cout << "9. Producto escalar" << endl;
             cout << "10. Volver a la seleccion de dimension" << endl;
             cin >> operacion;
             if (operacion == 1) {
@@ -198,7 +199,6 @@ int main() {
 
             switch (operacion) {
                 case 1:
-                    //cout << "Suma" << endl;
                     result_vec = suma(vector1, vector2);
                     if (dimension == 1) {
                         cout << "El resultado es: " << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
@@ -208,7 +208,6 @@ int main() {
                     }
                     break;
                 case 2:
-                    //cout << "Resta" << endl;
                     result_vec = rest(vector1, vector2);
                     if (dimension == 1) {
                         cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
@@ -224,12 +223,16 @@ int main() {
                     ///
                     break;
                 case 4:
-                    cout << "Angulo" << endl;
-                    //////
+                    result_angulo = angle(vector1);
+                    if(dimension == 1){
+                        cout<<"El resultado es: "<< result_angulo <<endl;
+                    }
+                    else if (dimension == 2){
+                        cout<<"Trabajando para ello... Por favor seleccione otra        opcion"<<endl;
+                    }
 
                     break;
                 case 5:
-                    //cout << "Producto punto" << endl;
                     result_float = p_punto(vector1, vector2, dimension);
                     if (dimension == 1) {
                         cout << "El resultado es: " << result_float << endl;
