@@ -279,7 +279,7 @@ int main() {
                     cout << "Operacion no valida" << endl;
                     break;
             }
-            cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no, 3 = Cambiar dimension)" << endl;
+            cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no (salir), 3 = Cambiar dimension)" << endl;
             int temp_continue;
             cin >> temp_continue;
             if (temp_continue == 1) {
