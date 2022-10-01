@@ -198,7 +198,7 @@ int main() {
 
             switch (operacion) {
                 case 1:
-                    cout << "Suma" << endl;
+                    //cout << "Suma" << endl;
                     result_vec = suma(vector1, vector2);
                     if (dimension == 1) {
                         cout << "El resultado es: " << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
@@ -208,7 +208,7 @@ int main() {
                     }
                     break;
                 case 2:
-                    cout << "Resta" << endl;
+                    //cout << "Resta" << endl;
                     result_vec = rest(vector1, vector2);
                     if (dimension == 1) {
                         cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
@@ -229,7 +229,7 @@ int main() {
 
                     break;
                 case 5:
-                    cout << "Producto punto" << endl;
+                    //cout << "Producto punto" << endl;
                     result_float = p_punto(vector1, vector2, dimension);
                     if (dimension == 1) {
                         cout << "El resultado es: " << result_float << endl;
@@ -244,7 +244,7 @@ int main() {
                     ///////
                     break;
                 case 7:
-                    cout << "Modulo" << endl;
+                    //cout << "Modulo" << endl;
                     result_float = norm(vector1, dimension);
                     if (dimension == 1) {
                         cout << "El resultado es:" << result_float << endl;
@@ -259,7 +259,7 @@ int main() {
                     //////
                     break;
                 case 9:
-                    cout << "Producto Escalar" << endl;
+                    //cout << "Producto Escalar" << endl;
                     result_vec = p_escalar(vector1, escalar);
                     if (dimension == 1) {
                         cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
