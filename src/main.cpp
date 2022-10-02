@@ -106,7 +106,7 @@ int main() {
                 cout << "Opcion no valida" << endl;
                 break;
             }
-        while(ciclo_menu== true){
+        while(ciclo_menu){
 
             cout << "Dimension seleccionada: " << dim_verbose << "\n\n" << endl;
 
@@ -121,7 +121,7 @@ int main() {
             cout << "6. Producto cruz" << endl;
             cout << "7. Modulo" << endl;
             cout << "8. PLACEHOLDER" << endl;
-            cout << "9. Producto escalar\n" << endl;
+            cout << "9. Producto escalar" << endl;
             cout << "10. Volver a la seleccion de dimension" << endl;
             cin >> operacion;
             if (operacion == 1) {
@@ -198,7 +198,6 @@ int main() {
 
             switch (operacion) {
                 case 1:
-                    cout << "Suma" << endl;
                     result_vec = suma(vector1, vector2);
                     if (dimension == 1) {
                         cout << "El resultado es: " << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
@@ -208,7 +207,6 @@ int main() {
                     }
                     break;
                 case 2:
-                    cout << "Resta" << endl;
                     result_vec = rest(vector1, vector2);
                     if (dimension == 1) {
                         cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
@@ -224,12 +222,16 @@ int main() {
                     ///
                     break;
                 case 4:
-                    cout << "Angulo" << endl;
-                    //////
+                    result_float = angle(vector1);
+                    if(dimension == 1){
+                        cout<<"El resultado es: "<< result_float << "°" <<endl;
+                    }
+                    else if (dimension == 2){
+                        cout<<"Trabajando para ello... Por favor seleccione otra opcion"<<endl;
+                    }
 
                     break;
                 case 5:
-                    cout << "Producto punto" << endl;
                     result_float = p_punto(vector1, vector2, dimension);
                     if (dimension == 1) {
                         cout << "El resultado es: " << result_float << endl;
@@ -244,7 +246,7 @@ int main() {
                     ///////
                     break;
                 case 7:
-                    cout << "Modulo" << endl;
+                    //cout << "Modulo" << endl;
                     result_float = norm(vector1, dimension);
                     if (dimension == 1) {
                         cout << "El resultado es:" << result_float << endl;
@@ -259,7 +261,7 @@ int main() {
                     //////
                     break;
                 case 9:
-                    cout << "Producto Escalar" << endl;
+                    //cout << "Producto Escalar" << endl;
                     result_vec = p_escalar(vector1, escalar);
                     if (dimension == 1) {
                         cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
@@ -277,7 +279,7 @@ int main() {
                     cout << "Operacion no valida" << endl;
                     break;
             }
-            cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no, 3 = Cambiar dimension)" << endl;
+            cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no (salir), 3 = Cambiar dimension)" << endl;
             int temp_continue;
             cin >> temp_continue;
             if (temp_continue == 1) {
