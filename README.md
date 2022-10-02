@@ -50,5 +50,5 @@ This proyect main goal is to build a vector calculator using C++ and in a near f
 
 * Benjamín Muñoz
   * Gitlab: [@raztor](https://gitlab.com/raztor)
-  * GitHub: [@raztor](https://gitlab.com/Raztor)
+  * GitHub: [@raztor](https://github.com/Raztor)
   * rol: 202230546-0
