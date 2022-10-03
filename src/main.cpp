@@ -56,11 +56,11 @@ float norm(vec a, int dim=1){
     else if (dim == 2){
         mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2) + pow(a.eje_z,2)));
     }
+    cout << "La norma del vector es: " << mag << endl;
     return mag;
 }
 
-vec catetos(vec a, int dim=1){
-    //solo 2 dimensiones por ahora, en un futuro serán 3
+vec vec_unitario(vec a, int dim= 1){
     if(dim==1) {
         a.eje_x = norm(a, 1) * cos(a.eje_x);
         a.eje_y = norm(a, 1) * sin(a.eje_y);
@@ -74,7 +74,7 @@ vec catetos(vec a, int dim=1){
 }
 
 float angle(vec a){
-    vec result_cateto = catetos(a, 1);
+    vec result_cateto = vec_unitario(a, 1);
     float angulo = atan(result_cateto.eje_y/result_cateto.eje_x);
     return angulo;
 
@@ -219,7 +219,15 @@ int main() {
                     break;
                 case 3:
                     cout << "Vector Unitario" << endl;
-                    ///
+                    result_vec = vec_unitario(vector1);
+                    if (dimension == 1) {
+                        cout << "El resultado es:" << "(" << result_vec.eje_x << " i " << "+" << result_vec.eje_y << " j " << ")" << endl;
+                    } else if (dimension == 2) {
+                        cout << "El resultado es:" << "(" << result_vec.eje_x << " i "<< "+" << result_vec.eje_y << " j " << "+"
+                             << result_vec.eje_z << " k " << ")" << endl;
+                    } else {
+                        cout << "Ha ocurrido un error con las dimensiones" << endl;
+                    }
                     break;
                 case 4:
                     result_float = angle(vector1);
@@ -232,6 +240,7 @@ int main() {
 
                     break;
                 case 5:
+                    /// Producto Punto
                     result_float = p_punto(vector1, vector2, dimension);
                     if (dimension == 1) {
                         cout << "El resultado es: " << result_float << endl;
