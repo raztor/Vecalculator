@@ -268,7 +268,7 @@ int main() {
                         cout<<"No se puede realizar esta operacion en 2 dimensiones, intente de nuevo."<<endl;
                     }
                     else if (dimension == 2) {
-                        cout<<"El resultado es: ("<<result_vec.eje_x<<","<<result_vec.eje_y<<","<<result_vec.eje_z<<")"endl;
+                        cout<<"El resultado es: ("<<result_vec.eje_x<<","<<result_vec.eje_y<<","<<result_vec.eje_z<<")"<<endl;
                     }
                     else{
                         cout<<"Ha ocurrido un error con las dimensiones"<<endl;
