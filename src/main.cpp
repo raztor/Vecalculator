@@ -85,7 +85,7 @@ vec p_cruz(vec a, vec b, int dim=2){
 
     vec pc = NULL_VEC;
     pc.eje_x = (a.eje_y*b.eje_z - a.eje_z*b.eje_y);
-    pc.eje_y = (a.eje_x*b.eje_z - a.eje_z*b.eje_x);
+    pc.eje_y = (a.eje_z*b.eje_x - a.eje_x*b.eje_z);
     pc.eje_z = (a.eje_x*b.eje_y - a.eje_y*b.eje_x);
 
     return pc;
