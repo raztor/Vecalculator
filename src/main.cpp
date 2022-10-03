@@ -259,12 +259,12 @@ int main() {
                     break;
                 case 6:
                     cout << "Producto cruz" << endl;
-                    result_vec = prod_cruz(vector1, vector2, dimension);
+                    result_float = prod_cruz(vector1, vector2, dimension);
                     if(dimension == 1){
                         cout<<"No se puede realizar esta operacion en 2 dimensiones, intente de nuevo."<<endl;
                     }
                     else if (dimension == 2) {
-                        cout<<"El resultado es: "<<result_vec<<endl;
+                        cout<<"El resultado es: "<<result_float<<endl;
                     }
                     else{
                         cout<<"Ha ocurrido un error con las dimensiones"<<endl;
