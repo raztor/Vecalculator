@@ -81,6 +81,12 @@ float angle(vec a){
 
 } //tangente-1 (Cateto op/cateto ad)
 
+vec p_cruz(vec a, vec b, int dim=2){
+    p_cruz = (a.eje_y*b.eje_z - a.eje_z*b.eje_y) - (a.eje_x*b.eje_z - a.eje_z*b.eje_x) - (a.eje_x*b.eje_y - a.eje_y*b.eje_x);
+
+    return p_cruz;
+}
+
 bool ciclo_main= true, ciclo_menu=true;
 int main() {
     while(ciclo_main==true) {
