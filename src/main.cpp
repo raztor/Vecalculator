@@ -259,7 +259,7 @@ int main() {
                     break;
                 case 6:
                     cout << "Producto cruz" << endl;
-                    result_float = prod_cruz(vector1, vector2, dimension);
+                    result_float = p_cruz(vector1, vector2, dimension);
                     if(dimension == 1){
                         cout<<"No se puede realizar esta operacion en 2 dimensiones, intente de nuevo."<<endl;
                     }
