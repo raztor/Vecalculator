@@ -81,8 +81,12 @@ float angle(vec a){
 
 } //tangente-1 (Cateto op/cateto ad)
 
-float p_cruz(vec a, vec b, int dim=2){
-    float prod_cruz = (a.eje_y*b.eje_z - a.eje_z*b.eje_y) - (a.eje_x*b.eje_z - a.eje_z*b.eje_x) - (a.eje_x*b.eje_y - a.eje_y*b.eje_x);
+vec p_cruz(vec a, vec b, int dim=2){
+
+    vec pc = NULL_VEC;
+    pc.eje_x = (a.eje_y*b.eje_z - a.eje_z*b.eje_y);
+    pc.eje_y = (a.eje_x*b.eje_z - a.eje_z*b.eje_x);
+    pc.eje_z = (a.eje_x*b.eje_y - a.eje_y*b.eje_x);
 
     return prod_cruz;
 }
@@ -259,12 +263,12 @@ int main() {
                     break;
                 case 6:
                     cout << "Producto cruz" << endl;
-                    result_float = p_cruz(vector1, vector2, dimension);
+                    result_vec = p_cruz(vector1, vector2, dimension);
                     if(dimension == 1){
                         cout<<"No se puede realizar esta operacion en 2 dimensiones, intente de nuevo."<<endl;
                     }
                     else if (dimension == 2) {
-                        cout<<"El resultado es: "<<result_float<<endl;
+                        cout<<"El resultado es: "<<result_vec<<endl;
                     }
                     else{
                         cout<<"Ha ocurrido un error con las dimensiones"<<endl;
