@@ -88,7 +88,7 @@ vec p_cruz(vec a, vec b, int dim=2){
     pc.eje_y = (a.eje_x*b.eje_z - a.eje_z*b.eje_x);
     pc.eje_z = (a.eje_x*b.eje_y - a.eje_y*b.eje_x);
 
-    return prod_cruz;
+    return pc;
 }
 
 bool ciclo_main= true, ciclo_menu=true;
