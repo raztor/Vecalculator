@@ -259,7 +259,16 @@ int main() {
                     break;
                 case 6:
                     cout << "Producto cruz" << endl;
-                    ///////
+                    result_vec = p_cruz(vector1, vector2, dimension);
+                    if(dimension == 1){
+                        cout<<"No se puede realizar esta operacion en 2 dimensiones, intente de nuevo."<<endl;
+                    }
+                    else if (dimension == 2) {
+                        cout<<"El resultado es: "<<result_vec<<endl;
+                    }
+                    else{
+                        cout<<"Ha ocurrido un error con las dimensiones"<<endl;
+                    }
                     break;
                 case 7:
                     //cout << "Modulo" << endl;
