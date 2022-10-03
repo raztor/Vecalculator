@@ -61,14 +61,15 @@ float norm(vec a, int dim=1){
 }
 
 vec vec_unitario(vec a, int dim= 1){
+    float mag = norm(a, dim);
     if(dim==1) {
-        a.eje_x = norm(a, 1) * cos(a.eje_x);
-        a.eje_y = norm(a, 1) * sin(a.eje_y);
+        a.eje_x = mag * cos(a.eje_x);
+        a.eje_y = mag * sin(a.eje_y);
         ////////// revisar else if de abajo //////////////
     }else if (dim==2){
-        a.eje_x = norm(a, 2) * cos(a.eje_x) * cos(a.eje_y);
-        a.eje_y = norm(a, 2) * cos(a.eje_x) * sin(a.eje_y);
-        a.eje_z = norm(a, 2) * sin(a.eje_z);
+        a.eje_x = mag * cos(a.eje_x) * cos(a.eje_y);
+        a.eje_y = mag * cos(a.eje_x) * sin(a.eje_y);
+        a.eje_z = mag * sin(a.eje_z);
     }
     return a;
 }
@@ -221,9 +222,9 @@ int main() {
                     cout << "Vector Unitario" << endl;
                     result_vec = vec_unitario(vector1);
                     if (dimension == 1) {
-                        cout << "El resultado es:" << "(" << result_vec.eje_x << " i " << "+" << result_vec.eje_y << " j " << ")" << endl;
+                        cout << "El resultado es:" << "(" << result_vec.eje_x << " i " << "+ " << result_vec.eje_y << " j " << ")" << endl;
                     } else if (dimension == 2) {
-                        cout << "El resultado es:" << "(" << result_vec.eje_x << " i "<< "+" << result_vec.eje_y << " j " << "+"
+                        cout << "El resultado es:" << "(" << result_vec.eje_x << " i "<< "+ " << result_vec.eje_y << " j " << "+ "
                              << result_vec.eje_z << " k " << ")" << endl;
                     } else {
                         cout << "Ha ocurrido un error con las dimensiones" << endl;
