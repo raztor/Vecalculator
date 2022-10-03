@@ -60,7 +60,7 @@ float norm(vec a, int dim=1){
 }
 
 vec catetos(vec a, int dim=1){
-    //solo 2 dimensiones por ahora
+    //solo 2 dimensiones por ahora, en un futuro serán 3
     if(dim==1) {
         a.eje_x = norm(a, 1) * cos(a.eje_x);
         a.eje_y = norm(a, 1) * sin(a.eje_y);
