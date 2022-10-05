@@ -1,0 +1,6 @@
+# Operaciones que se pueden hacer en 2D y 3D:
+
+* suma
+* resta
+* producto punto
+* producto cruz
