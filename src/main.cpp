@@ -5,92 +5,9 @@
 #include <iostream>
 #include <cstring>
 #include <cmath>
+#include "operaciones.h"
+#include "menu.h"
 using namespace std;
-
-typedef struct vec{
-    float eje_x;
-    float eje_y;
-    float eje_z;
-};
-vec NULL_VEC = {0,0,0}; /// Vector "vacio" para inicializar las variables de tipo vec
-
-vec suma(vec a, vec b){
-    vec c=NULL_VEC;
-    c.eje_x = a.eje_x + b.eje_x;
-    c.eje_y = a.eje_y + b.eje_y;
-    c.eje_z = a.eje_z + b.eje_z;
-    return c;
-}
-
-vec rest(vec a,vec b){
-    vec c=NULL_VEC;
-    c.eje_x=a.eje_x-b.eje_x;
-    c.eje_y=a.eje_y-b.eje_y;
-    c.eje_z=a.eje_z-b.eje_z;
-    return c;
-}
-
-float p_punto(vec a, vec b, int dim){
-    float c=0;
-    if (dim==1){
-        c = a.eje_x*b.eje_x + a.eje_y*b.eje_y;
-    }else if (dim==2){
-        c = a.eje_x*b.eje_x + a.eje_y*b.eje_y + a.eje_z*b.eje_z;
-    }
-    return c;
-}
-
-vec p_escalar(vec a, float escalar){
-    vec c=NULL_VEC;
-    c.eje_x=a.eje_x*escalar;
-    c.eje_y=a.eje_y*escalar;
-    c.eje_z=a.eje_z*escalar;
-    return c;
-}
-
-float norm(vec a, int dim=1){
-    float mag=0;
-    if (dim == 1){
-        mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2)));
-    }
-    else if (dim == 2){
-        mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2) + pow(a.eje_z,2)));
-    }
-    cout << "La norma del vector es: " << mag << endl;
-    return mag;
-}
-
-vec vec_unitario(vec a, int dim= 1){
-    float mag = norm(a, dim);
-    if(dim==1) {
-        a.eje_x = mag * cos(a.eje_x);
-        a.eje_y = mag * sin(a.eje_y);
-        ////////// revisar else if de abajo //////////////
-    }else if (dim==2){
-        a.eje_x = mag * cos(a.eje_x) * cos(a.eje_y);
-        a.eje_y = mag * cos(a.eje_x) * sin(a.eje_y);
-        a.eje_z = mag * sin(a.eje_z);
-    }
-    return a;
-}
-
-float angle(vec a){
-    vec result_cateto = vec_unitario(a, 1);
-    float angulo = atan(result_cateto.eje_y/result_cateto.eje_x);
-    return angulo;
-
-} //tangente-1 (Cateto op/cateto ad)
-
-vec p_cruz(vec a, vec b, int dim=2){
-
-    vec pc = NULL_VEC;
-    pc.eje_x = (a.eje_y*b.eje_z - a.eje_z*b.eje_y);
-    pc.eje_y = (a.eje_z*b.eje_x - a.eje_x*b.eje_z);
-    pc.eje_z = (a.eje_x*b.eje_y - a.eje_y*b.eje_x);
-
-    return pc;
-}
-
 bool ciclo_main= true, ciclo_menu=true;
 int main() {
     while(ciclo_main==true) {
@@ -99,27 +16,11 @@ int main() {
             float result_float, escalar = 0;
             /// (verbose significa en palabras) ////
             char op_verbose[20], dim_verbose[3];
-
             ///////////////////////// Seleccion de dimension /////////////////////////
-            cout << "El vector es 2D o 3D?" << endl;
-            cout << "1. 2D" << endl;
-            cout << "2. 3D" << endl;
-            cout << "\n3. Para Salir" << endl;
-            cin >> dimension;
-            if (dimension == 1) {
-                strcpy(dim_verbose, "2D");
-            } else if (dimension == 2) {
-                strcpy(dim_verbose, "3D");
-            } else if (dimension == 3) {
-                ciclo_menu = false;
-                break;
-            } else {
-                cout << "Opcion no valida" << endl;
-                break;
-            }
-        while(ciclo_menu){
+            dim_menu(dimension, dim_verbose, ciclo_menu);
 
-            cout << "Dimension seleccionada: " << dim_verbose << "\n\n" << endl;
+        while(ciclo_menu){
+            cout << "Dimension seleccionada: " << dim_verbose << "\n" << endl;
 
     /////////////////////////////// Seleccion de operacion ///////////////////////////////
 
