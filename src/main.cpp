@@ -4,38 +4,25 @@
 
 #include <iostream>
 #include <cstring>
-#include <cmath>
 #include "operaciones.h"
 #include "menu.h"
 using namespace std;
 bool ciclo_main= true, ciclo_menu=true;
 int main() {
     while(ciclo_main==true) {
-            int operacion, dimension;
-            vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec = NULL_VEC;
-            float result_float, escalar = 0;
-            /// (verbose significa en palabras) ////
-            char op_verbose[20], dim_verbose[3];
-            ///////////////////////// Seleccion de dimension /////////////////////////
-            dim_menu(dimension, dim_verbose, ciclo_menu);
-
+        int operacion, dimension;
+        char op_verbose[20], dim_verbose[3];
+        vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec = NULL_VEC;
+        float result_float, escalar = 0;
+        /// (verbose significa en palabras) ////
+        dim_menu(dimension, dim_verbose, ciclo_menu, ciclo_main);
         while(ciclo_menu){
             cout << "Dimension seleccionada: " << dim_verbose << "\n" << endl;
 
     /////////////////////////////// Seleccion de operacion ///////////////////////////////
 
-            cout << "Que operacion desea realizar?\n" << endl;
-            cout << "1. Suma" << endl;
-            cout << "2. Resta" << endl;
-            cout << "3. Vector Unitario" << endl;
-            cout << "4. Angulo" << endl;
-            cout << "5. Producto punto" << endl;
-            cout << "6. Producto cruz" << endl;
-            cout << "7. Modulo" << endl;
-            cout << "8. PLACEHOLDER" << endl;
-            cout << "9. Producto escalar" << endl;
-            cout << "10. Volver a la seleccion de dimension" << endl;
-            cin >> operacion;
+            func_menu(operacion);
+
             if (operacion == 1) {
                 strcpy(op_verbose, "Suma");
             } else if (operacion == 2) {
