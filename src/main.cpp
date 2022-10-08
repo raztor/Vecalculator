@@ -3,32 +3,31 @@
 // a calculator for vectors in c++
 
 #include <iostream>
-#include <cstring>
-#include "operaciones.h"
-#include "menu.h"
+#include "operaciones.h" // En este header se encuentran las formulas para las operaciones de vectores
+#include "menu.h" // En este header se encuentran los distintos menus
 using namespace std;
 bool ciclo_main= true, ciclo_menu=true;
+
 int main() {
     while(ciclo_main) {
         int operacion=0, dimension=0;
         char op_verbose[20], dim_verbose[3];
         vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec = NULL_VEC;
         float result_float, escalar = 0;
-        /// (verbose significa en palabras) ////
-        dim_menu(dimension, dim_verbose, ciclo_menu, ciclo_main);
+
+        dim_menu(dimension, dim_verbose, ciclo_menu, ciclo_main); // Menu para seleccionar la dimension de los vectores
+
         while(ciclo_menu){
             cout << "Dimension seleccionada: " << dim_verbose << "\n" << endl;
 
     /////////////////////////////// Seleccion de operacion ///////////////////////////////
 
-            func_menu(operacion, op_verbose);
+            func_menu(operacion, op_verbose); // Menu para seleccionar la operacion a realizar
             if(operacion == 10){
-                ciclo_menu = false;
+                ciclo_menu = false; // Si se selecciona la opcion 10, se sale del menu de operaciones
                 break;
             }
-
-            /////////////////////////////// Ingreso de vectores ///////////////////////////////
-
+            ///Todos los siguientes condicionales son para separar las operaciones que son solo de un vector de las de dos.
             if (operacion != 3 && operacion != 7 && operacion != 9) {
                 if (dimension == 1) {
                     cout << "Ingrese el vector 1 en formato x y" << endl;

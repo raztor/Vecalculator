@@ -80,6 +80,7 @@ void func_menu(int &operacion, char op_verbose[20]){
             std::cout << "Ha ocurrido un error" << std::endl;
             exit(1);
     }
+    /// Si se selecciona una operacion valida mostrar la operacion en modo verbose
     if (operacion == 1 || operacion == 2 || operacion == 3 || operacion == 4
         || operacion == 5 || operacion == 6 || operacion == 7 || operacion == 8 || operacion == 9)
     {
