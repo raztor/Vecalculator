@@ -10,7 +10,7 @@ using namespace std;
 bool ciclo_main= true, ciclo_menu=true;
 int main() {
     while(ciclo_main) {
-        int operacion, dimension;
+        int operacion=0, dimension=0;
         char op_verbose[20], dim_verbose[3];
         vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec = NULL_VEC;
         float result_float, escalar = 0;
@@ -21,36 +21,12 @@ int main() {
 
     /////////////////////////////// Seleccion de operacion ///////////////////////////////
 
-            func_menu(operacion);
-
-            if (operacion == 1) {
-                strcpy(op_verbose, "Suma");
-            } else if (operacion == 2) {
-                strcpy(op_verbose, "Resta");
-            } else if (operacion == 3) {
-                strcpy(op_verbose, "Vector Unitario");
-            } else if (operacion == 4) {
-                strcpy(op_verbose, "Angulo");
-            } else if (operacion == 5) {
-                strcpy(op_verbose, "Producto punto");
-            } else if (operacion == 6) {
-                strcpy(op_verbose, "Producto cruz");
-            } else if (operacion == 7) {
-                strcpy(op_verbose, "Modulo");
-            } else if (operacion == 8) {
-                strcpy(op_verbose, "PLACEHOLDER");
-            } else if (operacion == 9) {
-                strcpy(op_verbose, "Producto Escalar");
-            } else if (operacion == 10) {
-                cout << "Reiniciando...\n" << endl;
+            func_menu(operacion, op_verbose);
+            if(operacion == 10){
+                ciclo_menu = false;
                 break;
-            } else {
-                cout << "Operacion invalida" << endl;
-                return 0;
             }
-            cout << "Operacion seleccionada: \n" << op_verbose << endl;
 
-            /////////////////////////////// Ingreso de vectores ///////////////////////////////
             /////////////////////////////// Ingreso de vectores ///////////////////////////////
 
             if (operacion != 3 && operacion != 7 && operacion != 9) {
