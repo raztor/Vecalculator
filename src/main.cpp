@@ -9,7 +9,7 @@
 using namespace std;
 bool ciclo_main= true, ciclo_menu=true;
 int main() {
-    while(ciclo_main==true) {
+    while(ciclo_main) {
         int operacion, dimension;
         char op_verbose[20], dim_verbose[3];
         vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec = NULL_VEC;
@@ -196,23 +196,7 @@ int main() {
                     cout << "Operacion no valida" << endl;
                     break;
             }
-            cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no (salir), 3 = Cambiar dimension)" << endl;
-            int temp_continue;
-            cin >> temp_continue;
-            if (temp_continue == 1) {
-                ciclo_menu = true;
-
-            } else if (temp_continue == 2) {
-                cout << "Gracias por usar el programa" << endl;
-                return 0;
-            } else if(temp_continue == 3){
-                ciclo_menu = true;
-                ciclo_main = true;
-                break;
-            } else {
-                cout << "Opcion no valida" << endl;
-                break;
-            }
+            fin_menu(ciclo_main, ciclo_menu, dim_verbose);
         }
     }
     return 0;

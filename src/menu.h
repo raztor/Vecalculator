@@ -41,4 +41,22 @@ void func_menu(int &operacion){
     cin >> operacion;
 }
 
+void fin_menu(bool &ciclo_main, bool &ciclo_menu, char dim_verbose[3]){
+    cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no (salir), 3 = Cambiar dimension)" << endl;
+    int temp_continue;
+    cin >> temp_continue;
+    if (temp_continue == 1) {
+        ciclo_menu = true;
+
+    } else if (temp_continue == 2) {
+        cout << "Gracias por usar el programa" << endl;
+        ciclo_menu = false;
+        ciclo_main = false;
+    } else if(temp_continue == 3){
+        ciclo_menu = false;
+        ciclo_main = true;
+    } else {
+        cout << "Opcion no valida" << endl;
+    }
+}
 #endif //PROYECTO_TEL102_MENU_H
