@@ -44,7 +44,6 @@ float norm(vec a, int dim=1){
     else if (dim == 2){
         mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2) + pow(a.eje_z,2)));
     }
-    std::cout << "La norma del vector es: " << mag << std::endl;
     return mag;
 }
 
