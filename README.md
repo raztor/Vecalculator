@@ -59,3 +59,12 @@ Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras
   * Gitlab: [@raztor](https://gitlab.com/raztor)
   * GitHub: [@raztor](https://github.com/Raztor)
   * rol: 202230546-0
+
+## Referencias:
+    Laroze Barrios, L. (2018). Conceptos y magnitudes en física (2018.a ed.). Nicolás Porras.
+
+<details>
+<summary>Diagrama</summary>
+<br>
+<img src="gitlab.com/raztor/proyecto-tel102/media/uml.png?raw=true" alt="Diagrama UML">
+</details>
