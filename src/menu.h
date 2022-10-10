@@ -12,9 +12,13 @@ void dim_menu(int &dim, char dim_verbose[3], bool &ciclo_menu, bool &ciclo_main)
     switch (dim) {
         case 1:
             std::strcpy(dim_verbose, "2D");
+            ciclo_menu = true;
+            ciclo_main = true;
             break;
         case 2:
             std::strcpy(dim_verbose, "3D");
+            ciclo_menu = true;
+            ciclo_main = true;
             break;
         case 3:
             ciclo_menu = false;
@@ -22,6 +26,8 @@ void dim_menu(int &dim, char dim_verbose[3], bool &ciclo_menu, bool &ciclo_main)
             break;
         default:
             cout << "Opcion no valida" << endl;
+            ciclo_menu = false;
+            ciclo_main = true;
             break;
     }
 }
