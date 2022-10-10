@@ -79,7 +79,7 @@ int main() {
                 case 7:
                     //Modulo;
                     result_float = norm(vector1, dimension);
-                    cout << "El resultado es:" << result_float << endl;
+                    cout << "El resultado es: " << result_float << endl;
                     break;
                 case 8:// Proximamente
                     cout << "Nuevas funciones vendran en proximas actualizaciones" << endl;
