@@ -3,108 +3,54 @@
 // a calculator for vectors in c++
 
 #include <iostream>
-#include <cstring>
 #include "operaciones.h"
 #include "menu.h"
+#include "filtros.h"
 using namespace std;
 bool ciclo_main= true, ciclo_menu=true;
 int main() {
+    // Ciclo principal, con seleccion de dimension
     while(ciclo_main) {
         int operacion=0, dimension=0;
-        char op_verbose[20], dim_verbose[3];
-        vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec = NULL_VEC;
+        char op_verbose[20], dim_verbose[3];// Variables para hacer cout de la dimension y operacion en palabras
+        vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec = NULL_VEC;// Inicializacion de los vectores con valor 0
         float result_float, escalar = 0;
-        /// (verbose significa en palabras) ////
+
+        // Menu de seleccion de dimension
         dim_menu(dimension, dim_verbose, ciclo_menu, ciclo_main);
+
+        // Ciclo para operaciones (dimension constante)
         while(ciclo_menu){
             cout << "Dimension seleccionada: " << dim_verbose << "\n" << endl;
 
-    /////////////////////////////// Seleccion de operacion ///////////////////////////////
-
+            // Seleccion de la operación
             func_menu(operacion, op_verbose);
             if(operacion == 10){
                 ciclo_menu = false;
                 break;
             }
 
-            /////////////////////////////// Ingreso de vectores ///////////////////////////////
+            // Filtro de dimension para el input de los vectores
+            filtro_input(operacion,dimension,vector1,vector2,escalar);
 
-            if (operacion != 3 && operacion != 7 && operacion != 9) {
-                if (dimension == 1) {
-                    cout << "Ingrese el vector 1 en formato x y" << endl;
-                    cin >> vector1.eje_x >> vector1.eje_y;
-                    vector1.eje_z = 0;
-                    cout << "Ingrese el vector 2 en formato x y" << endl;
-                    cin >> vector2.eje_x >> vector2.eje_y;
-                    vector2.eje_z = 0;
-
-                } else if (dimension == 2) {
-                    cout << "Ingrese el vector 1 en formato x y z" << endl;
-                    cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
-                    cout << "Ingrese el vector 2 en formato x y z" << endl;
-                    cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
-                }
-
-            } else if (operacion == 3 || operacion == 7) {
-                if (dimension == 1) {
-                    cout << "Ingrese el vector en formato x y" << endl;
-                    cin >> vector1.eje_x >> vector1.eje_y;
-                    vector1.eje_z = 0;
-                } else if (dimension == 2) {
-                    cout << "Ingrese el vector en formato x y z" << endl;
-                    cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
-                }
-            } else if (operacion == 9) {
-                if (dimension == 1) {
-                    cout << "Ingrese el vector en formato x y" << endl;
-                    cin >> vector1.eje_x >> vector1.eje_y;
-                    vector1.eje_z = 0;
-                    cout << "Ingrese el escalar" << endl;
-                    cin >> escalar;
-                } else if (dimension == 2) {
-                    cout << "Ingrese el vector en formato x y z" << endl;
-                    cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
-                    cout << "Ingrese el escalar" << endl;
-                    cin >> escalar;
-                }
-            }
 
             //////////////////////////// Iniciador de funciones ///////////////////////////////
 
             switch (operacion) {
-                case 1:
+                case 1:// Suma
                     result_vec = suma(vector1, vector2);
-                    if (dimension == 1) {
-                        cout << "El resultado es: " << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
-                    } else if (dimension == 2) {
-                        cout << "El resultado es: (" << result_vec.eje_x << "," << result_vec.eje_y << ","
-                             << result_vec.eje_z << ")" << endl;
-                    }
+                    filtro_dim_gen(dimension, result_vec);
                     break;
-                case 2:
+                case 2:// Resta
                     result_vec = rest(vector1, vector2);
-                    if (dimension == 1) {
-                        cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
-                    } else if (dimension == 2) {
-                        cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ","
-                             << result_vec.eje_z << ")" << endl;
-                    } else {
-                        cout << "Ha ocurrido un error con las dimensiones" << endl;
-                    }
+                    filtro_dim_gen(dimension, result_vec);
                     break;
-                case 3:
+                case 3:// Vector unitario
                     cout << "Vector Unitario" << endl;
                     result_vec = vec_unitario(vector1);
-                    if (dimension == 1) {
-                        cout << "El resultado es:" << "(" << result_vec.eje_x << " i " << "+ " << result_vec.eje_y << " j " << ")" << endl;
-                    } else if (dimension == 2) {
-                        cout << "El resultado es:" << "(" << result_vec.eje_x << " i "<< "+ " << result_vec.eje_y << " j " << "+ "
-                             << result_vec.eje_z << " k " << ")" << endl;
-                    } else {
-                        cout << "Ha ocurrido un error con las dimensiones" << endl;
-                    }
+                    filtro_dim_componente(dimension, result_vec);
                     break;
-                case 4:
+                case 4:// Angulo
                     result_float = angle(vector1);
                     if(dimension == 1){
                         cout<<"El resultado es: "<< result_float << "°" <<endl;
@@ -112,20 +58,12 @@ int main() {
                     else if (dimension == 2){
                         cout<<"Trabajando para ello... Por favor seleccione otra opcion"<<endl;
                     }
-
                     break;
-                case 5:
-                    /// Producto Punto
+                case 5:// Producto Punto
                     result_float = p_punto(vector1, vector2, dimension);
-                    if (dimension == 1) {
-                        cout << "El resultado es: " << result_float << endl;
-                    } else if (dimension == 2) {
-                        cout << "El resultado es: " << result_float << endl;
-                    } else {
-                        cout << "Ha ocurrido un error con las dimensiones" << endl;
-                    }
+                    cout << "El resultado es: " << result_float << endl;
                     break;
-                case 6:
+                case 6:// Producto Cruz
                     cout << "Producto cruz" << endl;
                     result_vec = p_cruz(vector1, vector2, dimension);
                     if(dimension == 1){
@@ -139,33 +77,19 @@ int main() {
                     }
                     break;
                 case 7:
-                    //cout << "Modulo" << endl;
+                    //Modulo;
                     result_float = norm(vector1, dimension);
-                    if (dimension == 1) {
-                        cout << "El resultado es:" << result_float << endl;
-                    } else if (dimension == 2) {
-                        cout << "El resultado es:" << result_float << endl;
-                    } else {
-                        cout << "Ha ocurrido un error con las dimensiones" << endl;
-                    }
+                    cout << "El resultado es:" << result_float << endl;
                     break;
-                case 8:
-                    cout << "PLACEHOLDER" << endl;
-                    //////
+                case 8:// Proximamente
+                    cout << "Nuevas funciones vendran en proximas actualizaciones" << endl;
+                    operacion = 10;
                     break;
-                case 9:
-                    //cout << "Producto Escalar" << endl;
+                case 9:// Producto por escalar
                     result_vec = p_escalar(vector1, escalar);
-                    if (dimension == 1) {
-                        cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << endl;
-                    } else if (dimension == 2) {
-                        cout << "El resultado es:" << "(" << result_vec.eje_x << "," << result_vec.eje_y << ","
-                             << result_vec.eje_z << ")" << endl;
-                    } else {
-                        cout << "Ha ocurrido un error con las dimensiones" << endl;
-                        break;
-                    }
-                case 10:
+                    filtro_dim_gen(dimension, result_vec);
+                    break;
+                case 10:// Volver al menu
                     cout << "Volver a la seleccion" << endl;
                     break;
                 default:

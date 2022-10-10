@@ -77,7 +77,7 @@ void func_menu(int &operacion, char op_verbose[20]){
             std::strcpy(op_verbose, "Modulo");
             break;
         case 8:
-            std::strcpy(op_verbose, "PLACEHOLDER");
+            std::strcpy(op_verbose, "Proximamente");
             break;
         case 9:
             std::strcpy(op_verbose, "Producto escalar");
@@ -89,7 +89,7 @@ void func_menu(int &operacion, char op_verbose[20]){
             exit(1);
     }
     if (operacion == 1 || operacion == 2 || operacion == 3 || operacion == 4
-        || operacion == 5 || operacion == 6 || operacion == 7 || operacion == 8 || operacion == 9)
+        || operacion == 5 || operacion == 6 || operacion == 7 || operacion == 9)
     {
         std::cout << "Operacion seleccionada: " << op_verbose << std::endl;
     }
