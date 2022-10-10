@@ -76,6 +76,8 @@ void func_menu(int &operacion, char op_verbose[20]){
         case 9:
             std::strcpy(op_verbose, "Producto escalar");
             break;
+        case 10:
+            break;
         default:
             std::cout << "Ha ocurrido un error" << std::endl;
             exit(1);
