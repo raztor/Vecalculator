@@ -43,6 +43,14 @@ Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras
     To install this program you need to have a C++ compiler installed on your system we recommend
     g++ for Linux and Cmake for Windows you will also be able to use the Makefile provided for Linux.
 
+    Para ejecutar solo se necesita usar el makefile en caso de usar Linux, el ejecutable será encontrado
+    en la carpeta src, en caso de usar Windows, se debe usar para generar el ejecutable usando CmakeLists.txt
+
+    En algunos casos en windows puede haber una pequeña incompatibilidad con el simbolo º del angulo.
+
+# Usage
+    Para usar el programa solo se deben seguir las indicaciones, seleccionar dimension, seleccionar operacion
+    e introducir los datos solicitados
 
 
 ### Integrantes:
