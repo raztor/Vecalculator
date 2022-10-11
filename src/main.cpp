@@ -13,7 +13,7 @@ int main() {
     while(ciclo_main) {
         int operacion=0, dimension=0;
         char op_verbose[20], dim_verbose[3];// Variables para hacer cout de la dimension y operacion en palabras
-        vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec = NULL_VEC;// Inicializacion de los vectores con valor 0
+        vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec;// Inicializacion de los vectores con valor 0
         float result_float, escalar = 0;
 
         // Menu de seleccion de dimension
