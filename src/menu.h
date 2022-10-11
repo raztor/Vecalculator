@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
+// Funcion para el menu de seleccion de dimension y para salir del programa
 void dim_menu(int &dim, char dim_verbose[3], bool &ciclo_menu, bool &ciclo_main){
     cout << "El vector es 2D o 3D?" << endl;
     cout << "1. 2D" << endl;
@@ -31,7 +32,7 @@ void dim_menu(int &dim, char dim_verbose[3], bool &ciclo_menu, bool &ciclo_main)
             break;
     }
 }
-
+// Menu de seleccion de operacion
 void func_menu(int &operacion, char op_verbose[20]){
     bool ready = false;
     while(!ready) {
@@ -54,6 +55,7 @@ void func_menu(int &operacion, char op_verbose[20]){
             cout << "Opcion no valida" << endl;
         }
     }
+    // Switch encargado de asignar el nombre de la operacion a la variable op_verbose
     switch (operacion) {
         case 1:
             std::strcpy(op_verbose, "Suma");
@@ -88,20 +90,20 @@ void func_menu(int &operacion, char op_verbose[20]){
             std::cout << "Ha ocurrido un error" << std::endl;
             exit(1);
     }
+    // condicional para hacer cout de la operacion siempre y cuando sea una operacion y no otra opcion
     if (operacion == 1 || operacion == 2 || operacion == 3 || operacion == 4
         || operacion == 5 || operacion == 6 || operacion == 7 || operacion == 9)
     {
         std::cout << "Operacion seleccionada: " << op_verbose << std::endl;
     }
 }
-
+// Menu para saber si el usuario desea continuar usando el programa
 void fin_menu(bool &ciclo_main, bool &ciclo_menu, char dim_verbose[3]){
     cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no (salir), 3 = Cambiar dimension)" << endl;
     int temp_continue;
     cin >> temp_continue;
     if (temp_continue == 1) {
         ciclo_menu = true;
-
     } else if (temp_continue == 2) {
         cout << "Gracias por usar el programa" << endl;
         ciclo_menu = false;
