@@ -33,6 +33,9 @@ Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras
     - Clear previous commands on console before launching.
     - Create a GUI.
     - Add more functions.
+    - Add angle function for 3D vectors.
+    - Auto recognize vector dimension.
+    - add the option to operate more than 2 vectors.
 
 # Installation
     This program is tested on Linux and Windows so there shouldn't be major issues with most OS.
