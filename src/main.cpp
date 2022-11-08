@@ -6,9 +6,16 @@
 #include "operaciones.h"
 #include "menu.h"
 #include "filtros.h"
+
+#include "./qt/mainwindow.h"
+#include <QApplication>
+
 using namespace std;
 bool ciclo_main= true, ciclo_menu=true;
-int main() {
+int main(int argc, char **argv) {
+    QApplication a(argc, argv);
+    MainWindow w;
+
     // Ciclo principal, con seleccion de dimension
     while(ciclo_main) {
         int operacion=0, dimension=0;
@@ -99,5 +106,8 @@ int main() {
             fin_menu(ciclo_main, ciclo_menu, dim_verbose);
         }
     }
-    return 0;
+    QLabel *label = new QLabel(&w);
+    label->setText("Estoy dejando la caga");
+    w.show();
+    return a.exec();
 }

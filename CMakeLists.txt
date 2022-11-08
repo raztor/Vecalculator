@@ -12,14 +12,17 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
+        Charts
         REQUIRED)
 
 add_executable(vecalculator_qt
-        qt/main.cpp qt/mainwindow.cpp qt/mainwindow.h qt/mainwindow.ui)
+        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp)
+
 target_link_libraries(vecalculator_qt
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt::Charts
         )
 
 if (WIN32)
