@@ -13,17 +13,39 @@ find_package(Qt6 COMPONENTS
         Gui
         Widgets
         Charts
-        REQUIRED)
+        REQUIRED
+        PrintSupport
+        )
 
+
+
+#set(SOURCES
+#        ./src/qcustomplot/qcustomplot.cpp
+#        ./src/qcustomplot/qcustomplot.h
+#)
+
+INCLUDE_DIRECTORIES("src/includes")
 add_executable(vecalculator_qt
-        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp)
+        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp src/includes/qcustomplot.cpp)
+
+add_executable(vecalculator_2
+        2.0/main.cpp 2.0/mainwindow.cpp 2.0/mainwindow.h 2.0/mainwindow.ui 2.0/qcustomplot.cpp)
+target_link_libraries(vecalculator_2
+        Qt::Core
+        Qt::Gui
+        Qt::Widgets
+        Qt::Charts
+        Qt::PrintSupport
+        )
 
 target_link_libraries(vecalculator_qt
         Qt::Core
         Qt::Gui
         Qt::Widgets
         Qt::Charts
+        Qt::PrintSupport
         )
+
 
 if (WIN32)
     set(DEBUG_SUFFIX)

@@ -106,8 +106,8 @@ int main(int argc, char **argv) {
             fin_menu(ciclo_main, ciclo_menu, dim_verbose);
         }
     }
-    QLabel *label = new QLabel(&w);
-    label->setText("Estoy dejando la caga");
+    //QLabel *label = new QLabel(&w);
+    //label->setText("Estoy dejando la caga");
     w.show();
     return a.exec();
 }
