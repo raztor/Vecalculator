@@ -1,6 +1,6 @@
 #ifndef PROYECTO_TEL102_OPERACIONES_H
 #define PROYECTO_TEL102_OPERACIONES_H
-#include "data_types.h"
+#include "vectores.h"
 #include <cmath>
 // Operacion encargada de la suma
 vec suma(vec a, vec b){

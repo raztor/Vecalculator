@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project(vecalculator_qt)
+project(vecalculator)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_AUTOMOC ON)
@@ -17,28 +17,11 @@ find_package(Qt6 COMPONENTS
         PrintSupport
         )
 
-
-
-#set(SOURCES
-#        ./src/qcustomplot/qcustomplot.cpp
-#        ./src/qcustomplot/qcustomplot.h
-#)
-
 INCLUDE_DIRECTORIES("src/includes")
-add_executable(vecalculator_qt
+add_executable(vecalculator
         src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp src/includes/qcustomplot.cpp)
 
-add_executable(vecalculator_2
-        2.0/main.cpp 2.0/mainwindow.cpp 2.0/mainwindow.h 2.0/mainwindow.ui 2.0/qcustomplot.cpp)
-target_link_libraries(vecalculator_2
-        Qt::Core
-        Qt::Gui
-        Qt::Widgets
-        Qt::Charts
-        Qt::PrintSupport
-        )
-
-target_link_libraries(vecalculator_qt
+target_link_libraries(vecalculator
         Qt::Core
         Qt::Gui
         Qt::Widgets
