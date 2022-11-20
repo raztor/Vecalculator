@@ -106,8 +106,25 @@ int main(int argc, char **argv) {
             fin_menu(ciclo_main, ciclo_menu, dim_verbose);
         }
     }
-    QLabel *label = new QLabel(&w);
-    label->setText("Estoy dejando la caga");
+    QLineSeries * datos = new QLineSeries();
+
+    for(int i = 0; i < 10; i++){
+        datos->append(i, i);
+        datos->setName("Datos");
+    }
+
+    QChart * mi_grafico = new QChart();
+    mi_grafico->addSeries(datos);
+    mi_grafico->createDefaultAxes();
+
+    QChartView * mi_salida = new QChartView(mi_grafico);
+
+    w.setCentralWidget(mi_salida);
+
+    datos->append(20,15);
+    mi_grafico->update();
+    mi_salida->update();
     w.show();
+
     return a.exec();
 }

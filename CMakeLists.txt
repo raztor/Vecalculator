@@ -19,10 +19,10 @@ add_executable(vecalculator_qt
         src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp)
 
 target_link_libraries(vecalculator_qt
-        Qt::Core
-        Qt::Gui
-        Qt::Widgets
-        Qt::Charts
+        Qt6::Core
+        Qt6::Gui
+        Qt6::Widgets
+        Qt6::Charts
         )
 
 if (WIN32)
