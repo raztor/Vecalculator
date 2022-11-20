@@ -17,31 +17,31 @@ Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras
     Date: 2022-09-28
     License: GNU AGPLv3
     
-    Changes:
-    - Initial release
-    - Added vector addition
-    - Added vector subtraction
-    - Added vector multiplication
-    - Added vector dot product
-    - Added vector cross product
-    - Added vector magnitude
-    - Added vector Angle
-    - And More.
+    Cambios:
+    - Lanzamiento Inicial
+    - Añadimos suma de vectores 
+    - Añadimos resta de vectores
+    - Añadimos multiplicación de vectores
+    - Añadimos producto punto entre vectores
+    - Añadimos producto cruz entre vectores
+    - Añadimos magnitud entre vectores
+    - Añadimos cálculo de Ángulo entre vectores
+    - Y mucho mas.
 
     
-    To-Do:
-    - Clear previous commands on console before launching.
-    - Create a GUI.
-    - Add more functions.
-    - Add angle function for 3D vectors.
-    - Auto recognize vector dimension.
-    - add the option to operate more than 2 vectors.
+    Por hacer:
+    - Limpiar previamente los comandos en consola antes del lanzamiento
+    - Creación de una GUI
+    - Añadir más funciones
+    - Añadir la función cálculo de ángulo para vectores 3D
+    - Reconocimiento automático de dimensión
+    - Agregar la opción para operar con 2 o más vectores.
 
 # Installation
-    This program is tested on Linux and Windows so there shouldn't be major issues with most OS.
+    El progama fue testeado en linux y windows, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
     
-    To install this program you need to have a C++ compiler installed on your system we recommend
-    g++ for Linux and Cmake for Windows you will also be able to use the Makefile provided for Linux.
+    Para instalar este progama, necesitaras tener un compilador de C++ instalado en tu sistema, recomendamos
+    g++ para linux y Cmamke para Windows, Tambien podrá utilizar el Makefile proporcionado para Linux
 
     Para ejecutar solo se necesita usar el makefile en caso de usar Linux, el ejecutable será encontrado
     en la carpeta src, en caso de usar Windows, se debe usar para generar el ejecutable usando CmakeLists.txt
