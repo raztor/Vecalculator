@@ -6,27 +6,11 @@
 #include "operaciones.h"
 #include "menu.h"
 #include "filtros.h"
-
-#include "./qt/mainwindow.h"
-#include <QApplication>
-
-void MainWindow::setEje_x(float x) {
-    eje_x = x;
-}
-void MainWindow::setEje_y(float y) {
-    eje_y = y;
-}
-void MainWindow::setOr_x(float or_x) {
-    original_x = or_x;
-}
-void MainWindow::setOr_y(float or_y) {
-    original_y = or_y;
-}
+#include "graficador.h"
 
 using namespace std;
 bool ciclo_main= true, ciclo_menu=true;
 int main(int argc, char **argv) {
-    QApplication a(argc, argv);
 
     // Ciclo principal, con seleccion de dimension
     while(ciclo_main) {
@@ -59,14 +43,13 @@ int main(int argc, char **argv) {
                 case 1: {// Suma
                     result_vec = suma(vector1, vector2);
                     filtro_dim_gen(dimension, result_vec);
-                    MainWindow w(result_vec.eje_x, result_vec.eje_y, vector1.eje_x, vector1.eje_y);
-                    w.show();
-                    a.exec();
+                    graficar2d(result_vec.eje_x, result_vec.eje_y, vector1.eje_x, vector1.eje_y, argc, argv);
                     break;
                 }
                 case 2: {// Resta
                     result_vec = rest(vector1, vector2);
                     filtro_dim_gen(dimension, result_vec);
+                    graficar2d(result_vec.eje_x, result_vec.eje_y, vector1.eje_x, vector1.eje_y, argc, argv);
                     break;
                 }
                 case 3: {// Vector unitario
@@ -79,6 +62,8 @@ int main(int argc, char **argv) {
                     if (dimension == 1) {
                         result_float = angle(vector1, dimension);
                         cout << "El resultado es: " << result_float << "°" << endl;
+                        graficar2d(vector1.eje_x, vector1.eje_y, 0, 0, argc, argv);
+
                     } else if (dimension == 2) {
                         cout << "Proximamente..." << endl;
                     }
@@ -92,9 +77,10 @@ int main(int argc, char **argv) {
                 case 6:{
                 // Producto Cruz
                 cout << "Producto cruz" << endl;
-                result_vec = p_cruz(vector1, vector2, dimension);
+                result_vec = p_cruz(vector1, vector2);
                 if (dimension == 1) {
-                    cout << "No se puede realizar esta operacion en 2 dimensiones, intente de nuevo." << endl;
+                    cout << "El resultado es: (" << result_vec.eje_x << "," << result_vec.eje_y << ","
+                         << result_vec.eje_z << ")" << endl;
                 } else if (dimension == 2) {
                     cout << "El resultado es: (" << result_vec.eje_x << "," << result_vec.eje_y << ","
                          << result_vec.eje_z << ")" << endl;
@@ -117,6 +103,9 @@ int main(int argc, char **argv) {
                 case 9: {// Producto por escalar
                     result_vec = p_escalar(vector1, escalar);
                     filtro_dim_gen(dimension, result_vec);
+                    if(dimension == 1){
+                        graficar2d(result_vec.eje_x,result_vec.eje_y,vector1.eje_x,vector1.eje_y,argc,argv);
+                    }
                     break;
                 }
                 case 10: {// Volver al menu

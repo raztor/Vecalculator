@@ -1261,7 +1261,7 @@ public:
   
   /*!
     Defines to which rect of a layout element the size constraints that can be set via \ref
-    setMinimumSize and \ref setMaximumSize apply. The outer rect (\ref outerRect) includes the
+    setMinimumSize and \ref setMaximumSize apply. The outer rect (\ref outerRect) lib the
     margins (e.g. in the case of a QCPAxisRect the axis labels), whereas the inner rect (\ref rect)
     does not.
     

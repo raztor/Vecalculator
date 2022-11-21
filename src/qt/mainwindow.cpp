@@ -47,7 +47,7 @@ void MainWindow::makePlot(){
         max_y = or_y;
     }
 
-    ui->customplot->xAxis->setRange(min_x, max_x);
+    ui->customplot->xAxis->setRange(min_x, max_x); // Flata añadir margen al plot
     ui->customplot->yAxis->setRange(min_y, max_y);
     // add the arrow:
     QCPItemLine *arrow = new QCPItemLine(ui->customplot);

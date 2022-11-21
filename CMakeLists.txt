@@ -17,9 +17,11 @@ find_package(Qt6 COMPONENTS
         PrintSupport
         )
 
-INCLUDE_DIRECTORIES("src/includes")
+INCLUDE_DIRECTORIES("src/lib")
+INCLUDE_DIRECTORIES("src/imports")
+
 add_executable(vecalculator
-        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp src/includes/qcustomplot.cpp)
+        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp src/lib/qcustomplot.cpp src/imports/graficador.cpp src/imports/graficador.h)
 
 target_link_libraries(vecalculator
         Qt::Core

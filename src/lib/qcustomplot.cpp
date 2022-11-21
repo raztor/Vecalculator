@@ -2004,7 +2004,7 @@ QCPRange QCPRange::expanded(const QCPRange &otherRange) const
 
 /*! \overload
 
-  Returns an expanded range that includes the specified \a includeCoord. It is assumed that this
+  Returns an expanded range that lib the specified \a includeCoord. It is assumed that this
   range is normalized (see \ref normalize).
 
   If this range contains NaN as lower or upper bound, the returned range's bound will be set to \a
@@ -3365,7 +3365,7 @@ void QCPLayoutElement::setMaximumSize(int width, int height)
   Sets to which rect of a layout element the size constraints apply. Size constraints can be set
   via \ref setMinimumSize and \ref setMaximumSize.
   
-  The outer rect (\ref outerRect) includes the margins (e.g. in the case of a QCPAxisRect the axis
+  The outer rect (\ref outerRect) lib the margins (e.g. in the case of a QCPAxisRect the axis
   labels), whereas the inner rect (\ref rect) does not.
   
   \see setMinimumSize, setMaximumSize
@@ -6658,7 +6658,7 @@ double QCPAxisTickerDateTime::getTickStep(const QCPRange &range)
     result = pickClosest(result, QVector<double>()
                              << 1 << 2.5 << 5 << 10 << 15 << 30 << 60 << 2.5*60 << 5*60 << 10*60 << 15*60 << 30*60 << 60*60 // second, minute, hour range
                              << 3600*2 << 3600*3 << 3600*6 << 3600*12 << 3600*24 // hour to day range
-                             << 86400*2 << 86400*5 << 86400*7 << 86400*14 << 86400*30.4375 << 86400*30.4375*2 << 86400*30.4375*3 << 86400*30.4375*6 << 86400*30.4375*12); // day, week, month range (avg. days per month includes leap years)
+                             << 86400*2 << 86400*5 << 86400*7 << 86400*14 << 86400*30.4375 << 86400*30.4375*2 << 86400*30.4375*3 << 86400*30.4375*6 << 86400*30.4375*12); // day, week, month range (avg. days per month lib leap years)
     if (result > 86400*30.4375-1) // month tick intervals or larger
       mDateStrategy = dsUniformDayInMonth;
     else if (result > 3600*24-1) // day tick intervals or larger
@@ -12533,7 +12533,7 @@ void QCPItemPosition::setCoords(const QPointF &pos)
 
 /*!
   Returns the final absolute pixel position of the QCPItemPosition on the QCustomPlot surface. It
-  includes all effects of type (\ref setType) and possible parent anchors (\ref setParentAnchor).
+  lib all effects of type (\ref setType) and possible parent anchors (\ref setParentAnchor).
 
   \see setPixelPosition
 */
@@ -18994,7 +18994,7 @@ void QCPPlottableLegendItem::draw(QCPPainter *painter)
 
 /*! \internal
   
-  Calculates and returns the size of this item. This includes the icon, the text and the padding in
+  Calculates and returns the size of this item. This lib the icon, the text and the padding in
   between.
   
   \seebaseclassmethod
@@ -25043,7 +25043,7 @@ void QCPBars::getPixelWidth(double key, double &lower, double &upper) const
         upper = mKeyAxis.data()->coordToPixel(key+mWidth*0.5)-keyPixel;
         lower = mKeyAxis.data()->coordToPixel(key-mWidth*0.5)-keyPixel;
         // no need to qSwap(lower, higher) when range reversed, because higher/lower are gained by
-        // coordinate transform which includes range direction
+        // coordinate transform which lib range direction
       } else
         qDebug() << Q_FUNC_INFO << "No key axis defined";
       break;
