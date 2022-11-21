@@ -9,7 +9,7 @@ void dim_menu(int &dim, char dim_verbose[3], bool &ciclo_menu, bool &ciclo_main)
     cout << "1. 2D" << endl;
     cout << "2. 3D" << endl;
     cout << "\n3. Para Salir" << endl;
-    int dimm = scanf("%d", &dim); //solo numero entero
+    cin >> dim;
     switch (dim) {
         case 1:
             std::strcpy(dim_verbose, "2D");
@@ -47,7 +47,7 @@ void func_menu(int &operacion, char op_verbose[20]){
         cout << "8. PLACEHOLDER" << endl;
         cout << "9. Producto escalar" << endl;
         cout << "10. Volver a la seleccion de dimension" << endl;
-        int opp = scanf("%d", &operacion); //solo entero admitido
+        cin >> operacion;
         if (operacion>=1 && operacion <=10){
             ready = true;
         }
@@ -100,7 +100,8 @@ void func_menu(int &operacion, char op_verbose[20]){
 // Menu para saber si el usuario desea continuar usando el programa
 void fin_menu(bool &ciclo_main, bool &ciclo_menu, char dim_verbose[3]){
     cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no (salir), 3 = Cambiar dimension)" << endl;
-    int temp_continue = scanf("%d", &temp_continue);
+    int temp_continue;
+    cin >> temp_continue;
     if (temp_continue == 1) {
         ciclo_menu = true;
     } else if (temp_continue == 2) {
