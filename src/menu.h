@@ -1,6 +1,5 @@
 #ifndef PROYECTO_TEL102_MENU_H
 #define PROYECTO_TEL102_MENU_H
-#include <iostream>
 #include <cstring>
 // Funcion para el menu de seleccion de dimension y para salir del programa
 void dim_menu(int &dim, char dim_verbose[3], bool &ciclo_menu, bool &ciclo_main){
@@ -8,27 +7,25 @@ void dim_menu(int &dim, char dim_verbose[3], bool &ciclo_menu, bool &ciclo_main)
     std::cout << "1. 2D" << std::endl;
     std::cout << "2. 3D" << std::endl;
     std::cout << "\n3. Para Salir" << std::endl;
-    int dimm = scanf("%d", &dim); //solo numero entero
-    switch (dim) {
-        case 1:
-            std::strcpy(dim_verbose, "2D");
-            ciclo_menu = true;
-            ciclo_main = true;
-            break;
-        case 2:
-            std::strcpy(dim_verbose, "3D");
-            ciclo_menu = true;
-            ciclo_main = true;
-            break;
-        case 3:
-            ciclo_menu = false;
-            ciclo_main = false;
-            break;
-        default:
-            std::cout << "Opcion no valida" << std::endl;
-            ciclo_menu = false;
-            ciclo_main = true;
-            break;
+    std::cin >> dim;
+    std::cin.clear();
+    std::cin.ignore(1000, '\n');
+    //solo numero entero
+    if(dim==1) {
+        std::strcpy(dim_verbose, "2D");
+        ciclo_menu = true;
+        ciclo_main = true;
+    }else if(dim==2){
+        std::strcpy(dim_verbose, "3D");
+        ciclo_menu = true;
+        ciclo_main = true;
+    }else if(dim==3) {
+        ciclo_menu = false;
+        ciclo_main = false;
+    }else{
+        std::cout << "Opcion no valida" << std::endl;
+        ciclo_menu = false;
+        ciclo_main = true;
     }
 }
 // Menu de seleccion de operacion
@@ -46,7 +43,9 @@ void func_menu(int &operacion, char op_verbose[20]){
         std::cout << "8. PLACEHOLDER" << std::endl;
         std::cout << "9. Producto escalar" << std::endl;
         std::cout << "10. Volver a la seleccion de dimension" << std::endl;
-        int opp = scanf("%d", &operacion); //solo entero admitido
+        std::cin >> operacion;
+        std::cin.clear();
+        std::cin.ignore(1000, '\n'); //solo entero admitido
         if (operacion>=1 && operacion <=10){
             ready = true;
         }
@@ -99,7 +98,10 @@ void func_menu(int &operacion, char op_verbose[20]){
 // Menu para saber si el usuario desea continuar usando el programa
 void fin_menu(bool &ciclo_main, bool &ciclo_menu, char dim_verbose[3]){
     std::cout << "\nDesea realizar otra operacion " << dim_verbose <<"? (1 = si, 2 = no (salir), 3 = Cambiar dimension)" << std::endl;
-    int temp_continue = scanf("%d", &temp_continue);
+    int temp_continue;
+    std::cin >> temp_continue;
+    std::cin.clear();
+    std::cin.ignore(1000, '\n');
     if (temp_continue == 1) {
         ciclo_menu = true;
     } else if (temp_continue == 2) {
