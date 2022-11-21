@@ -1,6 +1,6 @@
 #ifndef PROYECTO_TEL102_FILTROS_H
 #define PROYECTO_TEL102_FILTROS_H
-#include "data_types.h"
+#include "vectores.h"
 /* De momento este filtro solo sirve para la funcion de vector unitario pero planeamos reutilizarla.
     Separa las dimensiones y aplica i,j y z a los cout */
 void filtro_dim_gen(int &dimension, vec result_vec){

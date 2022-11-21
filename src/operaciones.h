@@ -1,6 +1,6 @@
 #ifndef PROYECTO_TEL102_OPERACIONES_H
 #define PROYECTO_TEL102_OPERACIONES_H
-#include "data_types.h"
+#include "vectores.h"
 #include <cmath>
 // Operacion encargada de la suma
 vec suma(vec a, vec b){
@@ -75,7 +75,7 @@ float angle(vec a, int dim){
 
 } //tangente-1 (Cateto op/cateto ad)
 
-vec p_cruz(vec a, vec b, int dim=2){
+vec p_cruz(vec a, vec b){
 
     vec pc = NULL_VEC;
     pc.eje_x = (a.eje_y*b.eje_z - a.eje_z*b.eje_y);
