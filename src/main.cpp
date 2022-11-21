@@ -8,14 +8,13 @@
 #include "filtros.h"
 #include "graficador.h"
 
-using namespace std;
 bool ciclo_main= true, ciclo_menu=true;
 int main(int argc, char **argv) {
 
     // Ciclo principal, con seleccion de dimension
     while(ciclo_main) {
         int operacion=0, dimension=0;
-        char op_verbose[20], dim_verbose[3];// Variables para hacer cout de la dimension y operacion en palabras
+        char op_verbose[20], dim_verbose[3];// Variables para hacer std::cout de la dimension y operacion en palabras
         vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec=NULL_VEC;// Inicializacion de los vectores con valor 0
         float result_float, escalar = 0;
 
@@ -24,7 +23,7 @@ int main(int argc, char **argv) {
 
         // Ciclo para operaciones (dimension constante)
         while(ciclo_menu){
-            cout << "Dimension seleccionada: " << dim_verbose << "\n" << endl;
+            std::cout << "Dimension seleccionada: " << dim_verbose << "\n" << std::endl;
 
             // Seleccion de la operación
             func_menu(operacion, op_verbose);
@@ -53,7 +52,7 @@ int main(int argc, char **argv) {
                     break;
                 }
                 case 3: {// Vector unitario
-                    cout << "Vector Unitario" << endl;
+                    std::cout << "Vector Unitario" << std::endl;
                     result_vec = vec_unitario(vector1);
                     filtro_dim_componente(dimension, result_vec);
                     break;
@@ -61,42 +60,42 @@ int main(int argc, char **argv) {
                 case 4: {// Angulo
                     if (dimension == 1) {
                         result_float = angle(vector1, dimension);
-                        cout << "El resultado es: " << result_float << "°" << endl;
+                        std::cout << "El resultado es: " << result_float << "°" << std::endl;
                         graficar2d(vector1.eje_x, vector1.eje_y, 0, 0, argc, argv);
 
                     } else if (dimension == 2) {
-                        cout << "Proximamente..." << endl;
+                        std::cout << "Proximamente..." << std::endl;
                     }
                     break;
                 }
                 case 5: {// Producto Punto
                     result_float = p_punto(vector1, vector2, dimension);
-                    cout << "El resultado es: " << result_float << endl;
+                    std::cout << "El resultado es: " << result_float << std::endl;
                     break;
                 }
                 case 6:{
                 // Producto Cruz
-                cout << "Producto cruz" << endl;
+                std::cout << "Producto cruz" << std::endl;
                 result_vec = p_cruz(vector1, vector2);
                 if (dimension == 1) {
-                    cout << "El resultado es: (" << result_vec.eje_x << "," << result_vec.eje_y << ","
-                         << result_vec.eje_z << ")" << endl;
+                    std::cout << "El resultado es: (" << result_vec.eje_x << "," << result_vec.eje_y << ","
+                         << result_vec.eje_z << ")" << std::endl;
                 } else if (dimension == 2) {
-                    cout << "El resultado es: (" << result_vec.eje_x << "," << result_vec.eje_y << ","
-                         << result_vec.eje_z << ")" << endl;
+                    std::cout << "El resultado es: (" << result_vec.eje_x << "," << result_vec.eje_y << ","
+                         << result_vec.eje_z << ")" << std::endl;
                 } else {
-                    cout << "Ha ocurrido un error con las dimensiones" << endl;
+                    std::cout << "Ha ocurrido un error con las dimensiones" << std::endl;
                 }
                 break;
             }
                 case 7: {
                     //Modulo;
                     result_float = norm(vector1, dimension);
-                    cout << "El resultado es: " << result_float << endl;
+                    std::cout << "El resultado es: " << result_float << std::endl;
                     break;
                 }
                 case 8: {// Proximamente
-                    cout << "Nuevas funciones vendran en proximas actualizaciones" << endl;
+                    std::cout << "Nuevas funciones vendran en proximas actualizaciones" << std::endl;
                     operacion = 10;
                     break;
                 }
@@ -109,11 +108,11 @@ int main(int argc, char **argv) {
                     break;
                 }
                 case 10: {// Volver al menu
-                    cout << "Volver a la seleccion" << endl;
+                    std::cout << "Volver a la seleccion" << std::endl;
                     break;
                 }
                 default: {
-                    cout << "Operacion no valida" << endl;
+                    std::cout << "Operacion no valida" << std::endl;
                     break;
                 }
             }
