@@ -1,7 +1,5 @@
-#ifndef PROYECTO_TEL102_OPERACIONES_H
-#define PROYECTO_TEL102_OPERACIONES_H
-#include "vectores.h"
-#include <cmath>
+#include "operaciones.h"
+
 // Operacion encargada de la suma
 vec suma(vec a, vec b){
     vec c=NULL_VEC;
@@ -37,7 +35,7 @@ vec p_escalar(vec a, float escalar){
     return c;
 }
 // Operacion encargada de la norma/modulo
-float norm(vec a, int dim=1){
+float norm(vec a, int dim){
     float mag=0;
     if (dim == 1){
         mag = sqrt((pow(a.eje_x, 2) + pow(a.eje_y, 2)));
@@ -47,8 +45,8 @@ float norm(vec a, int dim=1){
     }
     return mag;
 }
-// Operacion encargada del calculo del vector unitario i,j / i,j,k
-vec vec_unitario(vec a, int dim= 1){
+// Operacion encargada del calculo de los componentes i,j / i,j,k
+vec componentes(vec a, int dim){
     float mag = norm(a, dim);
     if(dim==1) {
         a.eje_x = mag * cos(a.eje_x);
@@ -61,11 +59,24 @@ vec vec_unitario(vec a, int dim= 1){
     }
     return a;
 }
+// Operacion encargada del calculo del vector unitario
+vec unitario(vec a, int dim){
+    float mag = norm(a, dim);
+    if(dim==1) {
+        a.eje_x = a.eje_x/mag;
+        a.eje_y = a.eje_y/mag;
+    }else if (dim==2){
+        a.eje_x = a.eje_x/mag;
+        a.eje_y = a.eje_y/mag;
+        a.eje_z = a.eje_z/mag;
+    }
+    return a;
+}
 // Operacion encargada de calcular el angulo entre dos vectores
 float angle(vec a, int dim){
     float angulo;
     if (dim==1){
-        vec result_cateto = vec_unitario(a, 1);
+        vec result_cateto = unitario(a, 1);
         angulo = atan(result_cateto.eje_y/result_cateto.eje_x);
     } else if (dim==2){
         std::cout << "Esta funcion vendra en un futuro proximo" << std::endl;
@@ -84,6 +95,3 @@ vec p_cruz(vec a, vec b){
 
     return pc;
 }
-
-
-#endif //PROYECTO_TEL102_OPERACIONES_H

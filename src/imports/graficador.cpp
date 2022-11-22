@@ -13,9 +13,9 @@ void MainWindow::setOr_y(float or_y) {
     original_y = or_y;
 }
 
-void graficar2d(int x, int y, int x_orig, int y_orig, int argc, char **argv){
+void graficar2d(vec final, vec inicial, int argc, char **argv){
     QApplication a(argc, argv);
-    MainWindow w(x, y, x_orig, y_orig);
+    MainWindow w(final.eje_x, final.eje_y, inicial.eje_x, inicial.eje_y);
     w.show();
     a.exec();
 }

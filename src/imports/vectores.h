@@ -6,6 +6,6 @@ struct vec{
     float eje_y;
     float eje_z;
 };
-vec NULL_VEC = {0,0,0}; /// Vector "vacio" para inicializar las variables de tipo vec
+extern vec NULL_VEC; /// Vector "vacio" para inicializar las variables de tipo vec
 
 #endif //PROYECTO_TEL102_DATA_TYPES_H
