@@ -1,6 +1,5 @@
-#ifndef PROYECTO_TEL102_FILTROS_H
-#define PROYECTO_TEL102_FILTROS_H
-#include "vectores.h"
+#include "filtros.h"
+
 /* De momento este filtro solo sirve para la funcion de vector unitario pero planeamos reutilizarla.
     Separa las dimensiones y aplica i,j y z a los std::cout */
 void filtro_dim_gen(int &dimension, vec result_vec){
@@ -8,7 +7,7 @@ void filtro_dim_gen(int &dimension, vec result_vec){
         std::cout << "El resultado es: " << "(" << result_vec.eje_x << "," << result_vec.eje_y << ")" << std::endl;
     } else if (dimension == 2) {
         std::cout << "El resultado es: " << "(" << result_vec.eje_x << "," << result_vec.eje_y << ","
-             << result_vec.eje_z << ")" << std::endl;
+                  << result_vec.eje_z << ")" << std::endl;
     } else {
         std::cout << "Ha ocurrido un error con las dimensiones" << std::endl;
     }
@@ -19,7 +18,7 @@ void filtro_dim_componente(int &dimension, vec result_vec){
         std::cout << "El resultado es: " << "(" << result_vec.eje_x << " i " << "+ " << result_vec.eje_y << " j " << ")" << std::endl;
     } else if (dimension == 2) {
         std::cout << "El resultado es: " << "(" << result_vec.eje_x << " i "<< "+ " << result_vec.eje_y << " j " << "+ "
-             << result_vec.eje_z << " k " << ")" << std::endl;
+                  << result_vec.eje_z << " k " << ")" << std::endl;
     } else {
         std::cout << "Ha ocurrido un error con las dimensiones" << std::endl;
     }
@@ -68,5 +67,3 @@ void filtro_input(int &operacion, int &dimension, vec &vector1, vec &vector2, fl
         }
     }
 }
-
-#endif //PROYECTO_TEL102_FILTROS_H

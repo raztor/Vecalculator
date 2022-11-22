@@ -1,9 +1,10 @@
 #ifndef VECALCULATOR_GRAFICADOR_H
 #define VECALCULATOR_GRAFICADOR_H
 #include <QApplication>
-#include "../qt/mainwindow.h"
+#include "mainwindow.h"
+#include "vectores.h"
 
-void graficar2d(int x, int y, int x_orig, int y_orig, int argc, char **argv);
+void graficar2d(vec final, vec inicial, int argc, char **argv);
 
 //void graficar3d(int x, int y, int x_orig, int y_orig, int argc, char **argv)
 

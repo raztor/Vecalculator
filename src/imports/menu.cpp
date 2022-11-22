@@ -1,6 +1,5 @@
-#ifndef PROYECTO_TEL102_MENU_H
-#define PROYECTO_TEL102_MENU_H
-#include <cstring>
+#include "menu.h"
+
 // Funcion para el menu de seleccion de dimension y para salir del programa
 void dim_menu(int &dim, char dim_verbose[3], bool &ciclo_menu, bool &ciclo_main){
     std::cout << "El vector es 2D o 3D?" << std::endl;
@@ -40,7 +39,7 @@ void func_menu(int &operacion, char op_verbose[20]){
         std::cout << "5. Producto punto" << std::endl;
         std::cout << "6. Producto cruz" << std::endl;
         std::cout << "7. Modulo" << std::endl;
-        std::cout << "8. PLACEHOLDER" << std::endl;
+        std::cout << "8. Componentes" << std::endl;
         std::cout << "9. Producto escalar" << std::endl;
         std::cout << "10. Volver a la seleccion de dimension" << std::endl;
         std::cin >> operacion;
@@ -90,7 +89,7 @@ void func_menu(int &operacion, char op_verbose[20]){
     }
     // condicional para hacer std::cout de la operacion siempre y cuando sea una operacion y no otra opcion
     if (operacion == 1 || operacion == 2 || operacion == 3 || operacion == 4
-        || operacion == 5 || operacion == 6 || operacion == 7 || operacion == 9)
+        || operacion == 5 || operacion == 6 || operacion == 7 || operacion == 8 || operacion == 9)
     {
         std::cout << "Operacion seleccionada: " << op_verbose << std::endl;
     }
@@ -115,5 +114,3 @@ void fin_menu(bool &ciclo_main, bool &ciclo_menu, char dim_verbose[3]){
         std::cout << "Opcion no valida" << std::endl;
     }
 }
-
-#endif //PROYECTO_TEL102_MENU_H
