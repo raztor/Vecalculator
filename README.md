@@ -77,5 +77,5 @@ Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras
 <details>
 <summary>Diagrama</summary>
 <br>
-<img src="https://gitlab.com/Raztor/proyecto-tel102/-/raw/main/media/uml.png" alt="Diagrama UML">
+<img src="https://gitlab.com/Raztor/vecalculator/-/raw/main/media/diagrama.png" alt="Diagrama UML">
 </details>

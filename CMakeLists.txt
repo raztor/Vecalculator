@@ -19,9 +19,10 @@ find_package(Qt6 COMPONENTS
 
 INCLUDE_DIRECTORIES("src/lib")
 INCLUDE_DIRECTORIES("src/imports")
+INCLUDE_DIRECTORIES("src/qt")
 
 add_executable(vecalculator
-        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp src/lib/qcustomplot.cpp src/imports/graficador.cpp src/imports/graficador.h)
+        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp src/lib/qcustomplot.cpp src/imports/graficador.cpp src/imports/graficador.h src/imports/menu.cpp src/imports/filtros.cpp src/imports/vectores.cpp src/imports/operaciones.cpp)
 
 target_link_libraries(vecalculator
         Qt::Core

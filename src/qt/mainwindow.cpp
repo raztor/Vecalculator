@@ -26,6 +26,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
 void MainWindow::makePlot(){
     float x,y,or_x,or_y,min_x,max_x,min_y,max_y;
     x = eje_x;
@@ -46,9 +48,8 @@ void MainWindow::makePlot(){
         min_y = eje_y;
         max_y = or_y;
     }
-
-    ui->customplot->xAxis->setRange(min_x, max_x); // Flata añadir margen al plot
-    ui->customplot->yAxis->setRange(min_y, max_y);
+    ui->customplot->xAxis->setRange(0, max_x*1.2);
+    ui->customplot->yAxis->setRange(0, max_y*1.2);
     // add the arrow:
     QCPItemLine *arrow = new QCPItemLine(ui->customplot);
     arrow->start->setCoords(or_x, or_y);
