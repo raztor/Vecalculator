@@ -35,6 +35,17 @@ Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras
     - Implementar angulo 3D
     - Añadir opción de descarga de gráfico
     - más
+# Requisitos
+    Para poder ejecutar el programa se debe tener instalada una versión de Cmake >= 3.23, junto con las siguientes librerias de QT6:
+        Core
+        Gui
+        Widgets
+        Charts
+        REQUIRED
+        PrintSupport
+    El programa solo ha sido testeado en Linux y de momento es incompatible con Windows.
+    Cualquier duda sobre las librerias, la lista completa se encuentra en el archivo CMakeLists.txt
+
 
 # Instalación
     El progama fue testeado en linux, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
