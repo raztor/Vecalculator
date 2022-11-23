@@ -12,45 +12,43 @@ Además mientras trabajábamos en la elaboración del código, íbamos depurando
 
 Lo que nosotros esperamos lograr en las fases finales de nuestro proyecto, hacer que nuestra calculadora sea funcional y viable en su totalidad, lograr que la interfaz grafica, sea amigable al usuario promedio y expandirlo en otros de los muchos horizontes pertenecientes a las ramas de la física.
 Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras generaciones de estudiantes universitarios.
-# Version: 1.0.0
+# Version: 2.0.0
 
     Date: 2022-09-28
     License: GNU AGPLv3
     
     Cambios:
-    - Lanzamiento Inicial
-    - Añadimos suma de vectores 
-    - Añadimos resta de vectores
-    - Añadimos multiplicación de vectores
-    - Añadimos producto punto entre vectores
-    - Añadimos producto cruz entre vectores
-    - Añadimos magnitud entre vectores
-    - Añadimos cálculo de Ángulo entre vectores
-    - Y mucho mas.
+    - Lanzamiento 2.0
+    - Añadimos calculo de componentes vectoriales 
+    - Añadimos producto cruz de vectores 2D
+    - Reestructuración del código
+    - Añadida salida gráfica
+    - Cambios del readme
+    - Implementado filtro de char en input
+    - Nuevas funciones de graficación
+    - Cambios menores
 
     
     Por hacer:
-    - Limpiar previamente los comandos en consola antes del lanzamiento
-    - Creación de una GUI
-    - Añadir más funciones
-    - Añadir la función cálculo de ángulo para vectores 3D
-    - Reconocimiento automático de dimensión
-    - Agregar la opción para operar con 2 o más vectores.
+    - crear interfaz gráfica para la calculadora
+    - Implementar auto reconociemiento de dim
+    - Implementar angulo 3D
+    - Añadir opción de descarga de gráfico
+    - más
 
-# Installation
-    El progama fue testeado en linux y windows, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
+# Instalación
+    El progama fue testeado en linux, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
     
-    Para instalar este progama, necesitaras tener un compilador de C++ instalado en tu sistema, recomendamos
-    g++ para linux y Cmamke para Windows, Tambien podrá utilizar el Makefile proporcionado para Linux
+    Para utilizar este programa se necesita una instalacion de qt6, junto con CMake.
 
-    Para ejecutar solo se necesita usar el makefile en caso de usar Linux, el ejecutable será encontrado
-    en la carpeta src, en caso de usar Windows, se debe usar para generar el ejecutable usando CmakeLists.txt
+    Para ejecutar este programa se debe compilar usando
+    el archivo de configuración de cmakelist.txt. Si se esta usando qt creator es importante comprobar que el proyecto se inicie en modo cmake y no qmake, ya que de lo contrario, este no compilará. 
 
-    En algunos casos en windows puede haber una pequeña incompatibilidad con el simbolo º del angulo.
+    El programa de momento no es compatible con Windows pero se planea implementar en un futuro cercano.
 
-# Usage
+# Uso
     Para usar el programa solo se deben seguir las indicaciones, seleccionar dimension, seleccionar operacion
-    e introducir los datos solicitados
+    e introducir los datos solicitados. Para cerrar el grafico se puede tanto usar la x de la ventana como el botón cerrar.
 
 
 ### Integrantes:
@@ -80,7 +78,7 @@ Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras
 <img src="https://gitlab.com/Raztor/vecalculator/-/raw/main/media/diagrama.png" alt="Diagrama UML">
 </details>
 <details>
-<summary>Diagrama Resumido</summary>
+<summary>Diagrama Resumido (formato solicitado)</summary>
 <br>
 <img src="https://gitlab.com/Raztor/vecalculator/-/raw/main/media/img.png" alt="Diagrama UML">
 </details>
