@@ -51,7 +51,9 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
 
     Para ejecutar este programa se debe compilar usando
     el archivo de configuración de cmakelist.txt. Si se esta usando qt creator es importante comprobar que el proyecto se inicie en modo cmake y no qmake, ya que de lo contrario, este no compilará. 
-
+    
+    PARA ABRIR EL PROYECTO EN QT CREATOR SE DEBE SELECCIONAR EL ARCHIVO CMAKELIST.TXT
+    
     El programa de momento no es compatible con Windows pero se planea implementar en un futuro cercano.
 
 # Uso
