@@ -74,8 +74,8 @@ void MainWindow::makePlot(){
     QCPItemText *textLabel = new QCPItemText(ui->customplot);
     textLabel->setPositionAlignment(Qt::AlignTop);
     textLabel->position->setType(QCPItemPosition::ptAxisRectRatio);
-    textLabel->position->setCoords(0.5, 0);
-    lbl = (std::string)"Final: " + "(" + x_str + "," + y_str + ")";
+    textLabel->position->setCoords(0, 0);
+    lbl = (std::string)"P. original: " + "(" + x_str_or + "," + y_str_or + ")"+"     "+ "P.final: " + "(" + x_str + "," + y_str + ")";
     QString lbl_qt = QString::fromStdString(lbl);
     textLabel->setText(lbl_qt);
     textLabel->setFont(QFont(font().family(), 16)); // make font a bit larger

@@ -7,5 +7,6 @@ struct vec{
     float eje_z;
 };
 extern vec NULL_VEC; /// Vector "vacio" para inicializar las variables de tipo vec
-
+extern vec INVALID;
+extern float INVALID_ESC;
 #endif //PROYECTO_TEL102_DATA_TYPES_H
