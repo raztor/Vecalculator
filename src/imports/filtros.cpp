@@ -29,41 +29,61 @@ void filtro_input(int &operacion, int &dimension, vec &vector1, vec &vector2, fl
         if (dimension == 1) {
             std::cout << "Ingrese el vector 1 en formato x y" << std::endl;
             std::cin >> vector1.eje_x >> vector1.eje_y;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
             vector1.eje_z = 0;
             std::cout << "Ingrese el vector 2 en formato x y" << std::endl;
             std::cin >> vector2.eje_x >> vector2.eje_y;
             vector2.eje_z = 0;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
 
         } else if (dimension == 2) {
             if (operacion != 4){
                 std::cout << "Ingrese el vector 1 en formato x y z" << std::endl;
                 std::cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
                 std::cout << "Ingrese el vector 2 en formato x y z" << std::endl;
                 std::cin >> vector2.eje_x >> vector2.eje_y >> vector2.eje_z;
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
             }
         }
 
-    } else if (operacion == 3 || operacion == 7) {
+    } else if (operacion == 3 || operacion == 7 || operacion == 8) {
         if (dimension == 1) {
             std::cout << "Ingrese el vector en formato x y" << std::endl;
             std::cin >> vector1.eje_x >> vector1.eje_y;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
             vector1.eje_z = 0;
         } else if (dimension == 2) {
             std::cout << "Ingrese el vector en formato x y z" << std::endl;
             std::cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
         }
     } else if (operacion == 9) {
         if (dimension == 1) {
             std::cout << "Ingrese el vector en formato x y" << std::endl;
             std::cin >> vector1.eje_x >> vector1.eje_y;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
             vector1.eje_z = 0;
             std::cout << "Ingrese el escalar" << std::endl;
             std::cin >> escalar;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
         } else if (dimension == 2) {
             std::cout << "Ingrese el vector en formato x y z" << std::endl;
             std::cin >> vector1.eje_x >> vector1.eje_y >> vector1.eje_z;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
             std::cout << "Ingrese el escalar" << std::endl;
             std::cin >> escalar;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
         }
     }
 }

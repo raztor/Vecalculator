@@ -3,6 +3,10 @@
 #include "qcustomplot.h"
 #include <QMainWindow>
 #include <iostream>
+#include <string>
+#include "operaciones.h"
+#include <sstream>
+#include <iomanip>
 
 
 QT_BEGIN_NAMESPACE
