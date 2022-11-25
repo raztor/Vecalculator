@@ -19,5 +19,6 @@
     - crear interfaz gráfica para la calculadora
     - Implementar auto reconociemiento de dim
     - Implementar angulo 3D
+    - Implementar modelado 3D
     - Añadir opción de descarga de gráfico
     - más

@@ -13,7 +13,7 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
 
     Date: 2022-09-28
     License: GNU AGPLv3
-    
+
     Cambios:
     - Lanzamiento 2.0
     - Añadimos calculo de componentes vectoriales 
@@ -25,13 +25,18 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
     - Nuevas funciones de graficación
     - Cambios menores
 
-    
+
     Por hacer:
     - Crear interfaz gráfica para la calculadora
     - Implementar auto reconociemiento de dim
     - Implementar angulo 3D
+    - Implementar modelado 3D
     - Añadir opción de descarga de gráfico
     - más
+### Sobre la visualización 3D:
+    Nos hubiese encantado como grupo poder haber añadido la visualización de vectores en 3D, pero
+    pero debido a problemas relacionados a una migración de SSD fallida perdimos parte del código
+    en proceso de implementación y dejó a la persona a cargo del 3D sin poder finalizarlo.
 # Requisitos
     Para poder ejecutar el programa se debe tener instalada una versión de Cmake >= 3.23, junto con las siguientes librerias de QT6:
         Core
@@ -46,14 +51,14 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
 
 # Instalación
     El progama fue testeado en linux, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
-    
+
     Para utilizar este programa se necesita una instalacion de qt5, junto con CMake.
 
     Para ejecutar este programa se debe compilar usando
     el archivo de configuración de cmakelist.txt. Si se esta usando qt creator es importante comprobar que el proyecto se inicie en modo cmake y no qmake, ya que de lo contrario, este no compilará. 
-    
+
     PARA ABRIR EL PROYECTO EN QT CREATOR SE DEBE SELECCIONAR EL ARCHIVO CMAKELIST.TXT
-    
+
     El programa de momento no es compatible con Windows pero se planea implementar en un futuro cercano.
 
 # Uso
@@ -63,21 +68,21 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
 
 ### Integrantes:
 * Joaquín Leiva
-  * Gitlab: [@genericusernameuwu](https://gitlab.com/genericusernameuwu)
-  * GitHub: [@genericusernameuwu](https://github.com/genericusernameuwu)
-  * rol: 202229836-7
+* Gitlab: [@genericusernameuwu](https://gitlab.com/genericusernameuwu)
+* GitHub: [@genericusernameuwu](https://github.com/genericusernameuwu)
+* rol: 202229836-7
 
 
 * Andrea Alfonzo
-  * Gitlab: [@andreavalfonzo](https://gitlab.com/andreavalfonzo)
-  * GitHub: [@andreavalfonzo](https://github.com/andreavalfonzo)
-   * rol: 202230524-k
+* Gitlab: [@andreavalfonzo](https://gitlab.com/andreavalfonzo)
+* GitHub: [@andreavalfonzo](https://github.com/andreavalfonzo)
+* rol: 202230524-k
 
 
 * Benjamín Muñoz
-  * Gitlab: [@raztor](https://gitlab.com/raztor)
-  * GitHub: [@raztor](https://github.com/Raztor)
-  * rol: 202230546-0
+* Gitlab: [@raztor](https://gitlab.com/raztor)
+* GitHub: [@raztor](https://github.com/Raztor)
+* rol: 202230546-0
 
 ## Referencias:
     Laroze Barrios, L. (2018). Conceptos y magnitudes en física (2018.a ed.). Nicolás Porras.
