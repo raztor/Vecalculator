@@ -47,7 +47,7 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
 # Instalación
     El progama fue testeado en linux, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
     
-    Para utilizar este programa se necesita una instalacion de qt6, junto con CMake.
+    Para utilizar este programa se necesita una instalacion de qt5, junto con CMake.
 
     Para ejecutar este programa se debe compilar usando
     el archivo de configuración de cmakelist.txt. Si se esta usando qt creator es importante comprobar que el proyecto se inicie en modo cmake y no qmake, ya que de lo contrario, este no compilará. 
