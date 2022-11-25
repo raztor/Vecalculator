@@ -24,6 +24,8 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
     - Implementado filtro de char en input
     - Nuevas funciones de graficación
     - Cambios menores
+    - Añadidas operaciones Ascii (Ahora puedes sumar, restar,etc. con los valores de cáracteres Ascii)
+
 
 
     Por hacer:
