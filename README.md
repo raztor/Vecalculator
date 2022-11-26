@@ -46,7 +46,7 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
     pero debido a problemas relacionados a una migración de SSD fallida perdimos parte del código
     en proceso de implementación y dejó a la persona a cargo del 3D sin poder finalizarlo.
 # Requisitos
-    Para poder ejecutar el programa se debe tener instalada una versión de Cmake >= 3.23, junto con las siguientes librerias de QT6:
+    Para poder ejecutar el programa se debe tener instalada una versión de Cmake >= 3.23, junto con las siguientes librerias de QT5:
         Core
         Gui
         Widgets
