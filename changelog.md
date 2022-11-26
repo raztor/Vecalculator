@@ -1,3 +1,4 @@
+
 # Version: 2.0.0
 
     Date: 2022-09-28
@@ -23,3 +24,29 @@
     - Implementar modelado 3D
     - Añadir opción de descarga de gráfico
     - más
+
+# Version: 1.0.0
+
+    Date: 2022-09-28
+    License: GNU AGPLv3
+    
+    Cambios:
+    - Lanzamiento Inicial
+    - Añadimos suma de vectores 
+    - Añadimos resta de vectores
+    - Añadimos multiplicación de vectores
+    - Añadimos producto punto entre vectores
+    - Añadimos producto cruz entre vectores
+    - Añadimos magnitud entre vectores
+    - Añadimos cálculo de Ángulo entre vectores
+    - Y mucho mas.
+
+    
+    Por hacer:
+    - Limpiar previamente los comandos en consola antes del lanzamiento
+    - Creación de una GUI
+    - Añadir más funciones
+    - Añadir la función cálculo de ángulo para vectores 3D
+    - Reconocimiento automático de dimensión
+    - Agregar la opción para operar con 2 o más vectores.
+
