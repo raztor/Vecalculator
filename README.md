@@ -35,6 +35,12 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
     - Implementar modelado 3D
     - Añadir opción de descarga de gráfico
     - más
+
+    
+    Descartado:
+    - Agregar la opción para operar con mas de 2 vectores.
+    - Limpiar previamente los comandos en consola antes del lanzamiento
+
 ### Sobre la visualización 3D:
     Nos hubiese encantado como grupo poder haber añadido la visualización de vectores en 3D, pero
     pero debido a problemas relacionados a una migración de SSD fallida perdimos parte del código
