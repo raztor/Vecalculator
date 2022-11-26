@@ -25,6 +25,11 @@
     - Añadir opción de descarga de gráfico
     - más
 
+    Descartado:
+    - Agregar la opción para operar con mas de 2 vectores.
+    - Limpiar previamente los comandos en consola antes del lanzamiento
+
+
 # Version: 1.0.0
 
     Date: 2022-09-28
