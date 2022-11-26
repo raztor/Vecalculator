@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+// Esto es lo creado por defecto de QT y se encarga de crear la ventana y ejecutar las funciones de ploteo
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -27,6 +28,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::makePlot(){
+    // Lo de abajo se encarga de ver cual es el valor mas chico y mas grande de ambos ejes para así poder generar bien el rango del grafico
     float x,y,or_x,or_y,min_x,max_x,min_y,max_y;
     x = eje_x;
     y = eje_y;
@@ -63,17 +65,20 @@ void MainWindow::makePlot(){
     std::string lbl;
     std::string lbl_or;
 
-    //poner if else para agrandar y achicar plano
+    // Todo lo de abajo esta encargado de plotear y hacer el grafico interactivo
 
     ui->customplot->setInteraction(QCP::iRangeZoom, true);
     ui->customplot->setInteraction(QCP::iRangeDrag, true);
     ui->customplot->setInteraction(QCP::iSelectPlottables, true);
+
+    // Esto se encarga de hacer que el grafico tengo correcto los valores de los ejes
 
     ui->customplot->xAxis->setRange(min_x, max_x);
     ui->customplot->yAxis->setRange(min_y, max_y);
     QCPItemText *textLabel = new QCPItemText(ui->customplot);
     textLabel->setPositionAlignment(Qt::AlignTop);
     textLabel->position->setType(QCPItemPosition::ptAxisRectRatio);
+    // Esto es para asignar el texto de coordenadas
     textLabel->position->setCoords(0, 0);
     lbl = (std::string)"P. original: " + "(" + x_str_or + "," + y_str_or + ")"+"     "+ "P.final: " + "(" + x_str + "," + y_str + ")";
     QString lbl_qt = QString::fromStdString(lbl);
