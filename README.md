@@ -83,21 +83,22 @@ Y por último, como grupo tenemos un objetivo principal en esta área, que es me
 
 ### Integrantes:
 * Joaquín Leiva
-* Gitlab: [@genericusernameuwu](https://gitlab.com/genericusernameuwu)
-* GitHub: [@genericusernameuwu](https://github.com/genericusernameuwu)
-* rol: 202229836-7
+  * Gitlab: [@genericusernameuwu](https://gitlab.com/genericusernameuwu)
+  * GitHub: [@genericusernameuwu](https://github.com/genericusernameuwu)
+  * rol: 202229836-7
 
 
 * Andrea Alfonzo
-* Gitlab: [@andreavalfonzo](https://gitlab.com/andreavalfonzo)
-* GitHub: [@andreavalfonzo](https://github.com/andreavalfonzo)
-* rol: 202230524-k
+  * Gitlab: [@andreavalfonzo](https://gitlab.com/andreavalfonzo)
+  * GitHub: [@andreavalfonzo](https://github.com/andreavalfonzo)
+   * rol: 202230524-k
 
 
 * Benjamín Muñoz
-* Gitlab: [@raztor](https://gitlab.com/raztor)
-* GitHub: [@raztor](https://github.com/Raztor)
-* rol: 202230546-0
+  * Gitlab: [@raztor](https://gitlab.com/raztor)
+  * GitHub: [@raztor](https://github.com/Raztor)
+  * rol: 202230546-0
+
 
 ## Referencias:
     Laroze Barrios, L. (2018). Conceptos y magnitudes en física (2018.a ed.). Nicolás Porras.
