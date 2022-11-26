@@ -9,6 +9,13 @@ Desarrollo: En las fases iniciales del trabajo en nuestro proyecto nos vimos enf
 Conclusión: En conclusión, durante toda la realización de nuestro proyecto, sentimos que nuestro crecimiento como grupo fue bastante grande, además de aunque aún no este listo en su totalidad el proyecto con todo el trabajo que llevamos en la actualidad. Creemos que nuestro enfoque y objetivos principales a la hora de la realización de nuestra calculadora de vectores, ha sido llevado en su totalidad y nos encontramos bastante realizados con nuestros resultados actuales.
 Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soporte para las generaciones futuras a la hora de afrontar los problemas que nosotros supimos enfrentar.
 
+Objetivos principales del proyecto:
+Como objetivo general buscamos facilitar, mientras hacemos más amena, la tarea del cálculo de vectores.
+Mientras que como objetivos más específicos, pensamos que es importante mencionar estos:
+Esperamos servir de ayuda con nuestro proyecto a estudiantes de la USM, que se encuentren cursando cualquier ramo de física.
+También esperamos poder tener una calculadora 100% funcional a más tardar a mediados de diciembre con todo lo prometido.
+Y por último, como grupo tenemos un objetivo principal en esta área, que es mejorar nuestro manejo del lenguaje de programación C++, además de las diversas librerías y extensiones que existen en este, como por ejemplo QT.
+
 # Version: 2.0.0
 
     Date: 2022-09-28
