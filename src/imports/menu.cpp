@@ -76,7 +76,7 @@ void func_menu(int &operacion, char op_verbose[20]){
             std::strcpy(op_verbose, "Modulo");
             break;
         case 8:
-            std::strcpy(op_verbose, "Proximamente");
+            std::strcpy(op_verbose, "Componentes");
             break;
         case 9:
             std::strcpy(op_verbose, "Producto escalar");

@@ -12,6 +12,7 @@ void MainWindow::setOr_x(float or_x) {
 void MainWindow::setOr_y(float or_y) {
     original_y = or_y;
 }
+// Estas funciones se encargan de iniciar la ventana de Qt y pasar los valores necesarios para crear el plot
 
 void graficar2d(vec final, vec inicial, int argc, char **argv){
     QApplication a(argc, argv);

@@ -2,80 +2,113 @@
 [![wakatime](https://wakatime.com/badge/user/5be7d1e2-7411-4f5d-9f82-c9a643da22e2/project/9aafb881-995a-4634-9ffa-40e64411f340.svg)](https://wakatime.com/badge/user/5be7d1e2-7411-4f5d-9f82-c9a643da22e2/project/9aafb881-995a-4634-9ffa-40e64411f340)
 
 ## Sobre el proyecto
-Como grupo pensamos en este proyecto, ya que a la hora de enfrentarnos a la todo lo que engloba el
-calculo de vectores en 2 y 3 dimensiones, nos resulta bastante complicado lograr trabajar con
-ellos de manera correcta, además pensando en nuestro futuro con los diversos ramos de 
-física que tendremos durante nuestra vida universitaria.
+Introducción: Lo que nos llevó como grupo a pensar en la elaboración de una calculadora de vectores y todo lo que esto englobe principalmente fueron 2 razones, como una de las principales es hacer que la tarea del cálculo de vectores deje de ser un proceso tan engorroso además de enredado para muchos y convertirlo en algo más mecanizado de fácil uso y por último pensando tanto como en nosotros como alumnos a los cuales se nos complicó mucho nuestro primer acercamiento a la física de la educación superior, además como factor agregado creemos que nuestro proyecto en un futuro puede ser de gran ayuda para la comunidad universitaria que componemos.
 
-En las primeras instancias de creación del código, trabajamos en la creación de funciones básicas del calculo de vectores, tales como: Suma, Resta, Multiplicación y división, durante el proceso de creación de estas empezamos a trabajar en funciones que requerían mayor dedicación, como por ejemplo: Modulo, Producto punto, Producto Cruz y Angulo.
-Además mientras trabajábamos en la elaboración del código, íbamos depurando el código poco a poco, para hacerlo mas comprimido y efectivo
+Desarrollo: En las fases iniciales del trabajo en nuestro proyecto nos vimos enfrentados a pequeños problemas relacionados con la modularización y depuración de nuestro código, afortunadamente supimos sortearlos en su totalidad, para que a día de hoy poder tener un código más compacto y efectivo. A día de hoy, y casi habiendo terminado el desarrollo para la entrega el hito 2, creemos que aún mantenemos los principales objetivos del proyecto como meta, los cuales fueron mencionados anteriormente. En lo que pertenece a la documentación y recursos que hemos ido utilizando en nuestro trabajo, nos hemos visto enfrentados a pequeños inconvenientes que, hemos surcado de manera rápida y eficaz. Aunque como hice énfasis antes, a la hora de trabajar, siempre hemos priorizado los objetivos que nos propusimos al principio, en el caso de la documentación nos hemos esforzado en anotar todo, para que le resulte amigable al usuario promedio.
 
-Lo que nosotros esperamos lograr en las fases finales de nuestro proyecto, hacer que nuestra calculadora sea funcional y viable en su totalidad, lograr que la interfaz grafica, sea amigable al usuario promedio y expandirlo en otros de los muchos horizontes pertenecientes a las ramas de la física.
-Por ultimo como grupo esperamos que el proyecto, sea de gran ayuda a las futuras generaciones de estudiantes universitarios.
-# Version: 1.0.0
+Conclusión: En conclusión, durante toda la realización de nuestro proyecto, sentimos que nuestro crecimiento como grupo fue bastante grande, además de aunque aún no este listo en su totalidad el proyecto con todo el trabajo que llevamos en la actualidad. Creemos que nuestro enfoque y objetivos principales a la hora de la realización de nuestra calculadora de vectores, ha sido llevado en su totalidad y nos encontramos bastante realizados con nuestros resultados actuales.
+Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soporte para las generaciones futuras a la hora de afrontar los problemas que nosotros supimos enfrentar.
+
+Objetivos principales del proyecto:
+Como objetivo general buscamos facilitar, mientras hacemos más amena, la tarea del cálculo de vectores.
+Mientras que como objetivos más específicos, pensamos que es importante mencionar estos:
+Esperamos servir de ayuda con nuestro proyecto a estudiantes de la USM, que se encuentren cursando cualquier ramo de física.
+También esperamos poder tener una calculadora 100% funcional a más tardar a mediados de diciembre con todo lo prometido.
+Y por último, como grupo tenemos un objetivo principal en esta área, que es mejorar nuestro manejo del lenguaje de programación C++, además de las diversas librerías y extensiones que existen en este, como por ejemplo QT.
+
+# Version: 2.0.0
 
     Date: 2022-09-28
     License: GNU AGPLv3
-    
+
     Cambios:
-    - Lanzamiento Inicial
-    - Añadimos suma de vectores 
-    - Añadimos resta de vectores
-    - Añadimos multiplicación de vectores
-    - Añadimos producto punto entre vectores
-    - Añadimos producto cruz entre vectores
-    - Añadimos magnitud entre vectores
-    - Añadimos cálculo de Ángulo entre vectores
-    - Y mucho mas.
+    - Lanzamiento 2.0
+    - Añadimos calculo de componentes vectoriales 
+    - Añadimos producto cruz de vectores 2D
+    - Reestructuración del código
+    - Añadida salida gráfica
+    - Cambios del readme
+    - Implementado filtro de char en input
+    - Nuevas funciones de graficación
+    - Cambios menores
+    - Añadidas operaciones Ascii (Ahora puedes sumar, restar,etc. con los valores de cáracteres Ascii)
 
-    
+
+
     Por hacer:
-    - Limpiar previamente los comandos en consola antes del lanzamiento
-    - Creación de una GUI
-    - Añadir más funciones
-    - Añadir la función cálculo de ángulo para vectores 3D
-    - Reconocimiento automático de dimensión
-    - Agregar la opción para operar con 2 o más vectores.
+    - Crear interfaz gráfica para la calculadora
+    - Implementar auto reconociemiento de dim
+    - Implementar angulo 3D
+    - Implementar modelado 3D
+    - Añadir opción de descarga de gráfico
+    - más
 
-# Installation
-    El progama fue testeado en linux y windows, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
     
-    Para instalar este progama, necesitaras tener un compilador de C++ instalado en tu sistema, recomendamos
-    g++ para linux y Cmamke para Windows, Tambien podrá utilizar el Makefile proporcionado para Linux
+    Descartado:
+    - Agregar la opción para operar con mas de 2 vectores.
+    - Limpiar previamente los comandos en consola antes del lanzamiento
 
-    Para ejecutar solo se necesita usar el makefile en caso de usar Linux, el ejecutable será encontrado
-    en la carpeta src, en caso de usar Windows, se debe usar para generar el ejecutable usando CmakeLists.txt
+### Sobre la visualización 3D:
+    Nos hubiese encantado como grupo poder haber añadido la visualización de vectores en 3D, pero
+    pero debido a problemas relacionados a una migración de SSD fallida perdimos parte del código
+    en proceso de implementación y dejó a la persona a cargo del 3D sin poder finalizarlo.
+# Requisitos
+    Para poder ejecutar el programa se debe tener instalada una versión de Cmake >= 3.23, junto con las siguientes librerias de QT5:
+        Core
+        Gui
+        Widgets
+        Charts
+        REQUIRED
+        PrintSupport
+    El programa solo ha sido testeado en Linux y de momento es incompatible con Windows.
+    Cualquier duda sobre las librerias, la lista completa se encuentra en el archivo CMakeLists.txt
 
-    En algunos casos en windows puede haber una pequeña incompatibilidad con el simbolo º del angulo.
 
-# Usage
+# Instalación
+    El progama fue testeado en linux, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
+
+    Para utilizar este programa se necesita una instalacion de qt5, junto con CMake.
+
+    Para ejecutar este programa se debe compilar usando
+    el archivo de configuración de cmakelist.txt. Si se esta usando qt creator es importante comprobar que el proyecto se inicie en modo cmake y no qmake, ya que de lo contrario, este no compilará. 
+
+    PARA ABRIR EL PROYECTO EN QT CREATOR SE DEBE SELECCIONAR EL ARCHIVO CMAKELIST.TXT
+
+    El programa de momento no es compatible con Windows pero se planea implementar en un futuro cercano.
+
+# Uso
     Para usar el programa solo se deben seguir las indicaciones, seleccionar dimension, seleccionar operacion
-    e introducir los datos solicitados
+    e introducir los datos solicitados. Para cerrar el grafico se puede tanto usar la x de la ventana como el botón cerrar.
 
 
 ### Integrantes:
 * Joaquín Leiva
-  * Gitlab: [@genericusernameuwu](https://gitlab.com/genericusernameuwu)
-  * GitHub: [@genericusernameuwu](https://github.com/genericusernameuwu)
-  * rol: 202229836-7
+* Gitlab: [@genericusernameuwu](https://gitlab.com/genericusernameuwu)
+* GitHub: [@genericusernameuwu](https://github.com/genericusernameuwu)
+* rol: 202229836-7
 
 
 * Andrea Alfonzo
-  * Gitlab: [@andreavalfonzo](https://gitlab.com/andreavalfonzo)
-  * GitHub: [@andreavalfonzo](https://github.com/andreavalfonzo)
-   * rol: 202230524-k
+* Gitlab: [@andreavalfonzo](https://gitlab.com/andreavalfonzo)
+* GitHub: [@andreavalfonzo](https://github.com/andreavalfonzo)
+* rol: 202230524-k
 
 
 * Benjamín Muñoz
-  * Gitlab: [@raztor](https://gitlab.com/raztor)
-  * GitHub: [@raztor](https://github.com/Raztor)
-  * rol: 202230546-0
+* Gitlab: [@raztor](https://gitlab.com/raztor)
+* GitHub: [@raztor](https://github.com/Raztor)
+* rol: 202230546-0
 
 ## Referencias:
     Laroze Barrios, L. (2018). Conceptos y magnitudes en física (2018.a ed.). Nicolás Porras.
 
 <details>
-<summary>Diagrama</summary>
+<summary>Diagrama Completo</summary>
 <br>
 <img src="https://gitlab.com/Raztor/vecalculator/-/raw/main/media/diagrama.png" alt="Diagrama UML">
+</details>
+<details>
+<summary>Diagrama Resumido (formato solicitado)</summary>
+<br>
+<img src="https://gitlab.com/Raztor/vecalculator/-/raw/main/media/img.png" alt="Diagrama UML">
 </details>

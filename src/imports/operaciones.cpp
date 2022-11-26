@@ -48,16 +48,17 @@ float norm(vec a, int dim){
 // Operacion encargada del calculo de los componentes i,j / i,j,k
 vec componentes(vec a, int dim){
     float mag = norm(a, dim);
+    vec result=NULL_VEC;
     if(dim==1) {
-        a.eje_x = mag * cos(a.eje_x);
-        a.eje_y = mag * sin(a.eje_y);
+        result.eje_x = mag * cos(a.eje_x);
+        result.eje_y = mag * sin(a.eje_y);
         ////////// revisar else if de abajo //////////////
     }else if (dim==2){
-        a.eje_x = mag * cos(a.eje_x) * cos(a.eje_y);
-        a.eje_y = mag * cos(a.eje_x) * sin(a.eje_y);
-        a.eje_z = mag * sin(a.eje_z);
+        result.eje_x = mag * cos(a.eje_x) * cos(a.eje_y);
+        result.eje_y = mag * cos(a.eje_x) * sin(a.eje_y);
+        result.eje_z = mag * sin(a.eje_z);
     }
-    return a;
+    return result;
 }
 // Operacion encargada del calculo del vector unitario
 vec unitario(vec a, int dim){

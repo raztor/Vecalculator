@@ -104,7 +104,6 @@ int main(int argc, char **argv) {
                     break;
                 }
                 case 8: {
-                    std::cout << "Componentes" << std::endl;
                     result_vec = componentes(vector1, dimension);
                     filtro_dim_componente(dimension, result_vec);
                     break;

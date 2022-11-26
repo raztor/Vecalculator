@@ -3,6 +3,10 @@
 #include "qcustomplot.h"
 #include <QMainWindow>
 #include <iostream>
+#include <string>
+#include "operaciones.h"
+#include <sstream>
+#include <iomanip>
 
 
 QT_BEGIN_NAMESPACE
@@ -16,6 +20,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(float x, float y, float or_x, float or_y);
     MainWindow(QWidget *parent = nullptr);
+    // Asignar valores de ejes
     ~MainWindow();
     void setEje_x(float x);
     void setEje_y(float y);
@@ -23,9 +28,11 @@ public:
     void setOr_y(float or_y);
 
 private slots:
+// Encargado de vincular el ploteo
     void makePlot();
 
 private:
+// Valores de ejes
     Ui::MainWindow *ui;
     float eje_x;
     float eje_y;
