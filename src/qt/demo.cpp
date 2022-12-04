@@ -1,13 +1,10 @@
-//
-// Created by benjamin on 03-12-22.
-//
-
-
 #include "demo.h"
-#include "ui_demo.h"
-#include <iostream>
 
 int operacion=0, dimension=0;
+float escalar=0;
+vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec=NULL_VEC;// Inicializacion de los vectores con valor 0
+
+vec_result vec_resultado;
 
 demo::demo(QWidget *parent)
         : QMainWindow(parent)
@@ -199,4 +196,125 @@ void demo::on_sel_2D_pressed()
 void demo::on_sel_3D_clicked()
 {
     modo3d();
+}
+
+void demo::on_B_calcular_clicked(){
+    ui->grafico_2d->clearItems();
+    vec_resultado.setVec1(vector1);
+    vec_resultado.setVec2(vector2);
+    vec_resultado.setEscalar(escalar);
+    vec_resultado.setDimension(dimension);
+    vec_resultado.setOperacion(operacion);
+    vec_resultado.calcular();
+    result_vec=vec_resultado.getVecFinal();
+    std::cout<<"calcular"<<std::endl;
+    demo::makePlot();
+}
+
+void demo::on_sel_vec1_x_valueChanged(double arg1)
+{
+    vector1.eje_x=arg1;
+}
+
+void demo::on_sel_vec1_y_valueChanged(double arg1)
+{
+    vector1.eje_y=arg1;
+}
+
+void demo::on_sel_vec1_z_valueChanged(double arg1)
+{
+    vector1.eje_z=arg1;
+}
+
+void demo::on_sel_vec2_x_valueChanged(double arg1)
+{
+    vector2.eje_x=arg1;
+}
+
+void demo::on_sel_vec2_y_valueChanged(double arg1)
+{
+    vector2.eje_y=arg1;
+}
+
+void demo::on_sel_vec2_z_valueChanged(double arg1)
+{
+    vector2.eje_z=arg1;
+}
+
+void demo::on_sel_escalar_valueChanged(double arg1)
+{
+    escalar=arg1;
+}
+
+
+void demo::makePlot() {
+    std::cout<<"makeplot"<<std::endl;
+    // Lo de abajo se encarga de ver cual es el valor mas chico y mas grande de ambos ejes para así poder generar bien el rango del grafico
+    float x, y, or_x, or_y, min_x, max_x, min_y, max_y;
+    x = vec_resultado.getVecFinal().eje_x;
+    y = vec_resultado.getVecFinal().eje_y;
+    or_x = vec_resultado.getVec1().eje_x;
+    or_y = vec_resultado.getVec1().eje_y;
+
+    if (x >= or_x) {
+        min_x = or_x;
+        max_x = x;
+    } else if (x < or_x) {
+        min_x = x;
+        max_x = or_x;
+    }
+    if (y >= or_y) {
+        min_y = or_y;
+        max_y = y;
+    } else if (y < or_y) {
+        min_y = y;
+        max_y = or_y;
+    }
+    std::stringstream x_stream;
+    std::stringstream y_stream;
+    x_stream << std::fixed << std::setprecision(2) << x;
+    std::string x_str = x_stream.str();
+    y_stream << std::fixed << std::setprecision(2) << y;
+    std::string y_str = y_stream.str();
+
+    std::stringstream x_stream_or;
+    std::stringstream y_stream_or;
+    x_stream_or << std::fixed << std::setprecision(2) << or_x;
+    std::string x_str_or = x_stream_or.str();
+    y_stream_or << std::fixed << std::setprecision(2) << or_y;
+    std::string y_str_or = y_stream_or.str();
+
+    std::string lbl;
+    std::string lbl_or;
+
+    // Todo lo de abajo esta encargado de plotear y hacer el grafico interactivo
+
+
+    ui->grafico_2d->setInteraction(QCP::iRangeZoom, true);
+    ui->grafico_2d->setInteraction(QCP::iRangeDrag, true);
+    ui->grafico_2d->setInteraction(QCP::iSelectPlottables, true);
+
+    // Esto se encarga de hacer que el grafico tengo correcto los valores de los ejes
+
+    ui->grafico_2d->xAxis->setRange(min_x, max_x);
+    ui->grafico_2d->yAxis->setRange(min_y, max_y);
+    QCPItemText *textLabel = new QCPItemText(ui->grafico_2d);
+    textLabel->setPositionAlignment(Qt::AlignTop);
+    textLabel->position->setType(QCPItemPosition::ptAxisRectRatio);
+    // Esto es para asignar el texto de coordenadas
+    textLabel->position->setCoords(0, 0);
+    lbl = (std::string) "P. original: " + "(" + x_str_or + "," + y_str_or + ")" + "     " + "P.final: " + "(" + x_str +
+          "," + y_str + ")";
+    QString lbl_qt = QString::fromStdString(lbl);
+    textLabel->setText(lbl_qt);
+    textLabel->setFont(QFont(font().family(), 16)); // make font a bit larger
+    textLabel->setPen(QPen(Qt::black)); //
+
+    // add the arrow:
+    QCPItemLine *arrow = new QCPItemLine(ui->grafico_2d);
+    arrow->start->setCoords(or_x, or_y);
+    arrow->end->setCoords(x, y); // point to (4, 1.6) in x-y-plot coordinates
+    arrow->setHead(QCPLineEnding::esSpikeArrow);
+    ui->grafico_2d->replot();
+    std::cout<<"ended"<<std::endl;
 }

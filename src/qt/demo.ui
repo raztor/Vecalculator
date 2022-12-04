@@ -136,7 +136,7 @@
             <height>371</height>
            </rect>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,1">
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,1">
            <item>
             <widget class="QWidget" name="widget_vec1" native="true">
              <layout class="QVBoxLayout" name="fll_vec1" stretch="0,1">
@@ -293,6 +293,13 @@
             <layout class="QHBoxLayout" name="div_result_2"/>
            </item>
            <item>
+            <widget class="QPushButton" name="B_calcular">
+             <property name="text">
+              <string>Calcular</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <spacer name="verticalSpacer">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -353,7 +360,7 @@
     </property>
     <layout class="QHBoxLayout" name="div_grafic">
      <item>
-      <widget class="QWidget" name="grafico" native="true"/>
+      <widget class="QCustomPlot" name="grafico_2d" native="true"/>
      </item>
     </layout>
    </widget>
@@ -370,6 +377,14 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

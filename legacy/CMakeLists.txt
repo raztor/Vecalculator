@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project(vecalculator)
+project(vecalculator_legacy)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_AUTOMOC ON)
@@ -16,16 +16,15 @@ find_package(Qt5 COMPONENTS
         REQUIRED
         PrintSupport
         )
-INCLUDE_DIRECTORIES("src/lib")
 
-add_executable(vecalculator
-        src/main.cpp
-        src/lib/qcustomplot.cpp src/lib/qcustomplot.h
-        src/include/vectores.cpp src/include/vectores.h
-        src/include/vec_result.cpp src/include/vec_result.h
-        src/qt/demo.h src/qt/demo.ui src/qt/demo.cpp)
+INCLUDE_DIRECTORIES("lib")
+INCLUDE_DIRECTORIES("imports")
+INCLUDE_DIRECTORIES("qt")
 
-target_link_libraries(vecalculator
+add_executable(vecalculator_legacy
+        qt/mainwindow.cpp qt/mainwindow.h qt/mainwindow.ui legacy_main.cpp lib/qcustomplot.cpp imports/graficador.cpp imports/graficador.h imports/menu.cpp imports/filtros.cpp imports/vectores.cpp imports/operaciones.cpp)
+
+target_link_libraries(vecalculator_legacy
         Qt::Core
         Qt::Gui
         Qt::Widgets
