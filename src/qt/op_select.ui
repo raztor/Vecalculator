@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>op_select::op_select</class>
+ <widget class="QWidget" name="op_select::op_select">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>276</width>
+    <height>395</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Seleccione Operacion</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>241</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="B_suma">
+      <property name="text">
+       <string>Suma</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="B_resta">
+      <property name="text">
+       <string>Resta</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="B_angulo">
+      <property name="text">
+       <string>Angulo</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="B_modulo">
+      <property name="text">
+       <string>Modulo</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="B_componentes">
+      <property name="text">
+       <string>Componentes</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="B_vunit">
+      <property name="text">
+       <string>Vector Unitario</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="B_ppunto">
+      <property name="text">
+       <string>Producto Punto</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="B_pcruz">
+      <property name="text">
+       <string>Producto Cruz</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="B_pescalar">
+      <property name="text">
+       <string>Producto Escalar</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

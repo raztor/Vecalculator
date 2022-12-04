@@ -8,9 +8,19 @@
 #include "filtros.h"
 #include "graficador.h"
 
+#include <QApplication>
+#include "./qt/operaciones/demo.h"
+
+
 bool ciclo_main= true, ciclo_menu=true;
 int main(int argc, char **argv) {
 
+    QApplication a(argc, argv);
+    demo w;
+    w.show();
+    a.exec();
+
+    /*
     // Ciclo principal, con seleccion de dimension
     while(ciclo_main) {
         int operacion=0, dimension=0;
@@ -130,6 +140,6 @@ int main(int argc, char **argv) {
             }
             fin_menu(ciclo_main, ciclo_menu, dim_verbose);
         }
-    }
+    }*/
     return 1;
 }

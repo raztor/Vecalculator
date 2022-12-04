@@ -22,7 +22,7 @@ INCLUDE_DIRECTORIES("src/imports")
 INCLUDE_DIRECTORIES("src/qt")
 
 add_executable(vecalculator
-        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp src/lib/qcustomplot.cpp src/imports/graficador.cpp src/imports/graficador.h src/imports/menu.cpp src/imports/filtros.cpp src/imports/vectores.cpp src/imports/operaciones.cpp)
+        src/qt/mainwindow.cpp src/qt/mainwindow.h src/qt/mainwindow.ui src/main.cpp src/lib/qcustomplot.cpp src/imports/graficador.cpp src/imports/graficador.h src/imports/menu.cpp src/imports/filtros.cpp src/imports/vectores.cpp src/imports/operaciones.cpp src/qt/op_select.cpp src/qt/op_select.h src/qt/op_select.ui src/qt/operaciones/demo.cpp src/qt/operaciones/demo.h src/qt/operaciones/demo.ui)
 
 target_link_libraries(vecalculator
         Qt::Core
