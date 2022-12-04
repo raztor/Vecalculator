@@ -1,4 +1,4 @@
-#include "demo.h"
+#include "vecalculator.h"
 
 int operacion=0, dimension=0;
 float escalar=0;
@@ -6,9 +6,9 @@ vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec=NULL_VEC;// Inicializacio
 
 vec_result vec_resultado;
 
-demo::demo(QWidget *parent)
+vecalculator::vecalculator(QWidget *parent)
         : QMainWindow(parent)
-        , ui(new Ui::demo)
+        , ui(new Ui::vecalculator)
 {
     ui->setupUi(this);
     ui->div_post_dim_hide->setHidden(true);
@@ -19,13 +19,13 @@ demo::demo(QWidget *parent)
     
 }
 
-demo::~demo()
+vecalculator::~vecalculator()
 {
     delete ui;
 }
 
 // 1.suma 2.resta 3.angulo* 4.modulo* 5.componentes* 6.producto cruz 7.producto punto 8.producto escalar* 9.vector unitario*
-void demo::filtro_op_select(int op){
+void vecalculator::filtro_op_select(int op){
     std::cout<<"prueba"<<std::endl;
     if(op==0){
         comp_3d=false;
@@ -80,7 +80,7 @@ void demo::filtro_op_select(int op){
     }
 }
 
-void demo::vec_visibility(int vec, bool x, bool y, bool z, bool hidden){
+void vecalculator::vec_visibility(int vec, bool x, bool y, bool z, bool hidden){
     if(vec==1){
         if(!x){
             ui->widget_vec1->setDisabled(true);
@@ -134,7 +134,7 @@ void demo::vec_visibility(int vec, bool x, bool y, bool z, bool hidden){
     }
 }
 
-void demo::modo2d(){
+void vecalculator::modo2d(){
     dimension=2;
     ui->div_post_dim_hide->setDisabled(false);
     if(vec_unico==0){
@@ -152,7 +152,7 @@ void demo::modo2d(){
     }
 }
 
-void demo::modo3d(){
+void vecalculator::modo3d(){
     dimension=3;
     ui->div_post_dim_hide->setDisabled(false);
     if(vec_unico==0){
@@ -170,7 +170,7 @@ void demo::modo3d(){
     }
 }
 
-void demo::reset_dim_select(){
+void vecalculator::reset_dim_select(){
     ui->div_post_dim_hide->setDisabled(true);
     ui->sel_2D->setAutoExclusive(false);
     ui->sel_3D->setAutoExclusive(false);
@@ -180,25 +180,25 @@ void demo::reset_dim_select(){
     ui->sel_3D->setAutoExclusive(true);
 }
 // TODO: obtener los valores de los vectores y conectar las funciones
-void demo::on_sel_op_currentIndexChanged(int index)
+void vecalculator::on_sel_op_currentIndexChanged(int index)
 {// 1.suma 2.resta 3.angulo 4.modulo 5.componentes 6.producto cruz 7.producto punto 8.producto escalar 9.vector unitario
     operacion = index;
     filtro_op_select(operacion);
     reset_dim_select();
 }
 
-void demo::on_sel_2D_pressed()
+void vecalculator::on_sel_2D_pressed()
 {
     std::cout<<"on2d"<<std::endl;
     modo2d();
 }
 
-void demo::on_sel_3D_clicked()
+void vecalculator::on_sel_3D_clicked()
 {
     modo3d();
 }
 
-void demo::on_B_calcular_clicked(){
+void vecalculator::on_B_calcular_clicked(){
     ui->grafico_2d->clearItems();
     vec_resultado.setVec1(vector1);
     vec_resultado.setVec2(vector2);
@@ -208,46 +208,46 @@ void demo::on_B_calcular_clicked(){
     vec_resultado.calcular();
     result_vec=vec_resultado.getVecFinal();
     std::cout<<"calcular"<<std::endl;
-    demo::makePlot();
+    vecalculator::makePlot();
 }
 
-void demo::on_sel_vec1_x_valueChanged(double arg1)
+void vecalculator::on_sel_vec1_x_valueChanged(double arg1)
 {
     vector1.eje_x=arg1;
 }
 
-void demo::on_sel_vec1_y_valueChanged(double arg1)
+void vecalculator::on_sel_vec1_y_valueChanged(double arg1)
 {
     vector1.eje_y=arg1;
 }
 
-void demo::on_sel_vec1_z_valueChanged(double arg1)
+void vecalculator::on_sel_vec1_z_valueChanged(double arg1)
 {
     vector1.eje_z=arg1;
 }
 
-void demo::on_sel_vec2_x_valueChanged(double arg1)
+void vecalculator::on_sel_vec2_x_valueChanged(double arg1)
 {
     vector2.eje_x=arg1;
 }
 
-void demo::on_sel_vec2_y_valueChanged(double arg1)
+void vecalculator::on_sel_vec2_y_valueChanged(double arg1)
 {
     vector2.eje_y=arg1;
 }
 
-void demo::on_sel_vec2_z_valueChanged(double arg1)
+void vecalculator::on_sel_vec2_z_valueChanged(double arg1)
 {
     vector2.eje_z=arg1;
 }
 
-void demo::on_sel_escalar_valueChanged(double arg1)
+void vecalculator::on_sel_escalar_valueChanged(double arg1)
 {
     escalar=arg1;
 }
 
 
-void demo::makePlot() {
+void vecalculator::makePlot() {
     std::cout<<"makeplot"<<std::endl;
     // Lo de abajo se encarga de ver cual es el valor mas chico y mas grande de ambos ejes para así poder generar bien el rango del grafico
     float x, y, or_x, or_y, min_x, max_x, min_y, max_y;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>demo</class>
- <widget class="QMainWindow" name="demo">
+ <class>vecalculator</class>
+ <widget class="QMainWindow" name="vecalculator">
   <property name="geometry">
    <rect>
     <x>0</x>

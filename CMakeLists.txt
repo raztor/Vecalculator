@@ -23,7 +23,7 @@ add_executable(vecalculator
         src/lib/qcustomplot.cpp src/lib/qcustomplot.h
         src/include/vectores.cpp src/include/vectores.h
         src/include/vec_result.cpp src/include/vec_result.h
-        src/qt/demo.h src/qt/demo.ui src/qt/demo.cpp)
+        src/qt/vecalculator.h src/qt/vecalculator.ui src/qt/vecalculator.cpp)
 
 target_link_libraries(vecalculator
         Qt::Core

@@ -2,8 +2,8 @@
 // Created by benjamin on 03-12-22.
 //
 
-#ifndef VECALCULATOR_DEMO_H
-#define VECALCULATOR_DEMO_H
+#ifndef VECALCULATOR_VECALCULATOR_H
+#define VECALCULATOR_VECALCULATOR_H
 
 #include <QWidget>
 #include <QMainWindow>
@@ -13,19 +13,19 @@
 #include <iomanip>
 #include "../include/vec_result.h"
 #include "qcustomplot.h"
-#include "ui_demo.h"
+#include "ui_vecalculator.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class demo; }
+namespace Ui { class vecalculator; }
 QT_END_NAMESPACE
 
-class demo : public QMainWindow
+class vecalculator : public QMainWindow
 {
 Q_OBJECT
 
 public:
-    demo(QWidget *parent = nullptr);
-    ~demo();
+    vecalculator(QWidget *parent = nullptr);
+    ~vecalculator();
     void filtro_op_select(int op);
     void reset_dim_select();
     void modo2d();
@@ -59,7 +59,7 @@ private slots:
 
 
 private:
-    Ui::demo *ui;
+    Ui::vecalculator *ui;
     int dim;
     int vec_unico;
     bool comp_3d;
@@ -72,4 +72,4 @@ private:
 
 };
 
-#endif //VECALCULATOR_DEMO_H
+#endif //VECALCULATOR_VECALCULATOR_H
