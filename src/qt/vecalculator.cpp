@@ -318,3 +318,6 @@ void vecalculator::makePlot() {
     ui->grafico_2d->replot();
     std::cout<<"ended"<<std::endl;
 }
+
+//TODO: añadir output del resultado
+//TODO: añadir grafico 3d
