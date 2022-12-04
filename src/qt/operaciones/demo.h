@@ -19,11 +19,23 @@ Q_OBJECT
 public:
     demo(QWidget *parent = nullptr);
     ~demo();
+    void filtro_op_select(int op);
+    void reset_dim_select();
+    void modo2d();
+    void modo3d();
+
+    void vec_visibility(int vec, bool x, bool y, bool z, bool hidden);
 
 private slots:
     void on_sel_op_currentIndexChanged(int index);
+    void on_sel_2D_pressed();
+    void on_sel_3D_clicked();
+
 private:
     Ui::demo *ui;
+    int dim;
+    int vec_unico;
+    bool comp_3d;
 
 };
 
