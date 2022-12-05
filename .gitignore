@@ -73,5 +73,6 @@ Thumbs.db
 
 /.idea/
 /cmake-build-debug/
+/cmake-build-release/
 /legacy/cmake-build-debug/
 /.wakatime-project
