@@ -208,6 +208,18 @@ void vecalculator::on_B_calcular_clicked(){
     vecalculator::makePlot();
 }
 
+void vecalculator::on_B_descargar_clicked() {
+    QPixmap pixmap = ui->grafico_2d->grab();
+    QImage image = pixmap.toImage();
+    Q_ASSERT(!image.isNull());
+    QApplication::clipboard()->setImage(image, QClipboard::Clipboard);
+    QMessageBox::information(
+            this,
+            tr("Vecalculator"),
+            tr("La imagen fue copiada al portapapeles.") );
+}
+
+
 void vecalculator::on_sel_vec1_x_valueChanged(double arg1)
 {
     vector1.eje_x=arg1;
