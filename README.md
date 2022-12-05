@@ -1,6 +1,8 @@
 # Vecalculator
 [![wakatime](https://wakatime.com/badge/user/5be7d1e2-7411-4f5d-9f82-c9a643da22e2/project/9aafb881-995a-4634-9ffa-40e64411f340.svg)](https://wakatime.com/badge/user/5be7d1e2-7411-4f5d-9f82-c9a643da22e2/project/9aafb881-995a-4634-9ffa-40e64411f340)
 
+09/12/2022
+
 ## Sobre el proyecto
 Introducción: Lo que nos llevó como grupo a pensar en la elaboración de una calculadora de vectores y todo lo que esto englobe principalmente fueron 2 razones, como una de las principales es hacer que la tarea del cálculo de vectores deje de ser un proceso tan engorroso además de enredado para muchos y convertirlo en algo más mecanizado de fácil uso y por último pensando tanto como en nosotros como alumnos a los cuales se nos complicó mucho nuestro primer acercamiento a la física de la educación superior, además como factor agregado creemos que nuestro proyecto en un futuro puede ser de gran ayuda para la comunidad universitaria que componemos.
 
