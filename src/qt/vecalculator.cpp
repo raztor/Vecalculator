@@ -26,7 +26,6 @@ vecalculator::~vecalculator()
 
 // 1.suma 2.resta 3.angulo* 4.modulo* 5.componentes* 6.producto cruz 7.producto punto 8.producto escalar* 9.vector unitario*
 void vecalculator::filtro_op_select(int op){
-    std::cout<<"prueba"<<std::endl;
     if(op==0){
         comp_3d=false;
         ui->sel_2D->setDisabled(true);
@@ -189,7 +188,6 @@ void vecalculator::on_sel_op_currentIndexChanged(int index)
 
 void vecalculator::on_sel_2D_pressed()
 {
-    std::cout<<"on2d"<<std::endl;
     modo2d();
 }
 
@@ -207,7 +205,6 @@ void vecalculator::on_B_calcular_clicked(){
     vec_resultado.setOperacion(operacion);
     vec_resultado.calcular();
     result_vec=vec_resultado.getVecFinal();
-    std::cout<<"calcular"<<std::endl;
     vecalculator::makePlot();
 }
 
@@ -248,7 +245,6 @@ void vecalculator::on_sel_escalar_valueChanged(double arg1)
 
 
 void vecalculator::makePlot() {
-    std::cout<<"makeplot"<<std::endl;
     // Lo de abajo se encarga de ver cual es el valor mas chico y mas grande de ambos ejes para así poder generar bien el rango del grafico
     float x, y, or_x, or_y, min_x, max_x, min_y, max_y;
     x = vec_resultado.getVecFinal().eje_x;
@@ -316,7 +312,6 @@ void vecalculator::makePlot() {
     arrow->end->setCoords(x, y); // point to (4, 1.6) in x-y-plot coordinates
     arrow->setHead(QCPLineEnding::esSpikeArrow);
     ui->grafico_2d->replot();
-    std::cout<<"ended"<<std::endl;
 }
 
 //TODO: añadir output del resultado

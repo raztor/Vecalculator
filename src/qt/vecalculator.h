@@ -5,11 +5,10 @@
 #ifndef VECALCULATOR_VECALCULATOR_H
 #define VECALCULATOR_VECALCULATOR_H
 
-#include <QWidget>
-#include <QMainWindow>
-#include <iostream>
 //#include <string>
 //#include <sstream>
+#include <QWidget>
+#include <QMainWindow>
 #include <iomanip>
 #include "../include/vec_result.h"
 #include "qcustomplot.h"

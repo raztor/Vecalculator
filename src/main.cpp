@@ -4,7 +4,6 @@
 #include <QApplication>
 #include "qt/vecalculator.h"
 
-bool ciclo_main= true, ciclo_menu=true;
 int main(int argc, char **argv) {
     QApplication a(argc, argv);
     vecalculator w;
