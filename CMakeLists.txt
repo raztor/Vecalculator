@@ -16,7 +16,6 @@ find_package(Qt5 COMPONENTS
         PrintSupport REQUIRED
         )
 
-
 add_executable(vecalculator
         src/main.cpp
         src/lib/qcustomplot.cpp src/lib/qcustomplot.h
