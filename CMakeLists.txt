@@ -5,18 +5,19 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
-
-set(CMAKE_PREFIX_PATH "C:/Qt/6.4.0/mingw_64/lib/cmake")
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_EXE_LINKER_FLAGS "-static")
+set(CMAKE_PREFIX_PATH "D:/Qt/5.15.2/mingw81_64/")
+INCLUDE_DIRECTORIES("src/lib")
 
 find_package(Qt5 COMPONENTS
         Core
         Gui
         Widgets
         Charts
-        REQUIRED
-        PrintSupport
+        PrintSupport REQUIRED
         )
-INCLUDE_DIRECTORIES("src/lib")
+
 
 add_executable(vecalculator
         src/main.cpp
@@ -26,6 +27,7 @@ add_executable(vecalculator
         src/qt/vecalculator.h src/qt/vecalculator.ui src/qt/vecalculator.cpp)
 
 target_link_libraries(vecalculator
+        -static
         Qt::Core
         Qt::Gui
         Qt::Widgets
@@ -55,10 +57,10 @@ if (WIN32)
                 "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
     endif ()
-    foreach (QT_LIB Core Gui Widgets)
+    foreach (QT_LIB Core Gui Widgets Charts PrintSupport)
         add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy
-                "${QT_INSTALL_PATH}/bin/Qt6${QT_LIB}${DEBUG_SUFFIX}.dll"
+                "${QT_INSTALL_PATH}/bin/Qt5${QT_LIB}${DEBUG_SUFFIX}.dll"
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
     endforeach (QT_LIB)
 endif ()
