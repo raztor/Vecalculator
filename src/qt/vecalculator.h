@@ -42,6 +42,7 @@ private slots:
     void makePlot();
 
     void on_B_calcular_clicked();
+    void on_B_descargar_clicked();
 
     void on_sel_op_currentIndexChanged(int index);
     void on_sel_2D_pressed();

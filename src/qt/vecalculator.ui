@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../../../../../../Descargas/vecalculator_logo.png</normaloff>../../../../../../../../Descargas/vecalculator_logo.png</iconset>
+    <normaloff>../../../../../../Descargas/vecalculator_logo.png</normaloff>../../../../../../Descargas/vecalculator_logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="layoutWidget">
@@ -136,7 +136,7 @@
             <height>371</height>
            </rect>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,1">
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,1">
            <item>
             <widget class="QWidget" name="widget_vec1" native="true">
              <layout class="QVBoxLayout" name="fll_vec1" stretch="0,1">
@@ -300,6 +300,13 @@
             </widget>
            </item>
            <item>
+            <widget class="QPushButton" name="B_descargar">
+             <property name="text">
+              <string>Copiar Imagen</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <spacer name="verticalSpacer">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -371,7 +378,7 @@
      <x>0</x>
      <y>0</y>
      <width>953</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
