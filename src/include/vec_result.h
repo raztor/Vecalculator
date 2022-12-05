@@ -6,7 +6,6 @@
 #define VECALCULATOR_VEC_RESULT_H
 #include "./vectores.h"
 #include <cmath>
-#include <iostream>
 class vec_result {
 private:
     vec vec_orig=NULL_VEC,vec_oper=NULL_VEC,vec_total=NULL_VEC;
