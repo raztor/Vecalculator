@@ -14,8 +14,8 @@
    <string>vecalculator</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../../../../Descargas/vecalculator_logo.png</normaloff>../../../../../../Descargas/vecalculator_logo.png</iconset>
+   <iconset resource="../../media/sources.qrc">
+    <normaloff>:/logo/vecalculator_logo.png</normaloff>:/logo/vecalculator_logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="layoutWidget">
@@ -133,7 +133,7 @@
             <x>0</x>
             <y>0</y>
             <width>351</width>
-            <height>371</height>
+            <height>385</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,1">
@@ -378,7 +378,7 @@
      <x>0</x>
      <y>0</y>
      <width>953</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
@@ -392,6 +392,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../media/sources.qrc"/>
+ </resources>
  <connections/>
 </ui>
