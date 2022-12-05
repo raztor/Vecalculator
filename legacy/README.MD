@@ -1,0 +1,1 @@
+## Este Código no esta hecho para ser revisasdo, no tiene relación con el código final. Es el código antiguo del Hito 2, se mantiene para poder comprobar los resultados del 3 y para poder usarlo rápidamente desde terminal
