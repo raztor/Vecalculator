@@ -16,6 +16,7 @@ vecalculator::vecalculator(QWidget *parent)
     ui->div_post_dim_hide->setHidden(true);
     ui->widget_placeholder->setHidden(false);
     ui->sel_2D->setDisabled(true);
+    ui->W_toogles->setDisabled(true);
     ui->sel_3D->setDisabled(true);
     ui->grafico_3d->setHidden(true);
     vec_visibility(3, false, false, false, true);
@@ -212,6 +213,8 @@ void vecalculator::vec_visibility(int vec, bool x, bool y, bool z, bool hidden){
 
 void vecalculator::modo2d(){
     dimension=2;
+    ui->W_toogles->setHidden(false);
+    ui->W_toogles->setEnabled(false);
     ui->grafico_2d->setHidden(false);
     ui->grafico_3d->setHidden(true);
     ui->div_post_dim_hide->setDisabled(false);
@@ -246,6 +249,7 @@ void vecalculator::modo3d(){
     dimension=3;
     ui->div_post_dim_hide->setDisabled(false);
     ui->grafico_2d->setHidden(true);
+    ui->W_toogles->setHidden(true);
     ui->grafico_3d->setHidden(false);
     if(vec_unico==0){
         vec_visibility(1, true, true, true, false);
@@ -302,11 +306,11 @@ void vecalculator::on_sel_3D_clicked()
 }
 
 void vecalculator::on_B_calcular_clicked(){
+    ui->grafico_2d->clearItems();
     Vector1.setOrigen(vec1_origen);
     Vector2.setOrigen(vec2_origen);
     Vector1.setFin(vec1_fin);
     Vector2.setFin(vec2_fin);
-    ui->grafico_2d->clearItems();
     Vector1.setFin_cero(resta_puntos(Vector1.getFin(),Vector1.getOrigen()));
     Vector2.setFin_cero(resta_puntos(Vector2.getFin(),Vector2.getOrigen()));
     std::cout << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << " " << Vector1.getFin().getZ() << std::endl;
@@ -319,7 +323,14 @@ void vecalculator::on_B_calcular_clicked(){
     vec_resultado.setOperacion(operacion);
     vec_resultado.calcular();
     Vector3.setFin_cero(vec_resultado.getVecFinal());
-    vecalculator::makePlot();
+    if(dimension==2){
+        ui->W_toogles->setHidden(false);
+        ui->W_toogles->setDisabled(false);
+        vecalculator::makePlot();
+    }else if(dimension==3){
+        ui->W_toogles->setHidden(true);
+        ui->W_toogles->setDisabled(true);
+    }
 }
 
 void vecalculator::on_B_descargar_clicked() {
@@ -449,15 +460,45 @@ void vecalculator::makePlot() {
     // Todo lo de abajo esta encargado de plotear y hacer el grafico interactivo
 
 
-    ui->grafico_2d->setInteraction(QCP::iRangeZoom, true);
-    ui->grafico_2d->setInteraction(QCP::iRangeDrag, true);
-    ui->grafico_2d->setInteraction(QCP::iSelectPlottables, true);
+    ui->grafico_2d->addLayer("geometrica", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+    ui->grafico_2d->addLayer("analitica", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+    ui->grafico_2d->addLayer("Vector1", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+    ui->grafico_2d->addLayer("Vector2", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+
+    QCPItemText *textLabel = new QCPItemText(ui->grafico_2d);
+
+    ui->grafico_2d->setCurrentLayer("geometrica");
+    QCPItemLine *R_geometrico = new QCPItemLine(ui->grafico_2d);
+
+    ui->grafico_2d->setCurrentLayer("analitica");
+    QCPItemLine *arrow = new QCPItemLine(ui->grafico_2d);
+
+    ui->grafico_2d->setCurrentLayer("Vector1");
+    QCPItemLine *V1 = new QCPItemLine(ui->grafico_2d);
+
+    ui->grafico_2d->setCurrentLayer("Vector2");
+    QCPItemLine *V2_or = new QCPItemLine(ui->grafico_2d);
+    QCPItemLine *V2 = new QCPItemLine(ui->grafico_2d);
+
+
+
+    //ui->grafico_2d->legend->setVisible(true);
+
+    //TODO: implementar colores de vectores y leyenda
+
+    ui->grafico_2d->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectAxes |
+                                    QCP::iSelectLegend | QCP::iSelectPlottables);
+
+    ui->grafico_2d->legend->setVisible(true);
+    QFont legendFont = font();
+    legendFont.setPointSize(10);
+    ui->grafico_2d->legend->setFont(legendFont);
+    ui->grafico_2d->legend->setSelectedFont(legendFont);
+    ui->grafico_2d->legend->setSelectableParts(QCPLegend::spItems);
 
     // Esto se encarga de hacer que el grafico tengo correcto los valores de los ejes
-
     ui->grafico_2d->xAxis->setRange(min_x, max_x);
     ui->grafico_2d->yAxis->setRange(min_y, max_y);
-    QCPItemText *textLabel = new QCPItemText(ui->grafico_2d);
     textLabel->setPositionAlignment(Qt::AlignTop);
     textLabel->position->setType(QCPItemPosition::ptAxisRectRatio);
     // Esto es para asignar el texto de coordenadas
@@ -470,45 +511,106 @@ void vecalculator::makePlot() {
     textLabel->setPen(QPen(Qt::black)); //
 
     // add the arrow:
-    QCPItemLine *arrow = new QCPItemLine(ui->grafico_2d);
     arrow->start->setCoords(or_x, or_y);
     arrow->end->setCoords(x, y); // point to (4, 1.6) in x-y-plot coordinates
     arrow->setHead(QCPLineEnding::esSpikeArrow);
 
     // add the arrow:
-    QCPItemLine *geometrica = new QCPItemLine(ui->grafico_2d);
     vec_result geometrico;
     geometrico.setVec1(Vector1.getFin());
     geometrico.setVec2(Vector2.getFin_cero());
-    geometrico.setOperacion(1);
+    geometrico.setOperacion(operacion);
     geometrico.calcular();
-    geometrica->start->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY());
-    geometrica->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
+    V2_or->start->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY());
+    V2_or->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
     // point to (4, 1.6) in x-y-plot coordinates
-    geometrica->setHead(QCPLineEnding::esSpikeArrow);
+    V2_or->setHead(QCPLineEnding::esSpikeArrow);
     std::cout << "geometrico: " << geometrico.getVecFinal().getX() << " " << geometrico.getVecFinal().getY() << std::endl;
 
 
-    QCPItemLine *V1 = new QCPItemLine(ui->grafico_2d);
     V1->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
     V1->end->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
     V1->setHead(QCPLineEnding::esSpikeArrow);
     std::cout << "V1: " << Vector1.getOrigen().getX() << " " << Vector1.getOrigen().getY() << " " << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << std::endl;
 
-    QCPItemLine *V2 = new QCPItemLine(ui->grafico_2d);
+
     V2->start->setCoords(Vector2.getOrigen().getX(), Vector2.getOrigen().getY());
     V2->end->setCoords(Vector2.getFin().getX(), Vector2.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
     V2->setHead(QCPLineEnding::esSpikeArrow);
     std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
 
-    QCPItemLine *V_result = new QCPItemLine(ui->grafico_2d);
-    V_result->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
-    V_result->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
-    V_result->setHead(QCPLineEnding::esSpikeArrow);
+    //Rsultado geometrico
+    R_geometrico->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
+    R_geometrico->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
+    R_geometrico->setHead(QCPLineEnding::esSpikeArrow);
     std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
-
+    // TODO ui->grafico_2d->rescaleAxes();
     ui->grafico_2d->replot();
 }
 
 //TODO: añadir output del resultado
 //TODO: añadir grafico 3d
+void vecalculator::on_T_analitica_stateChanged(int arg1)
+{
+    std::cout << "on_T_analitica_stateChanged" << std::endl;
+    if(arg1==0){
+        ui->grafico_2d->layer("analitica")->setVisible(false);
+        ui->grafico_2d->layer("analitica")->replot();
+        std::cout << "on_T_analitica_stateChanged: 0" << std::endl;
+    }else{
+        ui->grafico_2d->layer("analitica")->setVisible(true);
+        ui->grafico_2d->layer("analitica")->replot();
+        std::cout << "on_T_analitica_stateChanged: 1" << std::endl;
+    }
+
+}
+
+
+void vecalculator::on_T_geometrica_stateChanged(int arg1)
+{
+    std::cout << "on_T_analitica_stateChanged" << std::endl;
+    if(arg1==0){
+        ui->grafico_2d->layer("geometrica")->setVisible(false);
+        ui->grafico_2d->layer("geometrica")->replot();
+        std::cout << "on_T_Geometrica_stateChanged: 0" << std::endl;
+    }else{
+        ui->grafico_2d->layer("geometrica")->setVisible(true);
+        ui->grafico_2d->layer("geometrica")->replot();
+        std::cout << "on_T_Geometrica_stateChanged: 1" << std::endl;
+    }
+
+}
+
+
+void vecalculator::on_T_vector1_stateChanged(int arg1)
+{
+    std::cout << "on_T_vector1_stateChanged" << std::endl;
+    if(arg1==0){
+        ui->grafico_2d->layer("Vector1")->setVisible(false);
+        ui->grafico_2d->layer("Vector1")->replot();
+        std::cout << "on_T_vector1_stateChanged: 0" << std::endl;
+    }else{
+        ui->grafico_2d->layer("Vector1")->setVisible(true);
+        ui->grafico_2d->layer("Vector1")->replot();
+        std::cout << "on_T_vector1_stateChanged: 1" << std::endl;
+    }
+
+}
+
+
+void vecalculator::on_T_vector2_stateChanged(int arg1)
+{
+    std::cout << "on_T_vector2_stateChanged" << std::endl;
+    if(arg1==0){
+        ui->grafico_2d->layer("Vector2")->setVisible(false);
+        ui->grafico_2d->layer("Vector2")->replot();
+        std::cout << "on_T_vector2_stateChanged: 0" << std::endl;
+    }else{
+        ui->grafico_2d->layer("Vector2")->setVisible(true);
+        ui->grafico_2d->layer("Vector2")->replot();
+        std::cout << "on_T_vector2_stateChanged: 1" << std::endl;
+    }
+
+
+}
+
