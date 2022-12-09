@@ -13,6 +13,7 @@
 #include "../include/vec_result.h"
 #include "qcustomplot.h"
 #include "ui_vecalculator.h"
+#include "../include/Vecalculator_vectores.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class vecalculator; }
@@ -56,6 +57,14 @@ private slots:
     void on_sel_vec2_y_valueChanged(double arg1);
     void on_sel_vec2_z_valueChanged(double arg1);
     void on_sel_escalar_valueChanged(double arg1);
+
+    void on_sel_vec1_x_origen_valueChanged(double arg1);
+    void on_sel_vec1_y_origen_valueChanged(double arg1);
+    void on_sel_vec1_z_origen_valueChanged(double arg1);
+
+    void on_sel_vec2_x_origen_valueChanged(double arg1);
+    void on_sel_vec2_y_origen_valueChanged(double arg1);
+    void on_sel_vec2_z_origen_valueChanged(double arg1);
 
 
 private:
