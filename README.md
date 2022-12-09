@@ -105,11 +105,6 @@ Se espera que pueda ser una herramienta provechosa para las y los estudiantes de
     Laroze Barrios, L. (2018). Conceptos y magnitudes en física (2018.a ed.). Nicolás Porras.
 
 <details>
-<summary>Diagrama Completo</summary>
-<br>
-<img src="https://gitlab.com/Raztor/vecalculator/-/raw/main/media/diagrama.png" alt="Diagrama UML">
-</details>
-<details>
 <summary>Diagrama Resumido (formato solicitado)</summary>
 <br>
 <img src="https://gitlab.com/Raztor/vecalculator/-/raw/main/media/img.png" alt="Diagrama UML">
