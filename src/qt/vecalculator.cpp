@@ -1,8 +1,10 @@
 #include "vecalculator.h"
+#include <iostream>
 
 int operacion=0, dimension=0;
 float escalar=0;
-vec vector1 = NULL_VEC, vector2 = NULL_VEC, result_vec=NULL_VEC;// Inicializacion de los vectores con valor 0
+Vecalculator_vectores Vector1,Vector2,Vector3;// Inicializacion de los vectores con valor 0
+puntos vec1_origen,vec2_origen,vec1_fin,vec2_fin;
 
 vec_result vec_resultado;
 
@@ -15,14 +17,25 @@ vecalculator::vecalculator(QWidget *parent)
     ui->widget_placeholder->setHidden(false);
     ui->sel_2D->setDisabled(true);
     ui->sel_3D->setDisabled(true);
+    ui->grafico_3d->setHidden(true);
     vec_visibility(3, false, false, false, true);
-    
+
 }
 
 vecalculator::~vecalculator()
 {
     delete ui;
 }
+
+
+puntos resta_puntos(puntos a, puntos b){
+    puntos c;
+    c.setX(a.getX()-b.getX());
+    c.setY(a.getY()-b.getY());
+    c.setZ(a.getZ()-b.getZ());
+    return c;
+}
+
 
 // 1.suma 2.resta 3.angulo* 4.modulo* 5.componentes* 6.producto cruz 7.producto punto 8.producto escalar* 9.vector unitario*
 void vecalculator::filtro_op_select(int op){
@@ -42,7 +55,11 @@ void vecalculator::filtro_op_select(int op){
             ui->sel_2D->setEnabled(true);
             ui->sel_3D->setEnabled(true);
             vec_visibility(1, false, false, false, false);
+            vec_visibility(4, false, false, false, false);
+
             vec_visibility(2, false, false, false, false);
+            vec_visibility(5, false, false, false, false);
+
             vec_visibility(3, false, false, false, true);
         }else if(op==3) {
             comp_3d = false;
@@ -50,7 +67,11 @@ void vecalculator::filtro_op_select(int op){
             ui->sel_2D->setEnabled(true);
             ui->sel_3D->setEnabled(false);
             vec_visibility(1, false, false, false, false);
+            vec_visibility(4, false, false, false, false);
+
             vec_visibility(2, false, false, false, true);
+            vec_visibility(5, false, false, false, true);
+
             vec_visibility(3, false, false, false, true);
         }else if(op==4||op==5||op==9) {
             comp_3d=true;
@@ -58,7 +79,11 @@ void vecalculator::filtro_op_select(int op){
             ui->sel_2D->setEnabled(true);
             ui->sel_3D->setEnabled(true);
             vec_visibility(1, false, false, false, false);
+            vec_visibility(4, false, false, false, false);
+
             vec_visibility(2, false, false, false, true);
+            vec_visibility(5, false, false, false, true);
+
             vec_visibility(3, false, false, false, true);
         }else if(op==8) {
             comp_3d = true;
@@ -66,14 +91,22 @@ void vecalculator::filtro_op_select(int op){
             ui->sel_2D->setEnabled(true);
             ui->sel_3D->setEnabled(true);
             vec_visibility(1, false, false, false, false);
+            vec_visibility(4, false, false, false, false);
+
             vec_visibility(2, false, false, false, true);
+            vec_visibility(5, false, false, false, true);
+
             vec_visibility(3, false, false, false, false);
         }else{
             comp_3d=false;
             ui->sel_2D->setDisabled(true);
             ui->sel_3D->setDisabled(true);
             vec_visibility(1, false, false, false, true);
+            vec_visibility(4, false, false, false, true);
+
             vec_visibility(2, false, false, false, true);
+            vec_visibility(5, false, false, false, true);
+
             vec_visibility(3, false, false, false, true);
         }
     }
@@ -131,22 +164,80 @@ void vecalculator::vec_visibility(int vec, bool x, bool y, bool z, bool hidden){
             ui->widget_escalar->setHidden(false);
         }
     }
+    if(vec==4) {
+        if (!x) {
+            ui->widget_vec1->setDisabled(true);
+        } else {
+            ui->widget_vec1->setEnabled(true);
+        }
+        if (!y) {
+            ui->vec1_eje_y_origen->setDisabled(true);
+        } else {
+            ui->vec1_eje_y_origen->setEnabled(true);
+        }
+        if (!z) {
+            ui->vec1_eje_z_origen->setDisabled(true);
+        } else {
+            ui->vec1_eje_z_origen->setEnabled(true);
+        }
+        if (hidden) {
+            ui->widget_vec1->setHidden(true);
+        } else {
+            ui->widget_vec1->setHidden(false);
+        }
+    }
+    else if(vec==5) {
+        if (!x) {
+            ui->widget_vec2->setDisabled(true);
+        } else {
+            ui->widget_vec2->setEnabled(true);
+        }
+        if (!y) {
+            ui->vec2_eje_y_origen->setDisabled(true);
+        } else {
+            ui->vec2_eje_y_origen->setEnabled(true);
+        }
+        if (!z) {
+            ui->vec2_eje_z_origen->setDisabled(true);
+        } else {
+            ui->vec2_eje_z_origen->setEnabled(true);
+        }
+        if (hidden) {
+            ui->widget_vec2->setHidden(true);
+        } else {
+            ui->widget_vec2->setHidden(false);
+        }
+    }
 }
 
 void vecalculator::modo2d(){
     dimension=2;
+    ui->grafico_2d->setHidden(false);
+    ui->grafico_3d->setHidden(true);
     ui->div_post_dim_hide->setDisabled(false);
     if(vec_unico==0){
         vec_visibility(1, true, true, false, false);
+        vec_visibility(4, true, true, false, false);
+
         vec_visibility(2, true, true, false, false);
+        vec_visibility(5, true, true, false, false);
+
         vec_visibility(3, false, false, false, true);
     }else if(vec_unico==1){
         vec_visibility(1, true, true, false, false);
+        vec_visibility(4, true, true, false, false);
+
         vec_visibility(2, false, false, false, true);
+        vec_visibility(5, false, false, false, true);
+
         vec_visibility(3, false, false, false, true);
     }else if(vec_unico==2){
         vec_visibility(1, true, true, false, false);
+        vec_visibility(4, true, true, false, false);
+
         vec_visibility(2, false, false, false, true);
+        vec_visibility(5, false, false, false, true);
+
         vec_visibility(3, true, true, false, false);
     }
 }
@@ -154,17 +245,31 @@ void vecalculator::modo2d(){
 void vecalculator::modo3d(){
     dimension=3;
     ui->div_post_dim_hide->setDisabled(false);
+    ui->grafico_2d->setHidden(true);
+    ui->grafico_3d->setHidden(false);
     if(vec_unico==0){
         vec_visibility(1, true, true, true, false);
+        vec_visibility(4, true, true, true, false);
+
         vec_visibility(2, true, true, true, false);
+        vec_visibility(5, true, true, true, false);
+
         vec_visibility(3, false, false, false, true);
     }else if(vec_unico==1){
         vec_visibility(1, true, true, true, false);
+        vec_visibility(4, true, true, true, false);
+
         vec_visibility(2, false, false, false, true);
+        vec_visibility(5, false, false, false, true);
+
         vec_visibility(3, false, false, false, true);
     }else if(vec_unico==2) {
         vec_visibility(1, true, true, true, false);
+        vec_visibility(4, true, true, true, false);
+
         vec_visibility(2, false, false, false, true);
+        vec_visibility(5, false, false, false, true);
+
         vec_visibility(3, true, true, true, false);
     }
 }
@@ -197,14 +302,23 @@ void vecalculator::on_sel_3D_clicked()
 }
 
 void vecalculator::on_B_calcular_clicked(){
+    Vector1.setOrigen(vec1_origen);
+    Vector2.setOrigen(vec2_origen);
+    Vector1.setFin(vec1_fin);
+    Vector2.setFin(vec2_fin);
     ui->grafico_2d->clearItems();
-    vec_resultado.setVec1(vector1);
-    vec_resultado.setVec2(vector2);
+    Vector1.setFin_cero(resta_puntos(Vector1.getFin(),Vector1.getOrigen()));
+    Vector2.setFin_cero(resta_puntos(Vector2.getFin(),Vector2.getOrigen()));
+    std::cout << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << " " << Vector1.getFin().getZ() << std::endl;
+    std::cout << "set fin cero: " << Vector1.getFin_cero().getX() << " " << Vector1.getFin_cero().getY() << " " << Vector1.getFin_cero().getZ() << std::endl;
+
+    vec_resultado.setVec1(Vector1.getFin_cero());
+    vec_resultado.setVec2(Vector2.getFin_cero());
     vec_resultado.setEscalar(escalar);
     vec_resultado.setDimension(dimension);
     vec_resultado.setOperacion(operacion);
     vec_resultado.calcular();
-    result_vec=vec_resultado.getVecFinal();
+    Vector3.setFin_cero(vec_resultado.getVecFinal());
     vecalculator::makePlot();
 }
 
@@ -219,36 +333,72 @@ void vecalculator::on_B_descargar_clicked() {
             tr("La imagen fue copiada al portapapeles.") );
 }
 
-
+void vecalculator::on_sel_vec1_x_origen_valueChanged(double arg1)
+{
+    vec1_origen.setX(arg1);
+}
 void vecalculator::on_sel_vec1_x_valueChanged(double arg1)
 {
-    vector1.eje_x=arg1;
+    vec1_fin.setX(arg1);
 }
+
+
 
 void vecalculator::on_sel_vec1_y_valueChanged(double arg1)
 {
-    vector1.eje_y=arg1;
+    vec1_fin.setY(arg1);
 }
+void vecalculator::on_sel_vec1_y_origen_valueChanged(double arg1)
+{
+    vec1_origen.setY(arg1);
+}
+
 
 void vecalculator::on_sel_vec1_z_valueChanged(double arg1)
 {
-    vector1.eje_z=arg1;
+    vec1_fin.setZ(arg1);
 }
+void vecalculator::on_sel_vec1_z_origen_valueChanged(double arg1)
+{
+    vec1_origen.setZ(arg1);
+}
+
+
 
 void vecalculator::on_sel_vec2_x_valueChanged(double arg1)
 {
-    vector2.eje_x=arg1;
+    vec2_fin.setX(arg1);
 }
+void vecalculator::on_sel_vec2_x_origen_valueChanged(double arg1)
+{
+    vec2_origen.setX(arg1);
+}
+
+
+
 
 void vecalculator::on_sel_vec2_y_valueChanged(double arg1)
 {
-    vector2.eje_y=arg1;
+    vec2_fin.setY(arg1);
 }
+void vecalculator::on_sel_vec2_y_origen_valueChanged(double arg1)
+{
+    vec2_origen.setY(arg1);
+}
+
+
+
 
 void vecalculator::on_sel_vec2_z_valueChanged(double arg1)
 {
-    vector2.eje_z=arg1;
+    vec2_fin.setZ(arg1);
 }
+void vecalculator::on_sel_vec2_z_origen_valueChanged(double arg1)
+{
+    vec2_origen.setZ(arg1);
+}
+
+
 
 void vecalculator::on_sel_escalar_valueChanged(double arg1)
 {
@@ -259,10 +409,11 @@ void vecalculator::on_sel_escalar_valueChanged(double arg1)
 void vecalculator::makePlot() {
     // Lo de abajo se encarga de ver cual es el valor mas chico y mas grande de ambos ejes para así poder generar bien el rango del grafico
     float x, y, or_x, or_y, min_x, max_x, min_y, max_y;
-    x = vec_resultado.getVecFinal().eje_x;
-    y = vec_resultado.getVecFinal().eje_y;
-    or_x = vec_resultado.getVec1().eje_x;
-    or_y = vec_resultado.getVec1().eje_y;
+    x = vec_resultado.getVecFinal().getX();
+    y = vec_resultado.getVecFinal().getY();
+    std::cout << "x: " << x << " y: " << y << std::endl;
+    or_x = 0;//vec_resultado.getVec1().getX();
+    or_y = 0;//vec_resultado.getVec1().getY();
 
     if (x >= or_x) {
         min_x = or_x;
@@ -323,6 +474,39 @@ void vecalculator::makePlot() {
     arrow->start->setCoords(or_x, or_y);
     arrow->end->setCoords(x, y); // point to (4, 1.6) in x-y-plot coordinates
     arrow->setHead(QCPLineEnding::esSpikeArrow);
+
+    // add the arrow:
+    QCPItemLine *geometrica = new QCPItemLine(ui->grafico_2d);
+    vec_result geometrico;
+    geometrico.setVec1(Vector1.getFin());
+    geometrico.setVec2(Vector2.getFin_cero());
+    geometrico.setOperacion(1);
+    geometrico.calcular();
+    geometrica->start->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY());
+    geometrica->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
+    // point to (4, 1.6) in x-y-plot coordinates
+    geometrica->setHead(QCPLineEnding::esSpikeArrow);
+    std::cout << "geometrico: " << geometrico.getVecFinal().getX() << " " << geometrico.getVecFinal().getY() << std::endl;
+
+
+    QCPItemLine *V1 = new QCPItemLine(ui->grafico_2d);
+    V1->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
+    V1->end->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
+    V1->setHead(QCPLineEnding::esSpikeArrow);
+    std::cout << "V1: " << Vector1.getOrigen().getX() << " " << Vector1.getOrigen().getY() << " " << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << std::endl;
+
+    QCPItemLine *V2 = new QCPItemLine(ui->grafico_2d);
+    V2->start->setCoords(Vector2.getOrigen().getX(), Vector2.getOrigen().getY());
+    V2->end->setCoords(Vector2.getFin().getX(), Vector2.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
+    V2->setHead(QCPLineEnding::esSpikeArrow);
+    std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
+
+    QCPItemLine *V_result = new QCPItemLine(ui->grafico_2d);
+    V_result->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
+    V_result->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
+    V_result->setHead(QCPLineEnding::esSpikeArrow);
+    std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
+
     ui->grafico_2d->replot();
 }
 

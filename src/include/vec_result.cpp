@@ -5,19 +5,17 @@
 #include "vec_result.h"
 
 vec_result::vec_result() {
-    vec_orig=NULL_VEC;
-    vec_oper=NULL_VEC;
-    vec_total=NULL_VEC;
+
     vec_escalar=0;
     dimension=0;
     operacion=0;
 }
 
-void vec_result::setVec1(vec vec1) {
-    this->vec_orig = vec1;
+void vec_result::setVec1(puntos vec1_origen) {
+    this->vec1_origen = vec1_origen;
 }
-void vec_result::setVec2(vec vec2) {
-    this->vec_oper = vec2;
+void vec_result::setVec2(puntos vec2_origen) {
+    this->vec2_origen= vec2_origen;
 }
 void vec_result::setEscalar(int escalar) {
     this->vec_escalar = escalar;
@@ -31,14 +29,14 @@ void vec_result::setOperacion(int operacion) {
 void vec_result::setDimension(int dimension){
     this->dimension = dimension;
 }
-vec vec_result::getVec1() {
-    return this->vec_orig;
+puntos vec_result::getVec1() {
+    return this->vec1_origen;
 }
-vec vec_result::getVec2() {
-    return this->vec_oper;
+puntos vec_result::getVec2() {
+    return this->vec2_origen;
 }
-vec vec_result::getVecFinal() {
-    return this->vec_total;
+puntos vec_result::getVecFinal() {
+    return this->vec_fin_origen;
 }
 int vec_result::getEscalar() {
     return this->vec_escalar;
@@ -50,40 +48,40 @@ int vec_result::getDimension() {
 
 // Operacion encargada de la suma
 void vec_result::suma(){
-    vec_total.eje_x = vec_orig.eje_x + vec_oper.eje_x;
-    vec_total.eje_y = vec_orig.eje_y + vec_oper.eje_y;
-    vec_total.eje_z = vec_orig.eje_z + vec_oper.eje_z;
+    vec_fin_origen.setX(vec1_origen.getX() + vec2_origen.getX());
+    vec_fin_origen.setY(vec1_origen.getY() + vec2_origen.getY());
+    vec_fin_origen.setZ(vec1_origen.getZ() + vec2_origen.getZ());
 }
 // Operacion encargada de la resta
 void vec_result::rest(){
-    vec_total.eje_x=vec_orig.eje_x-vec_oper.eje_x;
-    vec_total.eje_y=vec_orig.eje_y-vec_oper.eje_y;
-    vec_total.eje_z=vec_orig.eje_z-vec_oper.eje_z;
+    vec_fin_origen.setX(vec1_origen.getX() - vec2_origen.getX());
+    vec_fin_origen.setY(vec1_origen.getY() - vec2_origen.getY());
+    vec_fin_origen.setZ(vec1_origen.getZ() - vec2_origen.getZ());
 }
 // Operacion encargada del producto punto
 float vec_result::p_punto(){
     float c=0;
     if (dimension==1){
-        c = vec_orig.eje_x*vec_oper.eje_x + vec_orig.eje_y*vec_oper.eje_y;
+        c = vec1_origen.getX()*vec2_origen.getX() + vec1_origen.getY()*vec2_origen.getY();
     }else if (dimension==2){
-        c = vec_orig.eje_x*vec_oper.eje_x + vec_orig.eje_y*vec_oper.eje_y + vec_orig.eje_z*vec_oper.eje_z;
+        c = vec1_origen.getX()*vec2_origen.getX() + vec1_origen.getY()*vec2_origen.getY() + vec1_origen.getZ()*vec2_origen.getZ();
     }
     return c;
 }
 // Operacion encargada del producto por escalar
 void vec_result::p_escalar(){
-    vec_total.eje_x=vec_orig.eje_x*vec_escalar;
-    vec_total.eje_y=vec_orig.eje_y*vec_escalar;
-    vec_total.eje_z=vec_orig.eje_z*vec_escalar;
+    vec_fin_origen.setX(vec1_origen.getX()*vec_escalar);
+    vec_fin_origen.setY(vec1_origen.getY()*vec_escalar);
+    vec_fin_origen.setZ(vec1_origen.getZ()*vec_escalar);
 }
 // Operacion encargada de la norma/modulo
 float vec_result::norm(){
     float mag=0;
     if (dimension == 1){
-        mag = sqrt((pow(vec_orig.eje_x, 2) + pow(vec_orig.eje_y, 2)));
+        mag = sqrt((pow(vec1_origen.getX(), 2) + pow(vec1_origen.getY(), 2)));
     }
     else if (dimension == 2){
-        mag = sqrt((pow(vec_orig.eje_x, 2) + pow(vec_orig.eje_y, 2) + pow(vec_orig.eje_z,2)));
+        mag = sqrt((pow(vec1_origen.getX(), 2) + pow(vec1_origen.getY(), 2) + pow(vec1_origen.getZ(),2)));
     }
     return mag;
 }
@@ -92,25 +90,25 @@ float vec_result::norm(){
 void vec_result::componentes(){
     float mag = norm();
     if(dimension==1) {
-        vec_total.eje_x = mag * cos(vec_orig.eje_x);
-        vec_total.eje_y = mag * sin(vec_orig.eje_y);
+        vec_fin_origen.setX(mag * cos(vec1_origen.getX()));
+        vec_fin_origen.setY(mag * sin(vec1_origen.getY()));
         ////////// revisar else if de abajo //////////////
     }else if (dimension==2){
-        vec_total.eje_x = mag * cos(vec_orig.eje_x) * cos(vec_orig.eje_y);
-        vec_total.eje_y = mag * cos(vec_orig.eje_x) * sin(vec_orig.eje_y);
-        vec_total.eje_z = mag * sin(vec_orig.eje_z);
+        vec_fin_origen.setX(mag * cos(vec1_origen.getX()) * cos(vec1_origen.getY()));
+        vec_fin_origen.setY(mag * cos(vec1_origen.getX()) * sin(vec1_origen.getY()));
+        vec_fin_origen.setZ(mag * sin(vec1_origen.getZ()));
     }
 }
 // Operacion encargada del calculo del vector unitario
 void vec_result::unitario(){
     float mag = norm();
     if(dimension==1) {
-        vec_orig.eje_x = vec_orig.eje_x/mag;
-        vec_orig.eje_y = vec_orig.eje_y/mag;
+        vec1_origen.setX(vec1_origen.getX()/mag);
+        vec1_origen.setY(vec1_origen.getY()/mag);
     }else if (dimension==2){
-        vec_orig.eje_x = vec_orig.eje_x/mag;
-        vec_orig.eje_y = vec_orig.eje_y/mag;
-        vec_orig.eje_z = vec_orig.eje_z/mag;
+        vec1_origen.setX(vec1_origen.getX()/mag);
+        vec1_origen.setY(vec1_origen.getY()/mag);
+        vec1_origen.setZ(vec1_origen.getZ()/mag);
     }
 }
 // Operacion encargada de calcular el angulo entre dos vectores
@@ -118,16 +116,16 @@ float vec_result::angle(){
     float angulo;
     if (dimension==1){
         unitario();
-        angulo = atan(vec_total.eje_y/vec_total.eje_x);
+        angulo = atan(vec_fin_origen.getY()/vec_fin_origen.getX());
     }
     return angulo;
 
 } //tangente-1 (Cateto op/cateto ad)
 
 void vec_result::p_cruz(){
-    vec_total.eje_x = (vec_orig.eje_y*vec_oper.eje_z - vec_orig.eje_z*vec_oper.eje_y);
-    vec_total.eje_y = (vec_orig.eje_z*vec_oper.eje_x - vec_orig.eje_x*vec_oper.eje_z);
-    vec_total.eje_z = (vec_orig.eje_x*vec_oper.eje_y - vec_orig.eje_y*vec_oper.eje_x);
+    vec_fin_origen.setX(vec1_origen.getY()*vec2_origen.getZ() - vec1_origen.getZ()*vec2_origen.getY());
+    vec_fin_origen.setY(vec1_origen.getZ()*vec2_origen.getX() - vec1_origen.getX()*vec2_origen.getZ());
+    vec_fin_origen.setZ(vec1_origen.getX()*vec2_origen.getY() - vec1_origen.getY()*vec2_origen.getX());
 
 }
 

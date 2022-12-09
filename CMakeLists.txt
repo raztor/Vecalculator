@@ -9,6 +9,9 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 INCLUDE_DIRECTORIES("src/lib")
 
+set(CMAKE_PREFIX_PATH "/home/joaquin/Qt/5.15.2/gcc_64/lib/cmake")
+
+
 find_package(Qt5 COMPONENTS
         Core
         Gui
@@ -21,7 +24,7 @@ add_executable(vecalculator
         src/lib/qcustomplot.cpp src/lib/qcustomplot.h
         src/include/vectores.cpp src/include/vectores.h
         src/include/vec_result.cpp src/include/vec_result.h
-        src/qt/vecalculator.h src/qt/vecalculator.ui src/qt/vecalculator.cpp)
+        src/qt/vecalculator.h src/qt/vecalculator.ui src/qt/vecalculator.cpp src/include/Vecalculator_vectores.cpp src/include/Vecalculator_vectores.h)
 
 target_link_libraries(vecalculator
         Qt::Core
@@ -29,6 +32,11 @@ target_link_libraries(vecalculator
         Qt::Widgets
         Qt::PrintSupport
         )
+
+IF(EXISTS /home/joaquin)
+    set(CMAKE_PREFIX_PATH "/home/joaquin/Qt/5.15.2/gcc_64/lib/cmake")
+    set(Qt)
+    endif()
 
 
 if (WIN32)
