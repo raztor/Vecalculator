@@ -525,7 +525,7 @@
           <property name="geometry">
            <rect>
             <x>400</x>
-            <y>0</y>
+            <y>350</y>
             <width>160</width>
             <height>116</height>
            </rect>
@@ -546,6 +546,9 @@
              <property name="text">
               <string>Analítica</string>
              </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
@@ -553,12 +556,18 @@
              <property name="text">
               <string>Vector 1</string>
              </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QCheckBox" name="T_vector2">
              <property name="text">
               <string>Vector 2</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
              </property>
             </widget>
            </item>

@@ -67,6 +67,14 @@ private slots:
     void on_sel_vec2_z_origen_valueChanged(double arg1);
 
 
+    void on_T_analitica_stateChanged(int arg1);
+
+    void on_T_geometrica_stateChanged(int arg1);
+
+    void on_T_vector1_stateChanged(int arg1);
+
+    void on_T_vector2_stateChanged(int arg1);
+
 private:
     Ui::vecalculator *ui;
     int dim;
