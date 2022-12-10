@@ -3,15 +3,17 @@
 #include <cmath>
 #include "Vecalculator_vectores.h"
 class vec_result {
+    // Definiciones, mas detalles en el cpp
+    vec_result();
 private:
     puntos vec1_origen,vec2_origen,vec_fin_origen;
     int vec_escalar,dimension,operacion;
 public:
-    vec_result();
     void setVec1(puntos vec1_origen);
     void setVec2(puntos vec2_origen);
     void setEscalar(int escalar);
     void setOperacion(int operacion);
+
     //void setVecFinal(vec vec_final);
     void setDimension(int dim);
     void calcular();
@@ -20,7 +22,6 @@ public:
     puntos getVecFinal();
     int getEscalar();
     int getDimension();
-
 
     void suma();
     void rest();
@@ -32,5 +33,4 @@ public:
     float angle();
     void p_cruz();
 };
-
 #endif //VECALCULATOR_VEC_RESULT_H

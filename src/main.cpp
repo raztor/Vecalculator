@@ -2,7 +2,7 @@
 // Path: src\main.cpp
 // a calculator for vectors in c++
 #include <QApplication>
-#include "qt/vecalculator.h"
+#include "vecalculator.h"
 
 int main(int argc, char **argv) {
     QApplication a(argc, argv);
