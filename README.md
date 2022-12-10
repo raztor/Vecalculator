@@ -52,7 +52,6 @@ Se espera que pueda ser una herramienta provechosa para las y los estudiantes de
         PrintSupport
         QcustomPlot ---> Incluido en src (no se debe instalar)
 
-
     El programa solo ha sido testeado en Linux y de momento es incompatible con Windows.
     Cualquier duda sobre las librerias, la lista completa se encuentra en el archivo CMakeLists.txt
 
@@ -68,7 +67,8 @@ Se espera que pueda ser una herramienta provechosa para las y los estudiantes de
 
     PARA ABRIR EL PROYECTO EN QT CREATOR SE DEBE SELECCIONAR EL ARCHIVO CMAKELIST.TXT
 
-    El programa de momento no es compatible con Windows pero se planea implementar en un futuro cercano.
+    Para abrir en otros IDE, se crear el proyecto según la configuración de cada editor, en caso de Clion
+    basta con seleccionar el Cmakelist.txt y el IDE se encargará de crear y configurar el proyecto.
 
 # Uso
     Para usar el programa solo se deben seguir las indicaciones, seleccionar operacion, seleccionar dimension
