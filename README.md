@@ -13,11 +13,13 @@ El objetivo general, como fue ya mencionado, es facilitar la tarea del cálculo 
 ### Desarrollo
 Este trabajo fue dividido en tres etapas diferentes, es por esto que fueron tres los objetivos específicos, cumpliendo uno en cada una de ellas. En la primera etapa, se buscó calcular las operaciones con vectores en segunda y tercera dimensión a través del compilador. Para esto se utilizó el lenguaje de programación C++, además de libros como referencia para establecer las distintas operaciones. En la segunda etapa del proyecto, se utilizó QT para graficar los resultados de las operaciones, sin embargo en esta etapa el usuario debía usar el compilador para ingresar los datos de sus vectores. Por último, en la tercera y última etapa, gracias a QT se pudo prescindir del compilador, ya que todos los datos necesarios eran pedidos a través de la interfaz, para después mostrar el gráfico final. 
 
-En cada etapa se presentaron distintas complicaciones, una de las más importantes fue el limitar los datos que puede ingresar el usuario, para evitar que el programa permitiera leer letras u otros caracteres no válidos para las operaciones. Por otro lado, el agregar un plano cartesiano a la gráfica para que no fuera solamente un cuadrante también fue una complicación resuelta a lo largo del proyecto.
+En cada etapa se presentaron distintas complicaciones, una de las más importantes fue el limitar los datos que puede ingresar el usuario, para evitar que el programa permitiera leer letras u otros caracteres no válidos para las operaciones. Por otro lado, el agregar un plano cartesiano a la gráfica para que no fuera solamente un cuadrante también fue una complicación resuelta a lo largo del proyecto. 
+
+Cabe recalcar que en la última etapa del proyecto se decidió cambiar el objetivo de una calculadora en segunda y tercera dimensión, a una que solo calculase operaciones de vectores en segunda dimensión debido a la complejidad del código. Sin embargo, Vecalculator 8001 aun puede facilitar el cálculo de vectores, pudiendo dar el resultado de manera analítica o de manera gráfica con vectores en dos dimensiones. 
 
 
 ### Conclusión
-Por lo revisado anteriormente, Vecalculator 8001 cumple completamente con su propósito inicial, siendo una calculadora de vectores útil y funcional. Los resultados de este proyecto fueron satisfactorios.
+Por lo revisado anteriormente, Vecalculator 8001 cumple parcialmente con su propósito inicial, siendo una calculadora de vectores útil y funcional, solamente para vectores en dos dimensiones. Los resultados de este proyecto fueron satisfactorios, a pesar de haber modificado los objetivos en el camino.
 
 Se espera que pueda ser una herramienta provechosa para las y los estudiantes de la UTFSM y facilitar su tarea de calcular vectores a lo largo de los ramos que lo necesiten. 
 
