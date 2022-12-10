@@ -15,7 +15,7 @@ Este trabajo fue dividido en tres etapas diferentes, es por esto que fueron tres
 
 En cada etapa se presentaron distintas complicaciones, una de las más importantes fue el limitar los datos que puede ingresar el usuario, para evitar que el programa permitiera leer letras u otros caracteres no válidos para las operaciones. Por otro lado, el agregar un plano cartesiano a la gráfica para que no fuera solamente un cuadrante también fue una complicación resuelta a lo largo del proyecto. 
 
-Cabe recalcar que en la última etapa del proyecto se decidió cambiar el objetivo de una calculadora en segunda y tercera dimensión, a una que solo calculase operaciones de vectores en segunda dimensión debido a la complejidad del código. Sin embargo, Vecalculator 8001 aun puede facilitar el cálculo de vectores, pudiendo dar el resultado de manera analítica o de manera gráfica con vectores en dos dimensiones. 
+Cabe recalcar que en la última etapa del proyecto se decidió cambiar el objetivo de una calculadora en segunda y tercera dimensión, a una que solo calculase operaciones de vectores en segunda dimensión debido a la complejidad del código. Sin embargo, Vecalculator 8001 aun puede facilitar el cálculo de vectores, pudiendo dar el resultado de manera analítica en 2D y 3D o de manera gráfica con vectores en dos dimensiones. 
 
 
 ### Conclusión
