@@ -9,9 +9,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 INCLUDE_DIRECTORIES("src/lib")
 
-set(CMAKE_PREFIX_PATH "/home/joaquin/Qt/5.15.2/gcc_64/lib/cmake")
-
-
 find_package(Qt5 COMPONENTS
         Core
         Gui
@@ -35,7 +32,6 @@ target_link_libraries(vecalculator
 
 IF(EXISTS /home/joaquin)
     set(CMAKE_PREFIX_PATH "/home/joaquin/Qt/5.15.2/gcc_64/lib/cmake")
-    set(Qt)
     endif()
 
 

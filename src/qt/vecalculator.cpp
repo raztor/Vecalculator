@@ -611,6 +611,5 @@ void vecalculator::on_T_vector2_stateChanged(int arg1)
         std::cout << "on_T_vector2_stateChanged: 1" << std::endl;
     }
 
-
 }
 
