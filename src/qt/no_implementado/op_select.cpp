@@ -1,7 +1,3 @@
-//
-// Created by benjamin on 03-12-22.
-//
-
 // You may need to build the project (run Qt uic code generator) to get "ui_op_select.h" resolved
 
 #include "op_select.h"

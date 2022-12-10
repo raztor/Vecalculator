@@ -1,6 +1,7 @@
 #ifndef VECALCULATOR_VECALCULATOR_VECTORES_H
 #define VECALCULATOR_VECALCULATOR_VECTORES_H
 
+// Definiciones, mas detalles en el cpp
 
 class puntos{
 private:
@@ -20,16 +21,11 @@ public:
     float getY();
     float getZ();
     int getDimension();
-
 };
-
 
 class Vecalculator_vectores {
 private:
     puntos origen,fin,fin_cero,origen_cero;
-
-
-protected:
 
 public:
     Vecalculator_vectores();
@@ -42,12 +38,8 @@ public:
     puntos getFin();
     puntos getFin_cero();
     puntos getOrigen_cero();
-
     puntos INVALID = {9999999999.999999,999999999999.999999999,99999999999.9999999,9999999};
     float INVALID_ESC=214212312312312432441241243423.0;
-
-
 };
-
 
 #endif //VECALCULATOR_VECALCULATOR_VECTORES_H

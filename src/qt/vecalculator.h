@@ -1,19 +1,14 @@
-//
-// Created by benjamin on 03-12-22.
-//
-
 #ifndef VECALCULATOR_VECALCULATOR_H
 #define VECALCULATOR_VECALCULATOR_H
 
-//#include <string>
-//#include <sstream>
 #include <QWidget>
+#include <iostream>
 #include <QMainWindow>
 #include <iomanip>
-#include "../include/vec_result.h"
+#include "vec_result.h"
 #include "qcustomplot.h"
 #include "ui_vecalculator.h"
-#include "../include/Vecalculator_vectores.h"
+#include "Vecalculator_vectores.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class vecalculator; }
@@ -24,6 +19,7 @@ class vecalculator : public QMainWindow
 Q_OBJECT
 
 public:
+    // Definicion todas las funciones y variables, mas explicacion en el cpp
     vecalculator(QWidget *parent = nullptr);
     ~vecalculator();
     void filtro_op_select(int op);
@@ -68,11 +64,8 @@ private slots:
 
 
     void on_T_analitica_stateChanged(int arg1);
-
     void on_T_geometrica_stateChanged(int arg1);
-
     void on_T_vector1_stateChanged(int arg1);
-
     void on_T_vector2_stateChanged(int arg1);
 
 private:

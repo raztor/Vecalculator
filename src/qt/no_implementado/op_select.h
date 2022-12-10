@@ -1,7 +1,3 @@
-//
-// Created by benjamin on 03-12-22.
-//
-
 #ifndef VECALCULATOR_OP_SELECT_H
 #define VECALCULATOR_OP_SELECT_H
 
