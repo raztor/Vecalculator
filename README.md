@@ -3,7 +3,7 @@
 
 
 ## Sobre el proyecto
-### 09/12/2022
+### 10/12/2022
 ### Introducción
 El cálculo de vectores ha sido considerada por muchos algunas veces complicada, siendo un problema para constante para varios estudiantes de ingeniería o carreras que requieran estos cálculos. Es por esto que Vecalculator 8001, correspondiente al proyecto realizado en el curso Seminario de programación, busca como objetivo principal, facilitar la tarea del cálculo de vectores.
 
