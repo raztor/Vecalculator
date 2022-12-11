@@ -5,9 +5,7 @@
 
 class puntos{
 private:
-    float x;
-    float y;
-    float z;
+    float x,y,z;
     int dimension;
 
 public:
@@ -26,6 +24,8 @@ public:
 class Vecalculator_vectores {
 private:
     puntos origen,fin,fin_cero,origen_cero;
+    float angulo;
+    int  vec_escalar, operacion;
 
 public:
     Vecalculator_vectores();
@@ -40,6 +40,9 @@ public:
     puntos getOrigen_cero();
     puntos INVALID = {9999999999.999999,999999999999.999999999,99999999999.9999999,9999999};
     float INVALID_ESC=214212312312312432441241243423.0;
+
+
+
 };
 
 #endif //VECALCULATOR_VECALCULATOR_VECTORES_H

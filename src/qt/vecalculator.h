@@ -5,7 +5,7 @@
 #include <iostream>
 #include <QMainWindow>
 #include <iomanip>
-#include "vec_result.h"
+//#include "vec_result.h"
 #include "qcustomplot.h"
 #include "ui_vecalculator.h"
 #include "Vecalculator_vectores.h"

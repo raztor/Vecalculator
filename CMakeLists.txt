@@ -26,7 +26,7 @@ add_executable(vecalculator
         src/lib/qcustomplot.cpp src/lib/qcustomplot.h
         src/include/vectores.cpp src/include/vectores.h
         src/include/vec_result.cpp src/include/vec_result.h
-        src/qt/vecalculator.h src/qt/vecalculator.ui src/qt/vecalculator.cpp src/include/Vecalculator_vectores.cpp src/include/Vecalculator_vectores.h)
+        src/qt/vecalculator.h src/qt/vecalculator.ui src/qt/vecalculator.cpp src/include/Vecalculator_vectores.cpp src/include/Vecalculator_vectores.h src/include/operaciones.cpp src/include/operaciones.h)
 
 # Linkado de los paquetes
 target_link_libraries(vecalculator
