@@ -1,7 +1,7 @@
 #ifndef VECALCULATOR_GRAFICADOR_H
 #define VECALCULATOR_GRAFICADOR_H
 #include <QApplication>
-#include "mainwindow.h"
+#include "../qt/mainwindow.h"
 #include "vectores.h"
 
 // Estas funciones se encargan de iniciar la ventana de Qt y pasar los valores necesarios para crear el plot

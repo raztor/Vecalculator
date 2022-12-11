@@ -1,78 +1,80 @@
 # Vecalculator
 [![wakatime](https://wakatime.com/badge/user/5be7d1e2-7411-4f5d-9f82-c9a643da22e2/project/9aafb881-995a-4634-9ffa-40e64411f340.svg)](https://wakatime.com/badge/user/5be7d1e2-7411-4f5d-9f82-c9a643da22e2/project/9aafb881-995a-4634-9ffa-40e64411f340)
 
+
 ## Sobre el proyecto
-Introducción: Lo que nos llevó como grupo a pensar en la elaboración de una calculadora de vectores y todo lo que esto englobe principalmente fueron 2 razones, como una de las principales es hacer que la tarea del cálculo de vectores deje de ser un proceso tan engorroso además de enredado para muchos y convertirlo en algo más mecanizado de fácil uso y por último pensando tanto como en nosotros como alumnos a los cuales se nos complicó mucho nuestro primer acercamiento a la física de la educación superior, además como factor agregado creemos que nuestro proyecto en un futuro puede ser de gran ayuda para la comunidad universitaria que componemos.
+### 10/12/2022
+### Introducción
+El cálculo de vectores ha sido considerada por muchos algunas veces complicada, siendo un problema para constante para varios estudiantes de ingeniería o carreras que requieran estos cálculos. Es por esto que Vecalculator 8001, correspondiente al proyecto realizado en el curso Seminario de programación, busca como objetivo principal, facilitar la tarea del cálculo de vectores.
 
-Desarrollo: En las fases iniciales del trabajo en Vecalculator 8001 existieron pequeños problemas relacionados con la modularización y depuración de nuestro código, afortunadamente se pudieron sortearlos en su totalidad, para que a día de hoy poder tener un código más compacto y efectivo. A día de hoy, y casi habiendo terminado el desarrollo para la entrega el hito 2, aún se mantienen los principales objetivos del proyecto como meta, los cuales fueron mencionados anteriormente. En lo que es pertinente a la documentación y recursos que se han ido utilizando en nuestro trabajo, existieron pequeños inconvenientes que, hemos surcado de manera rápida y eficaz. Aunque se hizo énfasis antes, a la hora de trabajar, siempre se ha priorizado los objetivos que se han propuesto al principio, en el caso de la documentación se ha puesto énfasis en anotar todo, para que le resulte amigable al usuario promedio.
+### Objetivos
+El objetivo general, como fue ya mencionado, es facilitar la tarea del cálculo de vectores. Este proyecto también cuenta con 3 objetivos específicos: calcular operaciones de vectores a través del compilador, graficar los resultados de las operaciones con vectores a través de la interfaz QT, y finalmente, mostrar toda la calculadora a través de QT sin necesidad de utilizar el compilador.
 
-Conclusión: En conclusión, durante toda la realización de nuestro proyecto, sentimos que nuestro crecimiento como grupo fue bastante grande, además de aunque aún no este listo en su totalidad el proyecto con todo el trabajo que llevamos en la actualidad. Creemos que nuestro enfoque y objetivos principales a la hora de la realización de nuestra calculadora de vectores, ha sido llevado en su totalidad y nos encontramos bastante realizados con nuestros resultados actuales.
-Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soporte para las generaciones futuras a la hora de afrontar los problemas que nosotros supimos enfrentar.
+### Desarrollo
+Este trabajo fue dividido en tres etapas diferentes, es por esto que fueron tres los objetivos específicos, cumpliendo uno en cada una de ellas. En la primera etapa, se buscó calcular las operaciones con vectores en segunda y tercera dimensión a través del compilador. Para esto se utilizó el lenguaje de programación C++, además de libros como referencia para establecer las distintas operaciones. En la segunda etapa del proyecto, se utilizó QT para graficar los resultados de las operaciones, sin embargo en esta etapa el usuario debía usar el compilador para ingresar los datos de sus vectores. Por último, en la tercera y última etapa, gracias a QT se pudo prescindir del compilador, ya que todos los datos necesarios eran pedidos a través de la interfaz, para después mostrar el gráfico final. 
+
+En cada etapa se presentaron distintas complicaciones, una de las más importantes fue el limitar los datos que puede ingresar el usuario, para evitar que el programa permitiera leer letras u otros caracteres no válidos para las operaciones. Por otro lado, el agregar un plano cartesiano a la gráfica para que no fuera solamente un cuadrante también fue una complicación resuelta a lo largo del proyecto. 
+
+Cabe recalcar que en la última etapa del proyecto se decidió cambiar el objetivo de una calculadora en segunda y tercera dimensión, a una que solo calculase operaciones de vectores en segunda dimensión debido a la complejidad del código. Sin embargo, Vecalculator 8001 aun puede facilitar el cálculo de vectores, pudiendo dar el resultado de manera analítica en 2D y 3D o de manera gráfica con vectores en dos dimensiones. 
 
 
-# Version: 2.0.0
+### Conclusión
+Por lo revisado anteriormente, Vecalculator 8001 cumple parcialmente con su propósito inicial, siendo una calculadora de vectores útil y funcional, solamente para vectores en dos dimensiones. Los resultados de este proyecto fueron satisfactorios, a pesar de haber modificado los objetivos en el camino.
 
-    Date: 2022-09-28
+Se espera que pueda ser una herramienta provechosa para las y los estudiantes de la UTFSM y facilitar su tarea de calcular vectores a lo largo de los ramos que lo necesiten. 
+
+
+
+# Version: 3.0.0
+
+    Date: 2022-10-12
     License: GNU AGPLv3
 
     Cambios:
-    - Lanzamiento 2.0
-    - Añadimos calculo de componentes vectoriales 
-    - Añadimos producto cruz de vectores 2D
-    - Reestructuración del código
-    - Añadida salida gráfica
+    - Lanzamiento 3.0
+    - Añadida interfaz gráfica completa 
+    - Añadido filtro de capas en QCustomPlot
+    - Uso de clases para el manejo de vectores
+    - Re-estructuración completa de código
     - Cambios del readme
-    - Implementado filtro de char en input
     - Nuevas funciones de graficación
     - Cambios menores
-    - Añadidas operaciones Ascii (Ahora puedes sumar, restar,etc. con los valores de cáracteres Ascii)
+    - Añadida opción para copiar gráfico al portapapeles
 
-
-
-    Por hacer:
-    - Crear interfaz gráfica para la calculadora
-    - Implementar auto reconociemiento de dim
-    - Implementar angulo 3D
-    - Implementar modelado 3D
-    - Añadir opción de descarga de gráfico
-    - más
-
-    
     Descartado:
-    - Agregar la opción para operar con mas de 2 vectores.
-    - Limpiar previamente los comandos en consola antes del lanzamiento
+    - Implementación de Gráfico 3D (problemas de rendimiento y poco tiempo para probar código)
 
-### Sobre la visualización 3D:
-    Nos hubiese encantado como grupo poder haber añadido la visualización de vectores en 3D, pero
-    pero debido a problemas relacionados a una migración de SSD fallida perdimos parte del código
-    en proceso de implementación y dejó a la persona a cargo del 3D sin poder finalizarlo.
+
 # Requisitos
     Para poder ejecutar el programa se debe tener instalada una versión de Cmake >= 3.23, junto con las siguientes librerias de QT5:
+
         Core
         Gui
         Widgets
-        Charts
-        REQUIRED
         PrintSupport
+        QcustomPlot ---> Incluido en src (no se debe instalar)
+
     El programa solo ha sido testeado en Linux y de momento es incompatible con Windows.
     Cualquier duda sobre las librerias, la lista completa se encuentra en el archivo CMakeLists.txt
 
 
 # Instalación
-    El progama fue testeado en linux, asi que no deberia haber mayores problemas con la mayoria de sistemas operativos
-
-    Para utilizar este programa se necesita una instalacion de qt5, junto con CMake.
+    El programa en su versión 3.0 es compatible tanto con Windows como con linux, en el caso de Windows
+    se debe seleccionar el directorio de Cmake dentro de la carpeta de instalación de QT5
+    (más infromación sobre ambos SO, en config-cmake.md)
 
     Para ejecutar este programa se debe compilar usando
-    el archivo de configuración de cmakelist.txt. Si se esta usando qt creator es importante comprobar que el proyecto se inicie en modo cmake y no qmake, ya que de lo contrario, este no compilará. 
+    el archivo de configuración de cmakelist.txt. Si se esta usando qt creator es importante comprobar que el proyecto 
+    se inicie en modo cmake y no qmake, ya que de lo contrario, este no compilará. 
 
     PARA ABRIR EL PROYECTO EN QT CREATOR SE DEBE SELECCIONAR EL ARCHIVO CMAKELIST.TXT
 
-    El programa de momento no es compatible con Windows pero se planea implementar en un futuro cercano.
+    Para abrir en otros IDE, se crear el proyecto según la configuración de cada editor, en caso de Clion
+    basta con seleccionar el Cmakelist.txt y el IDE se encargará de crear y configurar el proyecto.
 
 # Uso
-    Para usar el programa solo se deben seguir las indicaciones, seleccionar dimension, seleccionar operacion
-    e introducir los datos solicitados. Para cerrar el grafico se puede tanto usar la x de la ventana como el botón cerrar.
+    Para usar el programa solo se deben seguir las indicaciones, seleccionar operacion, seleccionar dimension
+    e introducir los datos solicitados.
 
 
 ### Integrantes:
@@ -97,11 +99,6 @@ Además, sentimos y esperamos que nuestro trabajo resulte de gran ayuda y soport
 ## Referencias:
     Laroze Barrios, L. (2018). Conceptos y magnitudes en física (2018.a ed.). Nicolás Porras.
 
-<details>
-<summary>Diagrama Completo</summary>
-<br>
-<img src="https://gitlab.com/Raztor/vecalculator/-/raw/main/media/diagrama.png" alt="Diagrama UML">
-</details>
 <details>
 <summary>Diagrama Resumido (formato solicitado)</summary>
 <br>

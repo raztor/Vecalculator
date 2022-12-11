@@ -1,3 +1,21 @@
+# Version: 3.0.0
+
+    Date: 2022-10-12
+    License: GNU AGPLv3
+
+    Cambios:
+    - Lanzamiento 3.0
+    - Añadida interfaz gráfica completa 
+    - Añadido filtro de capas en QCustomPlot
+    - Uso de clases para el manejo de vectores
+    - Re-estructuración completa de código
+    - Cambios del readme
+    - Nuevas funciones de graficación
+    - Cambios menores
+    - Añadida opción para copiar gráfico al portapapeles
+
+    Descartado:
+    - Implementación de Gráfico 3D (problemas de rendimiento y poco tiempo para probar código)
 
 # Version: 2.0.0
 

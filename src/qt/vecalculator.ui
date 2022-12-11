@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>vecalculator</class>
+ <widget class="QMainWindow" name="vecalculator">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1069</width>
+    <height>622</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>vecalculator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../media/sources.qrc">
+    <normaloff>:/logo/vecalculator_logo.png</normaloff>:/logo/vecalculator_logo.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>20</y>
+      <width>501</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="menu" stretch="0,1">
+     <item>
+      <layout class="QHBoxLayout" name="div_op" stretch="0,1,0">
+       <item>
+        <widget class="QLabel" name="txt_operacion">
+         <property name="text">
+          <string>Operación</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="sel_op">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <property name="currentText">
+          <string/>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Suma</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Resta</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Angulo</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Modulo</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Componentes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Prod. Cruz</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Prod. Punto</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Prod. Escalar</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Vec. Unitario</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QRadioButton" name="sel_2D">
+           <property name="text">
+            <string>2D</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="sel_3D">
+           <property name="text">
+            <string>3D</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QWidget" name="div_post_dim_hide" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="verticalLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>371</width>
+            <height>491</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,1">
+           <item>
+            <widget class="QWidget" name="widget_vec1" native="true">
+             <layout class="QVBoxLayout" name="fll_vec1" stretch="0,0,1">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Vector 1</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="div_vec1_origen">
+                <item>
+                 <layout class="QHBoxLayout" name="div_vec1_x_origen" stretch="0,1">
+                  <item>
+                   <widget class="QLabel" name="txt_vec1_x_origen">
+                    <property name="text">
+                     <string>X:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="sel_vec1_x_origen">
+                    <property name="minimum">
+                     <double>-99.989999999999995</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QWidget" name="vec1_eje_y_origen" native="true">
+                  <layout class="QHBoxLayout" name="div_vec1_y_4" stretch="0,1">
+                   <item>
+                    <widget class="QLabel" name="txt_vec1_y_origen">
+                     <property name="text">
+                      <string>Y:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="sel_vec1_y_origen">
+                     <property name="minimum">
+                      <double>-99.989999999999995</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QWidget" name="vec1_eje_z_origen" native="true">
+                  <layout class="QHBoxLayout" name="div_vec2_z_4" stretch="0,1">
+                   <item>
+                    <widget class="QLabel" name="txt_vec1_z_origen">
+                     <property name="text">
+                      <string>Z:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="sel_vec1_z_origen">
+                     <property name="minimum">
+                      <double>-99.989999999999995</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="div_vec1">
+                <item>
+                 <layout class="QHBoxLayout" name="div_vec1_x" stretch="0,1">
+                  <item>
+                   <widget class="QLabel" name="txt_vec1_x">
+                    <property name="text">
+                     <string>X:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="sel_vec1_x">
+                    <property name="minimum">
+                     <double>-99.989999999999995</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QWidget" name="vec1_eje_y" native="true">
+                  <layout class="QHBoxLayout" name="div_vec1_y" stretch="0,1">
+                   <item>
+                    <widget class="QLabel" name="txt_vec1_y">
+                     <property name="text">
+                      <string>Y:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="sel_vec1_y">
+                     <property name="minimum">
+                      <double>-99.989999999999995</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QWidget" name="vec1_eje_z" native="true">
+                  <layout class="QHBoxLayout" name="div_vec2_z" stretch="0,1">
+                   <item>
+                    <widget class="QLabel" name="txt_vec1_z">
+                     <property name="text">
+                      <string>Z:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="sel_vec1_z">
+                     <property name="minimum">
+                      <double>-99.989999999999995</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_vec2" native="true">
+             <layout class="QVBoxLayout" name="fll_vec2" stretch="0,0,1">
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="text">
+                 <string>Vector 2</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="div_vec2_origen">
+                <item>
+                 <layout class="QHBoxLayout" name="div_vec2_x_origen" stretch="0,1">
+                  <item>
+                   <widget class="QLabel" name="txt_vec2_x_origen">
+                    <property name="text">
+                     <string>X:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="sel_vec2_x_origen">
+                    <property name="minimum">
+                     <double>-99.989999999999995</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QWidget" name="vec2_eje_y_origen" native="true">
+                  <layout class="QHBoxLayout" name="div_vec2_y_2" stretch="0,1">
+                   <item>
+                    <widget class="QLabel" name="txt_vec2_y_origen">
+                     <property name="text">
+                      <string>Y:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="sel_vec2_y_origen">
+                     <property name="minimum">
+                      <double>-99.989999999999995</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QWidget" name="vec2_eje_z_origen" native="true">
+                  <layout class="QHBoxLayout" name="div_vec1_z_2" stretch="0,1">
+                   <item>
+                    <widget class="QLabel" name="txt_vec2_z_origen">
+                     <property name="text">
+                      <string>Z:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="sel_vec2_z_origen">
+                     <property name="minimum">
+                      <double>-99.989999999999995</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="div_vec2">
+                <item>
+                 <layout class="QHBoxLayout" name="div_vec2_x" stretch="0,1">
+                  <item>
+                   <widget class="QLabel" name="txt_vec2_x">
+                    <property name="text">
+                     <string>X:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="sel_vec2_x">
+                    <property name="minimum">
+                     <double>-99.989999999999995</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QWidget" name="vec2_eje_y" native="true">
+                  <layout class="QHBoxLayout" name="div_vec2_y" stretch="0,1">
+                   <item>
+                    <widget class="QLabel" name="txt_vec2_y">
+                     <property name="text">
+                      <string>Y:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="sel_vec2_y">
+                     <property name="minimum">
+                      <double>-99.989999999999995</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QWidget" name="vec2_eje_z" native="true">
+                  <layout class="QHBoxLayout" name="div_vec1_z" stretch="0,1">
+                   <item>
+                    <widget class="QLabel" name="txt_vec2_z">
+                     <property name="text">
+                      <string>Z:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="sel_vec2_z">
+                     <property name="minimum">
+                      <double>-99.989999999999995</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_escalar" native="true">
+             <layout class="QVBoxLayout" name="fll_vec2_2" stretch="0,0">
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="text">
+                 <string>Escalar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="div_escalar_2" stretch="1">
+                <item>
+                 <widget class="QDoubleSpinBox" name="sel_escalar"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="div_result_2"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="B_calcular">
+             <property name="text">
+              <string>Calcular</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="B_descargar">
+             <property name="text">
+              <string>Copiar Imagen</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="txt_resultado">
+             <property name="text">
+              <string>PlaceHolder</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_placeholder" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>531</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <layout class="QHBoxLayout" name="div_grafic">
+       <item>
+        <widget class="QWidget" name="grafico_3d" native="true"/>
+       </item>
+       <item>
+        <widget class="QCustomPlot" name="grafico_2d" native="true">
+         <widget class="QWidget" name="W_toogles" native="true">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>420</y>
+            <width>160</width>
+            <height>116</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="toogles">
+           <item>
+            <widget class="QCheckBox" name="T_geometrica">
+             <property name="text">
+              <string>Geométrica</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="T_analitica">
+             <property name="text">
+              <string>Analítica</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="T_vector1">
+             <property name="text">
+              <string>Vector 1</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="T_vector2">
+             <property name="text">
+              <string>Vector 2</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1069</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../../media/sources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
