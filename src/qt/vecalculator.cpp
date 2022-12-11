@@ -351,8 +351,6 @@ void vecalculator::on_B_calcular_clicked(){
     Vector2.setFin(vec2_fin);// Fin del vector 2
     Vector1.setFin_cero(resta_puntos(Vector1.getFin(),Vector1.getOrigen()));// Fin del vector 1 sin origen (origen en 0)
     Vector2.setFin_cero(resta_puntos(Vector2.getFin(),Vector2.getOrigen()));// Fin del vector 2 sin origen (origen en 0)
-    std::cout << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << " " << Vector1.getFin().getZ() << std::endl;// cout de depuración
-    std::cout << "set fin cero: " << Vector1.getFin_cero().getX() << " " << Vector1.getFin_cero().getY() << " " << Vector1.getFin_cero().getZ() << std::endl;// cout de depuración
 
     /*
     vec_resultado.setVec1(Vector1.getFin_cero());// Seteo de vector 1 para el resultado
@@ -374,34 +372,83 @@ void vecalculator::on_B_calcular_clicked(){
     // 1.suma 2.resta 3.angulo 4.modulo 5.componentes
     // 6.producto cruz 7.producto punto
     // 8.producto escalar 9.vector unitario
-
+    QString text;
     if(operacion==1) {
+        resultado = suma(Vector1.getFin_cero(), Vector2.getFin_cero());
+        if(dimension==3) {
+            text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ", " %
+                           QString::number(resultado.getZ()) % ")";
+        }else if(dimension==2) {
+            text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ")";
+        }
+        ui->txt_resultado->setText(text);
         ui->W_toogles->setHidden(false);
         ui->W_toogles->setDisabled(false);
         makePlot();
     }else if(operacion==2) {
-        resultado = resta_puntos(Vector1.getFin_cero(), Vector2.getFin_cero());
-        ui->W_toogles->setHidden(false);
-        ui->W_toogles->setDisabled(false);
-        makePlot();
-    }else if(operacion==2){
+        resultado = rest(Vector1.getFin_cero(), Vector2.getFin_cero());
+        if(dimension==3) {
+            text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ", " %
+                   QString::number(resultado.getZ()) % ")";
+        }else if(dimension==2) {
+            text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ")";
+        }
+        ui->txt_resultado->setText(text);
+        ui->W_toogles->setHidden(true);
+        ui->W_toogles->setDisabled(true);
         makePlot();
     }else if(operacion==3){
-        ui->txt_resultado->setText(QString::number(vec_resultado.getAngulo()));
-        std::cout << "angulo: " << vec_resultado.getAngulo() << std::endl;
-        std::cout << vec1_origen.getX() << " " << vec1_origen.getY() << " " << vec1_origen.getZ() << std::endl;
+        float angulo = angle(Vector1.getFin_cero(), 2);
+        ui->txt_resultado->setText(QString::number(angulo)% "°");
     }else if(operacion==4){
-
+        float modulo = norm(Vector1.getFin_cero(),dimension);
+        ui->txt_resultado->setText(QString::number(modulo));
     }else if(operacion==5){
+        resultado = componentes(Vector1.getFin_cero(),dimension);
+        if(dimension==2){
+            text = QString::number(resultado.getX()) % " i  +  " % QString::number(resultado.getY()) % " j";
+        }else if(dimension==3){
+            text = QString::number(resultado.getX()) % " i  +  " % QString::number(resultado.getY()) % " j  +  " %
+                   QString::number(resultado.getZ()) % " k";
+        }
+        ui->txt_resultado->setText(text);
 
     }else if(operacion==6){
-
+        resultado = p_cruz(Vector1.getFin_cero(), Vector2.getFin_cero());
+        text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ", " %
+                QString::number(resultado.getZ()) % ")";
+        ui->txt_resultado->setText(text);
+        ui->W_toogles->setHidden(true);
+        ui->W_toogles->setDisabled(true);
+        makePlot();
     }else if(operacion==7){
-
+        float producto = p_punto(Vector1.getFin_cero(), Vector2.getFin_cero(), dimension);
+        ui->txt_resultado->setText(QString::number(producto));
     }else if(operacion==8){
+        resultado = p_escalar(Vector1.getFin_cero(), escalar);
+        if(dimension==3) {
+            text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ", " %
+                   QString::number(resultado.getZ()) % ")";
+        }else if(dimension==2) {
+            text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ")";
+        }
+        ui->txt_resultado->setText(text);
+        ui->W_toogles->setHidden(true);
+        ui->W_toogles->setDisabled(true);
+        makePlot();
 
     }else if(operacion==9){
-
+        resultado = unitario(Vector1.getFin_cero(), dimension);
+        if(dimension==3) {
+            text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ", " %
+                   QString::number(resultado.getZ()) % ")";
+        }else if(dimension==2) {
+            text = "(" % QString::number(resultado.getX()) % ", " % QString::number(resultado.getY()) % ")";
+        }
+        ui->txt_resultado->setText(text);
+        ui->W_toogles->setHidden(true);
+        ui->W_toogles->setDisabled(true);
+        makePlot();
     }
 }
 
@@ -513,9 +560,8 @@ void vecalculator::on_sel_escalar_valueChanged(double arg1)
 // Funcion encargada de crear el grafico 2D
 void vecalculator::makePlot() {
     float x, y, or_x, or_y, min_x, max_x, min_y, max_y;
-    x = vec_resultado.getVecFinal().getX();
-    y = vec_resultado.getVecFinal().getY();
-    std::cout << "x: " << x << " y: " << y << std::endl;
+    x = resultado.getX();
+    y = resultado.getY();
     or_x = 0;//vec_resultado.getVec1().getX();
     or_y = 0;//vec_resultado.getVec1().getY();
 
@@ -580,16 +626,23 @@ void vecalculator::makePlot() {
 
 
         // añade vector geometrico a la capa geometrica
-        vec_result geometrico;
-        geometrico.setVec1(Vector1.getFin());
-        geometrico.setVec2(Vector2.getFin_cero());
-        geometrico.setOperacion(operacion);
-        geometrico.calcular();
+
+        // 1.suma 2.resta 3.angulo 4.modulo 5.componentes
+        // 6.producto cruz 7.producto punto
+        // 8.producto escalar 9.vector unitario
+
+        puntos resultado_fin;
+        if(operacion==1){
+            resultado_fin = suma(Vector1.getFin(), Vector2.getFin_cero());
+        }else if(operacion==2) {
+            resultado_fin = rest(Vector1.getFin(), Vector2.getFin_cero());
+        }
+
+
 
         R_geometrico->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
-        R_geometrico->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
+        R_geometrico->end->setCoords(resultado_fin.getX(), resultado_fin.getY()); // point to (4, 1.6) in x-y-plot coordinates
         R_geometrico->setHead(QCPLineEnding::esSpikeArrow);
-        std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
         // TODO ui->grafico_2d->rescaleAxes();
         ui->grafico_2d->replot();
 
@@ -598,21 +651,20 @@ void vecalculator::makePlot() {
         V1->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
         V1->end->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
         V1->setHead(QCPLineEnding::esSpikeArrow);
-        std::cout << "V1: " << Vector1.getOrigen().getX() << " " << Vector1.getOrigen().getY() << " " << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << std::endl;
 
 
         // añade el vector 2 y vector 2 geometrico a su capa
         V2->start->setCoords(Vector2.getOrigen().getX(), Vector2.getOrigen().getY());
         V2->end->setCoords(Vector2.getFin().getX(), Vector2.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
         V2->setHead(QCPLineEnding::esSpikeArrow);
-        std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
 
         V2_or->start->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY());
-        V2_or->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
+        V2_or->end->setCoords(resultado_fin.getX(), resultado_fin.getY()); // point to (4, 1.6) in x-y-plot coordinates
         // point to (4, 1.6) in x-y-plot coordinates
         V2_or->setHead(QCPLineEnding::esSpikeArrow);
-        std::cout << "geometrico: " << geometrico.getVecFinal().getX() << " " << geometrico.getVecFinal().getY() << std::endl;
     }else{
+        ui->W_toogles->setEnabled(false);
+        ui->W_toogles->setVisible(false);
         QCPItemLine *arrow = new QCPItemLine(ui->grafico_2d);
         arrow->start->setCoords(or_x, or_y);
         arrow->end->setCoords(x, y); // point to (4, 1.6) in x-y-plot coordinates
@@ -673,15 +725,12 @@ void vecalculator::makePlot() {
 // Se encarga de filtrar la capa analitica
 void vecalculator::on_T_analitica_stateChanged(int arg1)
 {
-    std::cout << "on_T_analitica_stateChanged" << std::endl;
     if(arg1==0){
         ui->grafico_2d->layer("analitica")->setVisible(false);
         ui->grafico_2d->layer("analitica")->replot();
-        std::cout << "on_T_analitica_stateChanged: 0" << std::endl;
     }else{
         ui->grafico_2d->layer("analitica")->setVisible(true);
         ui->grafico_2d->layer("analitica")->replot();
-        std::cout << "on_T_analitica_stateChanged: 1" << std::endl;
     }
 
 }
@@ -690,15 +739,12 @@ void vecalculator::on_T_analitica_stateChanged(int arg1)
 // Se encarga de filtrar la capa geometrica
 void vecalculator::on_T_geometrica_stateChanged(int arg1)
 {
-    std::cout << "on_T_analitica_stateChanged" << std::endl;
     if(arg1==0){
         ui->grafico_2d->layer("geometrica")->setVisible(false);
         ui->grafico_2d->layer("geometrica")->replot();
-        std::cout << "on_T_Geometrica_stateChanged: 0" << std::endl;
     }else{
         ui->grafico_2d->layer("geometrica")->setVisible(true);
         ui->grafico_2d->layer("geometrica")->replot();
-        std::cout << "on_T_Geometrica_stateChanged: 1" << std::endl;
     }
 
 }
@@ -707,15 +753,12 @@ void vecalculator::on_T_geometrica_stateChanged(int arg1)
 // Se encarga de filtrar la capa de vector 1
 void vecalculator::on_T_vector1_stateChanged(int arg1)
 {
-    std::cout << "on_T_vector1_stateChanged" << std::endl;
     if(arg1==0){
         ui->grafico_2d->layer("Vector1")->setVisible(false);
         ui->grafico_2d->layer("Vector1")->replot();
-        std::cout << "on_T_vector1_stateChanged: 0" << std::endl;
     }else{
         ui->grafico_2d->layer("Vector1")->setVisible(true);
         ui->grafico_2d->layer("Vector1")->replot();
-        std::cout << "on_T_vector1_stateChanged: 1" << std::endl;
     }
 
 }
@@ -724,15 +767,12 @@ void vecalculator::on_T_vector1_stateChanged(int arg1)
 // Se encarga de filtrar la capa de vector 2
 void vecalculator::on_T_vector2_stateChanged(int arg1)
 {
-    std::cout << "on_T_vector2_stateChanged" << std::endl;
     if(arg1==0){
         ui->grafico_2d->layer("Vector2")->setVisible(false);
         ui->grafico_2d->layer("Vector2")->replot();
-        std::cout << "on_T_vector2_stateChanged: 0" << std::endl;
     }else{
         ui->grafico_2d->layer("Vector2")->setVisible(true);
         ui->grafico_2d->layer("Vector2")->replot();
-        std::cout << "on_T_vector2_stateChanged: 1" << std::endl;
     }
 }
 
