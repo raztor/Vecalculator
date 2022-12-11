@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>962</width>
-    <height>573</height>
+    <width>1069</width>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,10 +21,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>560</x>
       <y>20</y>
-      <width>371</width>
-      <height>491</height>
+      <width>501</width>
+      <height>551</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="menu" stretch="0,1">
@@ -471,7 +471,7 @@
             </spacer>
            </item>
            <item>
-            <widget class="QLabel" name="label_5">
+            <widget class="QLabel" name="txt_resultado">
              <property name="text">
               <string>PlaceHolder</string>
              </property>
@@ -507,10 +507,10 @@
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>0</y>
+      <x>10</x>
+      <y>20</y>
       <width>531</width>
-      <height>511</height>
+      <height>551</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -524,8 +524,8 @@
          <widget class="QWidget" name="W_toogles" native="true">
           <property name="geometry">
            <rect>
-            <x>400</x>
-            <y>350</y>
+            <x>100</x>
+            <y>420</y>
             <width>160</width>
             <height>116</height>
            </rect>
@@ -585,7 +585,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>962</width>
+     <width>1069</width>
      <height>23</height>
     </rect>
    </property>

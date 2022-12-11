@@ -13,8 +13,7 @@ grafico2d = grafico 2d
 int operacion=0, dimension=0;
 float escalar=0;
 Vecalculator_vectores Vector1,Vector2,Vector3;// Clase que crea el objeto vectores, contiene un punto inicial, un punto final y dimension
-puntos vec1_origen,vec2_origen,vec1_fin,vec2_fin; //Clase que almacena un punto (coordenadas)
-vec_result vec_resultado; // Clase encargada de almacenar la información de vector 1 y 2, operaciones, dimension, etc. (también realiza las operaciones)
+puntos vec1_origen,vec2_origen,vec1_fin,vec2_fin, resultado; //Clase que almacena un punto (coordenadas)
 
 
 //Constructor por defecto, además lo usamos para ocultar/mostrar y habilitar/deshabilitar elementos antes de que se genere la interfaz
@@ -355,6 +354,7 @@ void vecalculator::on_B_calcular_clicked(){
     std::cout << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << " " << Vector1.getFin().getZ() << std::endl;// cout de depuración
     std::cout << "set fin cero: " << Vector1.getFin_cero().getX() << " " << Vector1.getFin_cero().getY() << " " << Vector1.getFin_cero().getZ() << std::endl;// cout de depuración
 
+    /*
     vec_resultado.setVec1(Vector1.getFin_cero());// Seteo de vector 1 para el resultado
     vec_resultado.setVec2(Vector2.getFin_cero());// Seteo de vector 2 para el resultado
     vec_resultado.setEscalar(escalar);// Seteo de escalar para el resultado
@@ -362,15 +362,46 @@ void vecalculator::on_B_calcular_clicked(){
     vec_resultado.setOperacion(operacion);// Seteo de operacion para el resultado
     vec_resultado.calcular();// Cálculo del resultado
     Vector3.setFin_cero(vec_resultado.getVecFinal());// Seteo del punto final del vector final para el resultado
-
+    */
     // Se encarga de mostrar u ocultar los botones de filtro de capas de la interfaz 2D
     if(dimension==2){
-        ui->W_toogles->setHidden(false);
-        ui->W_toogles->setDisabled(false);
-        vecalculator::makePlot();
+
+
     }else if(dimension==3){
         ui->W_toogles->setHidden(true);
         ui->W_toogles->setDisabled(true);
+    }
+    // 1.suma 2.resta 3.angulo 4.modulo 5.componentes
+    // 6.producto cruz 7.producto punto
+    // 8.producto escalar 9.vector unitario
+
+    if(operacion==1) {
+        ui->W_toogles->setHidden(false);
+        ui->W_toogles->setDisabled(false);
+        makePlot();
+    }else if(operacion==2) {
+        resultado = resta_puntos(Vector1.getFin_cero(), Vector2.getFin_cero());
+        ui->W_toogles->setHidden(false);
+        ui->W_toogles->setDisabled(false);
+        makePlot();
+    }else if(operacion==2){
+        makePlot();
+    }else if(operacion==3){
+        ui->txt_resultado->setText(QString::number(vec_resultado.getAngulo()));
+        std::cout << "angulo: " << vec_resultado.getAngulo() << std::endl;
+        std::cout << vec1_origen.getX() << " " << vec1_origen.getY() << " " << vec1_origen.getZ() << std::endl;
+    }else if(operacion==4){
+
+    }else if(operacion==5){
+
+    }else if(operacion==6){
+
+    }else if(operacion==7){
+
+    }else if(operacion==8){
+
+    }else if(operacion==9){
+
     }
 }
 
@@ -524,25 +555,72 @@ void vecalculator::makePlot() {
 
 
     // Lo de abajo se encarga de crear las capas para luego ser filtradas en el grafico
-    ui->grafico_2d->addLayer("geometrica", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
-    ui->grafico_2d->addLayer("analitica", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
-    ui->grafico_2d->addLayer("Vector1", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
-    ui->grafico_2d->addLayer("Vector2", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+    if(operacion == 1) {
+        ui->grafico_2d->addLayer("geometrica", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+        ui->grafico_2d->addLayer("analitica", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+        ui->grafico_2d->addLayer("Vector1", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+        ui->grafico_2d->addLayer("Vector2", ui->grafico_2d->layer("main"), QCustomPlot::limAbove);
+        ui->grafico_2d->setCurrentLayer("geometrica");
+        QCPItemLine *R_geometrico = new QCPItemLine(ui->grafico_2d);
+
+        ui->grafico_2d->setCurrentLayer("analitica");
+        QCPItemLine *arrow = new QCPItemLine(ui->grafico_2d);
+
+        ui->grafico_2d->setCurrentLayer("Vector1");
+        QCPItemLine *V1 = new QCPItemLine(ui->grafico_2d);
+
+        ui->grafico_2d->setCurrentLayer("Vector2");
+        QCPItemLine *V2_or = new QCPItemLine(ui->grafico_2d);
+        QCPItemLine *V2 = new QCPItemLine(ui->grafico_2d);
+
+        // añade vector analitico a la capa analitica
+        arrow->start->setCoords(or_x, or_y);
+        arrow->end->setCoords(x, y); // point to (4, 1.6) in x-y-plot coordinates
+        arrow->setHead(QCPLineEnding::esSpikeArrow);
+
+
+        // añade vector geometrico a la capa geometrica
+        vec_result geometrico;
+        geometrico.setVec1(Vector1.getFin());
+        geometrico.setVec2(Vector2.getFin_cero());
+        geometrico.setOperacion(operacion);
+        geometrico.calcular();
+
+        R_geometrico->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
+        R_geometrico->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
+        R_geometrico->setHead(QCPLineEnding::esSpikeArrow);
+        std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
+        // TODO ui->grafico_2d->rescaleAxes();
+        ui->grafico_2d->replot();
+
+
+        // añade el vector 1 a su capa
+        V1->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
+        V1->end->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
+        V1->setHead(QCPLineEnding::esSpikeArrow);
+        std::cout << "V1: " << Vector1.getOrigen().getX() << " " << Vector1.getOrigen().getY() << " " << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << std::endl;
+
+
+        // añade el vector 2 y vector 2 geometrico a su capa
+        V2->start->setCoords(Vector2.getOrigen().getX(), Vector2.getOrigen().getY());
+        V2->end->setCoords(Vector2.getFin().getX(), Vector2.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
+        V2->setHead(QCPLineEnding::esSpikeArrow);
+        std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
+
+        V2_or->start->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY());
+        V2_or->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
+        // point to (4, 1.6) in x-y-plot coordinates
+        V2_or->setHead(QCPLineEnding::esSpikeArrow);
+        std::cout << "geometrico: " << geometrico.getVecFinal().getX() << " " << geometrico.getVecFinal().getY() << std::endl;
+    }else{
+        QCPItemLine *arrow = new QCPItemLine(ui->grafico_2d);
+        arrow->start->setCoords(or_x, or_y);
+        arrow->end->setCoords(x, y); // point to (4, 1.6) in x-y-plot coordinates
+        arrow->setHead(QCPLineEnding::esSpikeArrow);
+    }
 
     QCPItemText *textLabel = new QCPItemText(ui->grafico_2d);
 
-    ui->grafico_2d->setCurrentLayer("geometrica");
-    QCPItemLine *R_geometrico = new QCPItemLine(ui->grafico_2d);
-
-    ui->grafico_2d->setCurrentLayer("analitica");
-    QCPItemLine *arrow = new QCPItemLine(ui->grafico_2d);
-
-    ui->grafico_2d->setCurrentLayer("Vector1");
-    QCPItemLine *V1 = new QCPItemLine(ui->grafico_2d);
-
-    ui->grafico_2d->setCurrentLayer("Vector2");
-    QCPItemLine *V2_or = new QCPItemLine(ui->grafico_2d);
-    QCPItemLine *V2 = new QCPItemLine(ui->grafico_2d);
 
 
     //TODO: implementar colores de vectores y leyenda
@@ -560,8 +638,8 @@ void vecalculator::makePlot() {
 
 
     // Esto se encarga de hacer que el grafico tengo correcto los valores de los ejes
-    ui->grafico_2d->xAxis->setRange(min_x, max_x);
-    ui->grafico_2d->yAxis->setRange(min_y, max_y);
+    ui->grafico_2d->xAxis->setRange(min_x*1.5, max_x*1.5);
+    ui->grafico_2d->yAxis->setRange(min_y*1.5, max_y*1.5);
 
 
     // Plotea los valores de los puntos del vector
@@ -575,46 +653,8 @@ void vecalculator::makePlot() {
     textLabel->setFont(QFont(font().family(), 16)); // make font a bit larger
     textLabel->setPen(QPen(Qt::black)); //
 
-
-    // añade vector analitico a la capa analitica
-    arrow->start->setCoords(or_x, or_y);
-    arrow->end->setCoords(x, y); // point to (4, 1.6) in x-y-plot coordinates
-    arrow->setHead(QCPLineEnding::esSpikeArrow);
-
-
-    // añade vector geometrico a la capa geometrica
-    vec_result geometrico;
-    geometrico.setVec1(Vector1.getFin());
-    geometrico.setVec2(Vector2.getFin_cero());
-    geometrico.setOperacion(operacion);
-    geometrico.calcular();
-
-    R_geometrico->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
-    R_geometrico->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
-    R_geometrico->setHead(QCPLineEnding::esSpikeArrow);
-    std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
-    // TODO ui->grafico_2d->rescaleAxes();
     ui->grafico_2d->replot();
 
-
-    // añade el vector 1 a su capa
-    V1->start->setCoords(Vector1.getOrigen().getX(), Vector1.getOrigen().getY());
-    V1->end->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
-    V1->setHead(QCPLineEnding::esSpikeArrow);
-    std::cout << "V1: " << Vector1.getOrigen().getX() << " " << Vector1.getOrigen().getY() << " " << Vector1.getFin().getX() << " " << Vector1.getFin().getY() << std::endl;
-
-
-    // añade el vector 2 y vector 2 geometrico a su capa
-    V2->start->setCoords(Vector2.getOrigen().getX(), Vector2.getOrigen().getY());
-    V2->end->setCoords(Vector2.getFin().getX(), Vector2.getFin().getY()); // point to (4, 1.6) in x-y-plot coordinates
-    V2->setHead(QCPLineEnding::esSpikeArrow);
-    std::cout << "V2: " << Vector2.getOrigen().getX() << " " << Vector2.getOrigen().getY() << " " << Vector2.getFin().getX() << " " << Vector2.getFin().getY() << std::endl;
-
-    V2_or->start->setCoords(Vector1.getFin().getX(), Vector1.getFin().getY());
-    V2_or->end->setCoords(geometrico.getVecFinal().getX(), geometrico.getVecFinal().getY()); // point to (4, 1.6) in x-y-plot coordinates
-    // point to (4, 1.6) in x-y-plot coordinates
-    V2_or->setHead(QCPLineEnding::esSpikeArrow);
-    std::cout << "geometrico: " << geometrico.getVecFinal().getX() << " " << geometrico.getVecFinal().getY() << std::endl;
 }
 
 
