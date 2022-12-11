@@ -9,6 +9,7 @@
 #include "qcustomplot.h"
 #include "ui_vecalculator.h"
 #include "Vecalculator_vectores.h"
+#include "operaciones.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class vecalculator; }

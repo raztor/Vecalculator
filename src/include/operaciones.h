@@ -3,6 +3,7 @@
 
 #include "Vecalculator_vectores.h"
 #include <cmath>
+#include <iostream>
 
 // Funcion encargada de sumar
 puntos suma(puntos a, puntos b);

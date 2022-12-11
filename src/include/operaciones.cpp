@@ -84,13 +84,20 @@ puntos unitario(puntos a, int dimension){
 // Funcion encargada de calcular el angulo
 float angle(puntos a, int dim){
     float angulo;
-    if (dim==2){
-        puntos result_cateto = unitario(a, 2);
-        angulo = atan(result_cateto.getY()/result_cateto.getX());
-    } else if (dim==3){
-        angulo = 0;
+    if (dim==2) {
+        if (a.getX() > 0 && a.getY() > 0) {
+            angulo = atan(a.getY() / a.getX());
+        } else if (a.getX() < 0 && a.getY() > 0) {
+            angulo = M_PI - (abs(a.getY() / a.getX()));
+        } else if (a.getX() < 0 && a.getY() < 0) {
+            angulo = atan(abs(a.getY() / a.getX())) - M_PI;
+        } else if (a.getX() > 0 && a.getY() < 0) {
+            angulo = -1 * atan(abs(a.getY() / a.getX()));
+        } else {
+            angulo = 0;
+        }
+        return angulo*(180/M_PI);
     }
-    return angulo;
 
 } //tangente-1 (Cateto op/cateto ad)
 

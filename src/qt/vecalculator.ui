@@ -191,14 +191,14 @@
                  <widget class="QWidget" name="vec1_eje_z_origen" native="true">
                   <layout class="QHBoxLayout" name="div_vec2_z_4" stretch="0,1">
                    <item>
-                    <widget class="QLabel" name="txt_vec2_z_origen">
+                    <widget class="QLabel" name="txt_vec1_z_origen">
                      <property name="text">
                       <string>Z:</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="sel_vec2_z_origen">
+                    <widget class="QDoubleSpinBox" name="sel_vec1_z_origen">
                      <property name="minimum">
                       <double>-99.989999999999995</double>
                      </property>
@@ -253,14 +253,14 @@
                  <widget class="QWidget" name="vec1_eje_z" native="true">
                   <layout class="QHBoxLayout" name="div_vec2_z" stretch="0,1">
                    <item>
-                    <widget class="QLabel" name="txt_vec2_z">
+                    <widget class="QLabel" name="txt_vec1_z">
                      <property name="text">
                       <string>Z:</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="sel_vec2_z">
+                    <widget class="QDoubleSpinBox" name="sel_vec1_z">
                      <property name="minimum">
                       <double>-99.989999999999995</double>
                      </property>
@@ -331,14 +331,14 @@
                  <widget class="QWidget" name="vec2_eje_z_origen" native="true">
                   <layout class="QHBoxLayout" name="div_vec1_z_2" stretch="0,1">
                    <item>
-                    <widget class="QLabel" name="txt_vec1_z_origen">
+                    <widget class="QLabel" name="txt_vec2_z_origen">
                      <property name="text">
                       <string>Z:</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="sel_vec1_z_origen">
+                    <widget class="QDoubleSpinBox" name="sel_vec2_z_origen">
                      <property name="minimum">
                       <double>-99.989999999999995</double>
                      </property>
@@ -393,14 +393,14 @@
                  <widget class="QWidget" name="vec2_eje_z" native="true">
                   <layout class="QHBoxLayout" name="div_vec1_z" stretch="0,1">
                    <item>
-                    <widget class="QLabel" name="txt_vec1_z">
+                    <widget class="QLabel" name="txt_vec2_z">
                      <property name="text">
                       <string>Z:</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="sel_vec1_z">
+                    <widget class="QDoubleSpinBox" name="sel_vec2_z">
                      <property name="minimum">
                       <double>-99.989999999999995</double>
                      </property>
@@ -524,7 +524,7 @@
          <widget class="QWidget" name="W_toogles" native="true">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>400</x>
             <y>420</y>
             <width>160</width>
             <height>116</height>

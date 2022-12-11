@@ -2,7 +2,7 @@
 #define VECALCULATOR_VECALCULATOR_VECTORES_H
 
 // Definiciones, mas detalles en el cpp
-
+#include <iostream>
 class puntos{
 private:
     float x,y,z;
